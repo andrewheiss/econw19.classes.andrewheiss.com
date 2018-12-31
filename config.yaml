@@ -1,0 +1,78 @@
+baseURL: "https://econw19.classes.andrewheiss.com/"
+languageCode: en-us
+title: Economy, Society, and Public Policy
+theme: "ath-tufte-hugo_archivo"
+googleAnalytics: ""
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - \.yaml$
+  - _files$
+  - _cache$
+  - \.csl$
+permalinks:
+  post: "/:year/:month/:day/:slug/"
+buildFuture: true
+menu:
+  main:
+    - name: Syllabus
+      url: /syllabus/
+      weight: 1
+    - name: Assignments
+      url: /assignments/
+      weight: 3
+    - name: Schedule
+      url: /schedule/
+      weight: 2
+    - name: Reference
+      url: /reference/
+      weight: 4
+    - name: Class Slack
+      url: "https://ripseecon19.slack.com"
+      weight: 5
+# Disable taxonomies
+taxonomies:
+  tag: ""
+  group: ""
+  category: ""
+params:
+  author: Andrew Heiss
+  thumbnail: /images/econ_meta.png
+  instructor: 
+    name: Dr. Andrew Heiss
+    email: andrew_heiss@byu.edu
+    url: "https://www.andrewheiss.com"
+    twitter: andrewheiss
+    github: andrewheiss
+    office: 639 TNRB
+  course:
+    number: MPA 612
+    semester: Winter 2019
+    days: "MW; F (lab)"
+    time: ""
+    location: "230 TNRB"
+    twitter: andrewheiss
+    dates: "January 7 4–April 17, 2019"
+    github: "andrewheiss/econw19.classes.andrewheiss.com"
+    slack: "https://ripseecon19.slack.com/"
+    copyrightYear: "2019"
+    contactDetails: >-
+      Office hours: [Sign up here.](https://calendly.com/andrewheiss/meeting/)<br><br>E-mail is the best way to get in contact with me—I will respond to all course-related e-mails within 24 hours (*really*).
+  university: 
+    name: Brigham Young University
+    url: "https://www.byu.edu"
+  school:
+    name: Romney Institute of Public Service and Ethics
+    url: "https://marriottschool.byu.edu/mpa/"
+  description: "Understand and use economic reasoning to evaluate public policy"
+  primaryColor: "#5E81AC"
+  secondaryColor: "#D08770"
+  credits: >-
+    Hex icon by Andrew Heiss, with a stylized version of [Hans Rosling's health+wealth plot](https://www.youtube.com/watch?v=jbkSRLYSojo).<br>[Nord color scheme](https://github.com/arcticicestudio/nord) from [Arctic Ice Studio](http://arcticicestudio.com/).
+  logo:
+    url: /images/econ_hires.png
+    alt: Economy, Society, and Public Policy
+  meta:
+    twitterSite: "@andrewheiss"
+    twitterCreator: "@andrewheiss"
+    fbAuthor: "https://www.facebook.com/andrewheiss"

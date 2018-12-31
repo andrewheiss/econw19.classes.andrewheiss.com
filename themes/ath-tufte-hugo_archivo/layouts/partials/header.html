@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    {{ partial "meta.html" . }}
+    {{- if eq .URL "/" }}
+    <title>{{ .Site.Params.course.number }}: {{ .Site.Title }}</title>
+    {{- else }}
+    <title>{{ .Title }} | {{ .Site.Params.course.number }}: {{ .Site.Title }}</title>
+    {{- end }}
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ partial "head_includes.html" . }}
+</head>

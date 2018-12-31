@@ -1,0 +1,12 @@
+---
+title: "The firm I"
+date: "2019-02-19"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> Introduction and 6.1-6.7 in *Economy, Society, and Public Policy* [@core-espp]
+- Other readings TBD

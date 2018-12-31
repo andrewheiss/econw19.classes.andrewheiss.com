@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+blogdown/
+public/
+private/
+.DS_Store
+*_cache/
+assets/*
+static/slides/*
+static/**.zip
+.httr-oauth

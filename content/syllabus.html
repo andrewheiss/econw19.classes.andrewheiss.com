@@ -1,0 +1,187 @@
+---
+title: Syllabus
+slug: syllabus
+citeproc: false
+bibliography: ../static/bib/references.bib
+csl: ../static/bib/chicago-syllabus-no-bib.csl
+---
+
+
+
+<p><span class="newthought">Data rarely speaks for itself.</span><span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote">
+{{% courseinfo %}}<br />
+<br />
+</span></span> By itself, the facts contained in raw data are difficult to understand, and in the absence of beauty and order, it is impossible to understand the truth that the data shows.</p>
+<p>In this class, you’ll learn how to use industry-standard graphic and data design techniques to create beautiful, understandable visualizations and uncover truth in data.</p>
+<h2 id="course-objectives">Course objectives</h2>
+<p><span class="newthought">By the end of this course,</span> you will become (1) literate in data and graphic design principles, (2) an ethical data communicator, and (3) a collaborative sharer by producing beautiful, powerful, and clear visualizations of your own data. Specifically, you should:</p>
+<ul>
+<li>Understand the principles of data and graphic design</li>
+<li>Evaluate the credibility, ethics, and aesthetics of data visualizations</li>
+<li>Create well-designed data visualizations with appropriate tools</li>
+<li>Share data and graphics in open forums</li>
+<li>Be curious and confident in consuming and producing data</li>
+</ul>
+<p>Given these objectives, this course fulfills two of the four learning outcomes for BYU’s <a href="https://marriottschool.byu.edu/mpa/">Master of Public Administration (MPA)</a> program:</p>
+<ul>
+<li><p><strong>Quantitative Analysis</strong>: BYU MPA graduates are skilled at evaluating programs and policies. They know how to gather data, correctly analyze it, and employ the analysis to recommend policy and programmatic action in public service organizations.</p></li>
+<li><p><strong>Communications</strong>: BYU MPA graduates effectively convey verbal and written information with the polish and professionalism appropriate for the public service context. They listen to and promote understanding among people with diverse viewpoints.</p></li>
+</ul>
+<h2 id="course-materials">Course materials</h2>
+<p><span class="newthought">Most of the readings in this class are free.</span> We will only use one physical textbook.<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">And the library provides access to it for free.<br />
+<br />
+</span></span></p>
+<ul>
+<li><span class="citation"><span class="citeproc-not-found" data-reference-id="Cairo:2016"><strong>???</strong></span></span> [$36 used, $38 new at <a href="https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075">Amazon</a>]</li>
+</ul>
+<p>We’ll rely heavily on these other books, which are all available online.<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote"><em>R for Data Science</em> exists in print, and both <em>Data Visualization: A practical introduction</em> and <em>Fundamentals of Data Visualization</em> will be released in print during the semester.<br />
+<br />
+</span></span></p>
+<ul>
+<li><span class="citation"><span class="citeproc-not-found" data-reference-id="Healy:2018"><strong>???</strong></span></span> [<strong>FREE</strong> online; $40 new at <a href="https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/">Amazon</a> in December]</li>
+<li><span class="citation"><span class="citeproc-not-found" data-reference-id="Wilke:2018"><strong>???</strong></span></span> [<strong>FREE</strong> online; $50 new at <a href="https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089">Amazon</a> in December]</li>
+<li><span class="citation"><span class="citeproc-not-found" data-reference-id="WickhamGrolemund:2017"><strong>???</strong></span></span> [<strong>FREE</strong> online; $16 used, $18 new at <a href="https://www.amazon.com/R-Data-Science-Hadley-Wickham/dp/1491910399/">Amazon</a>]</li>
+</ul>
+<p>There will also occasionally be additional articles and videos to read and watch. When this happens, links to these other resources will be included on the reading page for that week.</p>
+<p>I also highly recommend subscribing to the <a href="https://rweekly.org/">R Weekly newsletter</a>. This e-mail is sent every Monday and is full of helpful tutorials about how to do stuff with R.</p>
+<h3 id="r-and-rstudio">R and RStudio</h3>
+<p>You will do all of your visualization work in this class with the open source (and free!) programming language <a href="https://cran.r-project.org/">R</a>. You will use <a href="https://www.rstudio.com/">RStudio</a> as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.</p>
+<p>R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free <a href="http://rstudio.cloud/">RStudio.cloud</a> service, which lets you run a full instance of RStudio in your web browser. This means you won’t have to install anything on your computer to get started with R! We will have a shared class workspace in RStudio.cloud that will let you quickly copy templates for labs and problem sets.</p>
+<p>RStudio.cloud is convenient, but it can be slow and it is not designed to be able to handle larger datasets, more complicated analysis, or fancier graphics. Over the course of the semester, you’ll probably want to get around to installing R, RStudio, and other R packages on your computer and wean yourself off of RStudio.cloud.</p>
+<p>You can <a href="/install/">find instructions for installing R, RStudio, and all the tidyverse packages here.</a></p>
+<h3 id="online-help-and-slack">Online help and Slack</h3>
+<p>Computer programming can be difficult. Computers are stupid and little errors in your code can cause hours of headache (even if you’ve been doing this stuff for years!).</p>
+<p>Fortunately there are tons of online resources to help you with this. Two of the most important are <a href="https://stackoverflow.com/">StackOverflow</a> (a Q&amp;A site with hundreds of thousands of answers to all sorts of programming questions) and <a href="https://community.rstudio.com/">RStudio Community</a> (a forum specifically designed for people using RStudio and the tidyverse (i.e. you)).</p>
+<p>Searching for help with R on Google can be tricky because the program is, um, a single letter. Try searching for “rstats” instead. If you use Twitter, post R-related questions and content with <a href="https://twitter.com/search?q=%23rstats">#rstats</a>.</p>
+<p>Additionally, we have a class chatroom at <a href="https://byudatavizf2018.slack.com">Slack</a> where anyone in the class can ask questions and anyone can answer. Ask questions about the readings, problem sets, and projects <a href="https://byudatavizf2018.slack.com">in the class Slack workspace</a>. I will monitor Slack regularly, and you should also all do so as well. You’ll likely have similar questions as your peers, and you’ll likely be able to answer other peoples’ questions too.</p>
+<h2 id="course-policies">Course policies</h2>
+<p><span class="newthought">Be nice. Be honest. Don’t cheat.</span></p>
+<p>We will also follow the <a href="https://marriottschool.byu.edu/policies/classroom/">full list of Marriott School and BYU classroom policies</a>.</p>
+<h3 id="counseling-and-psychological-services-caps">Counseling and Psychological Services (CAPS)</h3>
+<p>Life at BYU can be complicated and challenging. You might feel overwhelmed, experience anxiety or depression, or struggle with relationships or family responsibilities. <a href="https://caps.byu.edu/">Counseling and Psychological Services (CAPS)</a> provides free, <em>confidential</em> support for students who are struggling with mental health and emotional challenges. The CAPS office is staffed by professional psychologists who are attuned to the needs of all types of college and professional students. Please do not hesitate to contact CAPS for assistance—getting help is a smart and courageous thing to do.</p>
+<h3 id="basic-needs-security">Basic needs security</h3>
+<p>If you have difficulty affording groceries or accessing sufficient food to eat every day, or if you lack a safe and stable place to live, and you believe this may affect your performance in this course, please contact the <a href="https://deanofstudents.byu.edu/">Dean of Students</a> for support. Please also consider speaking with your local LDS bishop regarding Church welfare assistance <em>regardless of whether or not you are LDS</em>. Additionally, please talk to me if you are comfortable in doing so. This will enable me to provide any resources that I might possess.</p>
+<h3 id="class-conduct-and-expectations">Class conduct and expectations</h3>
+<p>On the first day of class, we came up a few specific rules, expectations, and policies for the course:</p>
+<ul>
+<li>Late work will be penalized by 10% each week it is late (starting the day after it is due)</li>
+<li>You each get two free passes for late work. Just let me know when you want to use one.</li>
+<li>Be responsible with laptop use. If you plan on taking notes with your computer, sit near the back or don’t sit in front of people who are distracted by it (and if you don’t sit in the back, be super responsible with your laptop).</li>
+<li>Be good and respectful. You’re all adults.</li>
+</ul>
+<h3 id="laptops">Laptops</h3>
+<p>This is a computer-heavy course and each class session will require extensive laptop use. Occasionally I may ask that laptops be closed for some in-class activities, you will be expected to use your computer. Please note that this is different from the laptop policy in other Romney Institute and Marriott School classes. Use your computer responsibly in class.</p>
+<h2 id="assignments-and-grades">Assignments and grades</h2>
+<p><span class="newthought">You can find descriptions</span> for all the assignments on the <a href="/assignments/">assignments page</a>.</p>
+<table style="width:69%;">
+<colgroup>
+<col width="43%" />
+<col width="12%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Assignment</th>
+<th align="center">Points</th>
+<th align="center">Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Reflection memos (≈ 15 × 14)</td>
+<td align="center">210</td>
+<td align="center">25.9%</td>
+</tr>
+<tr class="even">
+<td align="left">Problem sets (5 × 40)</td>
+<td align="center">200</td>
+<td align="center">24.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">Code-through</td>
+<td align="center">50</td>
+<td align="center">6.2%</td>
+</tr>
+<tr class="even">
+<td align="left">Mini project 1</td>
+<td align="center">75</td>
+<td align="center">9.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">Mini project 2</td>
+<td align="center">75</td>
+<td align="center">9.3%</td>
+</tr>
+<tr class="even">
+<td align="left">Final project</td>
+<td align="center">200</td>
+<td align="center">24.7%</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="center">810</td>
+<td align="center">—</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<table style="width:49%;">
+<colgroup>
+<col width="11%" />
+<col width="13%" />
+<col width="11%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Grade</th>
+<th align="center">Range</th>
+<th align="left">Grade</th>
+<th align="center">Range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="center">93–100%</td>
+<td align="left">C</td>
+<td align="center">73–76%</td>
+</tr>
+<tr class="even">
+<td align="left">A−</td>
+<td align="center">90–92%</td>
+<td align="left">C−</td>
+<td align="center">70–72%</td>
+</tr>
+<tr class="odd">
+<td align="left">B+</td>
+<td align="center">87–89%</td>
+<td align="left">D+</td>
+<td align="center">67–69%</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="center">83–86%</td>
+<td align="left">D</td>
+<td align="center">63–66%</td>
+</tr>
+<tr class="odd">
+<td align="left">B−</td>
+<td align="center">80–82%</td>
+<td align="left">D−</td>
+<td align="center">60–62%</td>
+</tr>
+<tr class="even">
+<td align="left">C+</td>
+<td align="center">77–79%</td>
+<td align="left">F</td>
+<td align="center">&lt; 60%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="red-pandas">Red pandas</h2>
+<p><span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote">
+<img src="https://media.giphy.com/media/HUeE6FU2Ih0LC/giphy.gif" alt="Hungry red panda" /><br />
+<br />
+</span></span> <span class="newthought">Once you have read</span> this entire syllabus and <a href="/assignments/">the assignments page</a>, please <a href="mailto:andrew_heiss@byu.edu">click here</a> and e-mail me a picture of a red panda. For real. Brownie points if it’s animated.</p>

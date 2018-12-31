@@ -1,0 +1,27 @@
+---
+title: "Policy formation and politics"
+date: "2019-04-15"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+***Important***: The PDF of the chapter is posted on Learning Suite.
+
+- <i class="fas fa-book"></i> Chapter 8 in *Naked Economics* [@Wheelan:2010]
+- <i class="fas fa-external-link-square-alt"></i> James Madison, [The Federalist Papers, #10](http://avalon.law.yale.edu/18th_century/fed10.asp)
+- <i class="far fa-file-pdf"></i> Chapter 1 in Mancur Olson, *The Logic of Collective Action* [@Olson:1971]
+    - Like Ostrom's stuff on CPRs, this one is a little long (though deceptively so—there are a ton of really long footnotes) and game theoretical, but also exceptionally important. You can skim through lots of it (especially the mathy sections). Olson conveniently has nontechnical summaries after the more technical sections, so focus on those more than the ancient game theory math.
+    
+        Really, you shouldn't spend an inordinate amount of time with this chapter.
+- <i class="fas fa-podcast"></i> Planet Money, ["A Former Lobbyist Tells All,"](https://www.npr.org/sections/money/2012/01/27/145923803/the-friday-podcast-a-former-lobbyist-tells-all) Episode 341, January 27, 2012
+- <i class="fab fa-youtube"></i> [LSE Research: Washington's Revolving Door](https://www.youtube.com/watch?v=2XLuaebpdAA)
+- <i class="fas fa-external-link-square-alt"></i> John Sides, ["A new experiment shows how money buys access to Congress,"](https://www.washingtonpost.com/news/monkey-cage/wp/2014/03/11/a-new-experiment-shows-how-money-buys-access-to-congress/?utm_term=.52fe30402280) The Washington Post's Monkey Cage, March 11, 2014
+
+
+# Highly recommended
+
+- <i class="fas fa-podcast"></i> Freakonomics Radio, ["There’s A War On Sugar. Is It Justified?,"](http://freakonomics.com/podcast/theres-war-sugar-justified/) April 26, 2017
+    - This features BYU(!), so listen to the first few minutes for sure—the rest is also fascinating.

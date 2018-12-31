@@ -1,0 +1,13 @@
+---
+title: "Labor markets I"
+date: "2019-03-04"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> Introduction and 8.1-8.6 *Economy, Society, and Public Policy* [@core-espp]
+- <i class="fas fa-book"></i> Chapter 5 in *Naked Economics* [@Wheelan:2010]
+- Other readings TBD

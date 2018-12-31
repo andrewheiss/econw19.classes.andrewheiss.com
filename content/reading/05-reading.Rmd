@@ -1,0 +1,22 @@
+---
+title: "Incentives and human behavior"
+date: "2019-01-23"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+***Important***: The PDFs of the individual chapters are posted on Learning Suite.
+
+- <i class="fas fa-book"></i> Chapter 2 in *Naked Economics* [@Wheelan:2010]
+- <i class="far fa-file-pdf"></i> Introduction, chapter 1, and chapter 5 in Richard H. Thaler and Cass R. Sunstein, *Nudge: Improving Decisions About Health, Wealth, and Happiness* [@ThalerSunstein:2008]
+- <i class="fas fa-external-link-square-alt"></i> Anuschka de Rohan, ["Why dolphins are deep thinkers",](https://www.theguardian.com/science/2003/jul/03/research.science) The Guardian, July 2, 2003 (first 3 paragraphs only)
+- <i class="fas fa-podcast"></i> At least **two** of these episodes:
+    - Freakonomics Radio, ["The Men Who Started a Thinking Revolution,"](http://freakonomics.com/podcast/men-started-thinking-revolution/) January 4, 2017
+    - Freakonomics Radio, ["Should We Really Behave like Economists Say We Do?,"](http://freakonomics.com/podcast/should-we-really-behave-like-economists-say-we-do-a-new-freakonomics-radio-podcast/) June 4, 2015
+    - Freakonomics Radio, ["Big Returns from Thinking Small,"](http://freakonomics.com/podcast/big-returns-thinking-small/) March 29, 2017
+    - Freakonomics Radio, ["The White House Gets Into the Nudge Business,"](http://freakonomics.com/podcast/white-house-gets-nudge-business/) November 2, 2016
+    - Planet Money, ["Nudge, Nudge, Nobel,"](https://www.npr.org/sections/money/2017/11/01/561421807/episode-803-nudge-nudge-nobel) episode 803
+    - Hidden Brain, ["Predictably Unpredictable: Why We Don't Act Like We Should,"](https://www.npr.org/2017/10/23/559581601/predictably-unpredictable-why-we-dont-act-like-we-should) October 23, 2017

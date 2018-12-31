@@ -1,0 +1,12 @@
+---
+title: "Labor markets II"
+date: "2019-03-06"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> 8.7-8.13 *Economy, Society, and Public Policy* [@core-espp]
+- Other readings TBD

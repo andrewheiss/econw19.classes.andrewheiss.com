@@ -1,0 +1,12 @@
+---
+title: "The firm II"
+date: "2019-02-20"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> 6.8-6.14 in *Economy, Society, and Public Policy* [@core-espp]
+- Other readings TBD

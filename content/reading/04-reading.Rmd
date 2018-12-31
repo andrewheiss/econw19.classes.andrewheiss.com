@@ -1,0 +1,12 @@
+---
+title: "Social interactions and economic outcomes II"
+date: "2019-01-21"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> 2.6-2.12 in *Economy, Society, and Public Policy* [@core-espp]
+- Other readings TBD

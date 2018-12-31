@@ -1,0 +1,18 @@
+---
+title: "Markets and macroeconomics"
+date: "2019-03-13"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+*Note: This chapter is firmly ensconsed in the world of macroeconomics. Read chapter 10 in ESPP, but don't do it super in depth.*
+
+- <i class="fas fa-book"></i> Chapter 10 in *Economy, Society, and Public Policy* [@core-espp]
+- <i class="fas fa-book"></i> Chapter 10 in *Naked Economics* [@Wheelan:2010]
+- <i class="fas fa-podcast"></i> This American Life, ["The Giant Pool of Money,"](https://www.thisamericanlife.org/355/the-giant-pool-of-money) episode 355, May 9, 2008^[This episode inspired [*The Big Short* (2015)](http://www.imdb.com/title/tt1596363/), which, because we're at BYU, I can't recommend to you (there are 90 uses of f\*\*\*!).]
+- <i class="fas fa-podcast"></i> Planet Money, ["A Locked Door, a Secret Meeting, and the Birth of the Fed,"](https://www.npr.org/sections/money/2013/12/20/255839292/episode-505-a-locked-door-a-secret-meeting-and-the-birth-of-the-fed) episode 505, December 20, 2013
+- <i class="fab fa-youtube"></i> [What's all the Yellen About? Monetary Policy and the Federal Reserve](https://www.youtube.com/watch?v=1dq7mMort9o)
+- <i class="fab fa-youtube"></i> [The Fed Explains Monetary Policy](https://www.youtube.com/watch?v=wOfQPn9Jwpo)

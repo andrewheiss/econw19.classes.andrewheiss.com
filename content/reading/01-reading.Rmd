@@ -1,0 +1,15 @@
+---
+title: "Capitalism I"
+date: "2019-01-07"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> Chapter 1 in *Naked Economics* [@Wheelan:2010]
+- <i class="fas fa-book"></i> Introduction and 1.1–1.5 in *Economy, Society, and Public Policy* [@core-espp]
+- <i class="fas fa-external-link-square-alt"></i> Larry Elliott, ["Heretics welcome! Economics needs a new Reformation"](https://www.theguardian.com/business/2017/dec/17/heretics-welcome-economics-needs-a-new-reformation)
+- <i class="fas fa-external-link-square-alt"></i> ["Dismal ignorance of the “dismal science”—a response to Larry Elliot"](https://www.prospectmagazine.co.uk/economics-and-finance/dismal-ignorance-of-the-dismal-science-a-response-to-larry-elliot)
+- <i class="fas fa-external-link-square-alt"></i> Tom Nichols, ["How We Killed Expertise (And why we need it back.)"](https://www.politico.com/magazine/story/2017/09/05/how-we-killed-expertise-215531)

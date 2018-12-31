@@ -1,0 +1,186 @@
+lessons:
+  - title: '<span class="fake-header-table">Capitalism, markets, and public policy</span>'
+    header: True
+
+  - title: "Capitalism I"
+    date: "January 7 (M)"
+    reading: "01-reading"
+
+  - title: "Capitalism II"
+    date: "January 9 (W)"
+    reading: "02-reading"
+
+  - title: "Lab 1"
+    date: "January 11 (F)"
+
+  - title: "*No class; Martin Luther King Jr. Day*"
+    date: "January 14 (M)"
+
+  - title: "Social interactions and economic outcomes I"
+    date: "January 16 (W)"
+    reading: "03-reading"
+
+  - title: "Lab 2"
+    date: "January 18 (F)"
+
+  - title: "Social interactions and economic outcomes II"
+    date: "January 21 (M)"
+    reading: "04-reading"
+
+  - title: "Incentives and human behavior"
+    date: "January 23 (W)"
+    reading: "05-reading"
+
+  - title: "Lab 3"
+    date: "January 25 (F)"
+
+  - title: "Public policy for fairness and efficiency I"
+    date: "January 28 (M)"
+    reading: "06-reading"
+
+  - title: "Public policy for fairness and efficiency II"
+    date: "January 30 (W)"
+    reading: "07-reading"
+
+  - title: "Lab 4"
+    date: "February 1 (F)"
+
+  - title: '<span class="fake-header-table">Scarcity, power, and inequality</span>'
+    header: True
+
+  - title: "Work, wellbeing, and scarcity I"
+    date: "February 4 (M)"
+    reading: "08-reading"
+    
+  - title: "Work, wellbeing, and scarcity II"
+    date: "February 6 (W)"
+    reading: "09-reading"
+
+  - title: "Lab 5"
+    date: "February 8 (F)"
+  
+  - title: "Institutions, power, and inequality I"
+    date: "February 11 (M)"
+    reading: "10-reading"
+
+  - title: "Institutions, power, and inequality II"
+    date: "February 13 (W)"
+    reading: "11-reading"
+
+  - title: "Lab 6"
+    date: "February 15 (F)"
+
+  - title: "*No class; Presidents' Day*"
+    date: "February 18 (M)"
+
+  - title: '<span class="fake-header-table">Economic models</span>'
+    header: True
+
+  - title: "The firm I"
+    date: "February 19 (T)"
+    reading: "12-reading"
+
+  - title: "The firm II"
+    date: "February 20 (W)"
+    reading: "13-reading"
+
+  - title: "Lab 7"
+    date: "February 22 (F)"
+
+  - title: "Firms and markets I"
+    date: "February 25 (M)"
+    reading: "14-reading"
+
+  - title: "Firms and markets II"
+    date: "February 27 (W)"
+    reading: "15-reading"
+
+  - title: "Lab 8"
+    date: "March 1 (F)"
+
+  - title: "Labor markets I"
+    date: "March 4 (M)"
+    reading: "16-reading"
+
+  - title: "Labor markets II"
+    date: "March 6 (W)"
+    reading: "17-reading"
+
+  - title: "Lab 9"
+    date: "March 8 (F)"
+
+  - title: "Credit markets"
+    date: "March 11 (M)"
+    reading: "18-reading"
+
+  - title: "Markets and macroeconomics"
+    date: "March 13 (W)"
+    reading: "19-reading"
+
+  - title: "Lab 10"
+    date: "March 15 (F)"
+
+  - title: '<span class="fake-header-table">Market failures, governments, and politics</span>'
+    header: True
+
+  - title: "Market failures I"
+    date: "March 18 (M)"
+    reading: "20-reading"
+
+  - title: "Market failures II"
+    date: "March 20 (W)"
+    reading: "21-reading"
+
+  - title: "Lab 11"
+    date: "March 22 (F)"
+
+  - title: "Governments and institutions I"
+    date: "March 25 (M)"
+    reading: "22-reading"
+
+  - title: "Government and institutions II"
+    date: "March 27 (W)"
+    reading: "23-reading"
+
+  - title: "Lab 12"
+    date: "March 29 (F)"
+
+  - title: "When governments go wrong"
+    date: "April 1 (M)"
+    reading: "24-reading"
+
+  - title: "Institutional alternatives"
+    date: "April 3 (W)"
+    reading: "25-reading"
+
+  - title: "Lab 13"
+    date: "April 5 (F)"
+
+  - title: '<span class="fake-header-table">Evaluating and implementing policies</span>'
+    header: True
+    
+  - title: "Evaluating policies I"
+    date: "April 8 (M)"
+    reading: "26-reading"
+
+  - title: "Evaluating policies II"
+    date: "April 10 (W)"
+    reading: "27-reading"
+
+  - title: "Lab 14"
+    date: "April 12 (F)"
+
+  - title: "Policy formation and politics"
+    date: "April 15 (M)"
+    reading: "28-reading"
+
+  - title: "Markets, public policy, and public administration"
+    date: "April 17 (W)"
+    reading: "29-reading"
+
+  - title: '<span class="fake-header-table">Final</span>'
+    header: True
+
+  - title: "**Final project due** (submit online by 11:59 PM)"
+    date: "April 23 (T)"
+    assignment: "final-project"

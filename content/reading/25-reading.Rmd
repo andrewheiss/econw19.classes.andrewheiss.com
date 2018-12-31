@@ -1,0 +1,19 @@
+---
+title: "Institutional alternatives"
+date: "2019-04-03"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+***Important***: The PDFs of the articles and chapters are posted on Learning Suite.
+
+- <i class="far fa-file-pdf"></i> Chapter 5 in Douglass C. North, *Institutions, Institutional Change, and Economic Performance* [@North:1990]
+- <i class="far fa-file-pdf"></i> Olaf Corry, "Defining and Theorizing the Third Sector" [@Corry:2010]
+- <i class="far fa-file-pdf"></i> Michael W. Foley and Bob Edwards, "The Paradox of Civil Society" [@FoleyEdwards:1996]
+- <i class="far fa-file-pdf"></i> David C. Hammack, "Nonprofit Organizations in American History" [@Hammack:2002]
+    - This one is long. You don't need to read it in as much detail.
+- <i class="far fa-file-pdf"></i> Chapters 1 and 2 in Elinor Ostrom, *Governing the Commons: The Evolution of Institutions for Collective Action* [@Ostrom:1990]
+    - This one is also long and game theoretical. You can skim through lots of it (especially the mathy sections). But it's also pretty foundational to public administration, so it *is* important.

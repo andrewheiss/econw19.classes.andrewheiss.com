@@ -1,0 +1,13 @@
+---
+title: "Firms and markets I"
+date: "2019-02-25"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> Introduction and 7.1-7.6 in *Economy, Society, and Public Policy* [@core-espp]
+- <i class="fas fa-book"></i> Chapter 7 in *Naked Economics* [@Wheelan:2010]
+- Other readings TBD

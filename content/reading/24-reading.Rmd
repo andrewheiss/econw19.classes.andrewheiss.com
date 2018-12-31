@@ -1,0 +1,23 @@
+---
+title: "When governments go wrong"
+date: "2019-04-01"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fab fa-twitter-square"></i> [Noah Smith on why we should worry about race, culture, and politics when thinking about economics](https://twitter.com/noahpinion/status/946446862898282496)
+- <i class="fab fa-youtube"></i> Adam Ruins Everything, ["The Disturbing History of the Suburbs"](https://www.youtube.com/watch?v=ETR9qrVS17g), October 4, 2017^[Yes, a CollegeHumor video. Seriously.]
+- <i class="fas fa-external-link-square-alt"></i> Aaron Glantz and Emmanuel Martinez, ["Kept out: For people of color, banks are shutting the door to homeownership,"](https://www.revealnews.org/article/for-people-of-color-banks-are-shutting-the-door-to-homeownership/) Reveal, February 15, 2018
+    - Alternatively, listen to the podcast version of this story, which goes in more depth and is really fantastic: <i class="fas fa-podcast"></i> ["The red line: Racial disparities in lending,"](https://www.revealnews.org/episodes/the-red-line-racial-disparities-in-lending/) Reveal, February 17, 2018
+- <i class="fas fa-external-link-square-alt"></i> Emma Roller's interview with Mehrsa Baradaran, ["How the U.S. Government Locked Black Americans Out of Attaining the American Dream,"](https://splinternews.com/how-the-u-s-government-locked-black-americans-out-of-a-1819221197), *Splinter*, October 11, 2017^[[Mehrsa is LDS](https://en.wikipedia.org/wiki/Mehrsa_Baradaran), btw.]
+- <i class="far fa-file-pdf"></i> Hamilton, et al., ["Umbrellas Don't Make it Rain: Why Studying and Working Hard Isn't Enough for Black Americans"](http://econ.hunter.cuny.edu/wp-content/uploads/2016/03/seminar2016-darity2.pdf) [@HamiltonDarityPrice:2015]
+- <i class="fas fa-podcast"></i> This American Life, ["The Problem We All Live With, Part One,"](https://www.thisamericanlife.org/562/the-problem-we-all-live-with-part-one) episode 562, July 31, 2015
+- <i class="fas fa-podcast"></i> This American Life, ["The Problem We All Live With, Part Two,"](https://www.thisamericanlife.org/563/the-problem-we-all-live-with-part-two) episode 563, August 7, 2015
+
+
+# Not required, but highly recommended
+
+- <i class="fas fa-external-link-square-alt"></i> Destin Jenkins, ["Who Segregated America?,"](http://www.publicbooks.org/who-segregated-america/) *Public Books*, December 21, 2017

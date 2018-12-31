@@ -1,0 +1,15 @@
+---
+title: "Evaluating policies II"
+date: "2019-04-10"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+***Important***: The PDFs are posted on Learning Suite.
+
+- <i class="far fa-file-pdf"></i> Dina Pomeranz, "Impact Evaluation Methods in Public Economics" [@Pomeranz:2017]
+- <i class="far fa-file-pdf"></i> Gordon C. S. Smith and Jill P. Pell, "Parachute Use to Prevent Death and Major Trauma Related to Gravitational Challenge: Systematic Review of Randomised Controlled Trials" [@SmithPell:2003]
+- <i class="far fa-file-pdf"></i> Yeh, Robert W., Linda R. Valsdottir, Michael W. Yeh, Changyu Shen, Daniel B. Kramer, Jordan B. Strom, Eric A. Secemsky, et al, "Parachute Use to Prevent Death and Major Trauma When Jumping From Aircraft: Randomized Controlled Trial" [@YehValsdottirYeh:2018]

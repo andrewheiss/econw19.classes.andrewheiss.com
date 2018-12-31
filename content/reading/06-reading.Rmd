@@ -1,0 +1,12 @@
+---
+title: "Public policy for fairness and efficiency I"
+date: "2019-01-28"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> Introduction and 3.1-3.6 in *Economy, Society, and Public Policy* [@core-espp]
+- Other readings TBD

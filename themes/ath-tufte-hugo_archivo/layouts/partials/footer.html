@@ -1,0 +1,55 @@
+    <footer>
+        <hr class="slender">
+
+        <div class="course-info">
+        <span class="course-name">
+            {{ .Site.Params.course.number }}: {{ .Site.Title }} ({{ .Site.Params.course.semester }})
+        </span><br>
+        <span>
+            <a href="{{ .Site.Params.university.url }}">{{ .Site.Params.university.name }}</a> | 
+            <a href="{{ .Site.Params.school.url }}">{{ .Site.Params.school.name }}</a>
+        </span>
+        </div>
+
+        <ul class="footer-links">
+            <li>
+            <a href="{{ .Site.Params.instructor.url }}"><i class="fas fa-user"></i> {{ .Site.Params.instructor.name }}</a>
+            </li>
+
+            <li>
+            <a href="mailto:{{ .Site.Params.instructor.email }}"><i class="fas fa-envelope"></i> {{ .Site.Params.instructor.email }}</a>
+            </li>
+
+            <li>
+            <i class="far fa-calendar-alt"></i> {{ .Site.Params.course.days }}
+            </li>
+
+            <li>
+            <i class="far fa-clock"></i> {{ .Site.Params.course.time }}
+            </li>
+
+            <li>
+            <i class="fas fa-university"></i> {{ .Site.Params.course.location }}
+            </li>
+
+            <li>
+            <a href="https://twitter.com/{{ .Site.Params.course.twitter }}"><i class="fab fa-twitter"></i></a>
+            </li>
+
+            <li>
+            <a href="https://github.com/{{ .Site.Params.course.github }}"><i class="fab fa-github"></i></a>
+            </li>
+        </ul>
+
+        <div class="credits">
+        <span class="credit">All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span><br>
+
+        <span class="credit">Content <i class="fab fa-creative-commons"></i> {{ .Site.Params.course.copyrightYear }} <a href="{{ .Site.Params.instructor.url }}">{{ .Site.Params.author }}</a></span><br>
+
+        {{- if .Site.Params.credits }}
+        <span class="credit">{{ .Site.Params.credits | markdownify }}</span><br>
+        {{- end }}
+
+        <span class="credit">This site created with the <a href="https://github.com/andrewheiss/ath-tufte-hugo_18-19">ath-tufte-hugo theme</a> in <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> and <a href="https://gohugo.io/">Hugo</a>.</span>
+        </div>
+    </footer>

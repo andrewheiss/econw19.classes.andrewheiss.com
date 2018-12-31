@@ -1,0 +1,13 @@
+---
+title: "Capitalism II"
+date: "2019-01-09"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+- <i class="fas fa-book"></i> 1.6–1.10 in *Economy, Society, and Public Policy* [@core-espp]
+- <i class="fas fa-book"></i> Chapter 9 in *Naked Economics* [@Wheelan:2010]
+- <i class="fas fa-podcast"></i> Planet Money, ["The Invention Of 'The Economy',"](https://www.npr.org/sections/money/2017/03/15/520294083/episode-522-the-invention-of-the-economy) episode 522

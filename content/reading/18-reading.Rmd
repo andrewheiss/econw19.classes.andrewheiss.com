@@ -1,0 +1,14 @@
+---
+title: "Credit markets"
+date: "2019-03-11"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+*Note: This chapter starts inching into the world of macroeconomics, which goes beyond the scope of this class. Read chapter 9 in ESPP, but don't do it super in depth.*
+
+- <i class="fas fa-book"></i> Chapter 9 in *Economy, Society, and Public Policy* [@core-espp]
+- Other readings TBD

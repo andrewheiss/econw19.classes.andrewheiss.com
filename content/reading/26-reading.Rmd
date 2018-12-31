@@ -1,0 +1,16 @@
+---
+title: "Evaluating policies I"
+date: "2019-04-08"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Required
+
+***Important***: The PDF of the chapter is posted on Learning Suite.
+
+- <i class="far fa-file-pdf"></i> Chapter 8 in Jonathan Gruber, *Public Finance and Public Policy* [@Gruber:2005]
+- <i class="fab fa-youtube"></i> Stephen Colbert, ["The Wørd—Priceless,"](http://www.cc.com/video-clips/e8zxmm/the-colbert-report-the-word---priceless)^[He's kinda wrong here, btw.] July 14, 2008
+- <i class="fas fa-external-link-square-alt"></i> David Evans, ["What The Martian teaches us about the value of a statistical life"](https://blogs.worldbank.org/publicsphere/voices/what-martian-teaches-us-about-value-statistical-life), *People, Spaces, Deliberation,* The World Bank, October 2, 2015
+- <i class="fas fa-external-link-square-alt"></i> Amy Gallo, ["A Refresher on Net Present Value,"](https://hbr.org/2014/11/a-refresher-on-net-present-value) *Harvard Business Review,* November 19, 2014
