@@ -27,9 +27,12 @@ menu:
     - name: Reference
       url: /reference/
       weight: 4
-    - name: Class Slack
-      url: "https://ripseecon19.slack.com"
+    - name: RStudio.cloud
+      url: "https://rstudio.cloud"
       weight: 5
+    - name: Slack
+      url: "https://ripseecon19.slack.com"
+      weight: 6
 # Disable taxonomies
 taxonomies:
   tag: ""
@@ -49,15 +52,15 @@ params:
     number: MPA 612
     semester: Winter 2019
     days: "MW; F (lab)"
-    time: ""
+    time: "9:30–10:45 AM (§1); 8:00–9:15 AM (§2); 12:30–1:45 PM (lab)"
     location: "230 TNRB"
     twitter: andrewheiss
-    dates: "January 7 4–April 17, 2019"
+    dates: "January 7–April 17, 2019"
     github: "andrewheiss/econw19.classes.andrewheiss.com"
     slack: "https://ripseecon19.slack.com/"
     copyrightYear: "2019"
     contactDetails: >-
-      Office hours: [Sign up here.](https://calendly.com/andrewheiss/meeting/)<br><br>E-mail is the best way to get in contact with me—I will respond to all course-related e-mails within 24 hours (*really*).
+      Office hours: [Sign up here.](https://calendly.com/andrewheiss/meeting/)<br><br>E-mail is the best way to get in contact with me—I will try to respond to all course-related e-mails within 24 hours (*really*).
   university: 
     name: Brigham Young University
     url: "https://www.byu.edu"
@@ -68,7 +71,7 @@ params:
   primaryColor: "#5E81AC"
   secondaryColor: "#D08770"
   credits: >-
-    Hex icon by Andrew Heiss, with a stylized version of [Hans Rosling's health+wealth plot](https://www.youtube.com/watch?v=jbkSRLYSojo).<br>[Nord color scheme](https://github.com/arcticicestudio/nord) from [Arctic Ice Studio](http://arcticicestudio.com/).
+    Hex icon by Andrew Heiss.<br>[Nord color scheme](https://github.com/arcticicestudio/nord) from [Arctic Ice Studio](http://arcticicestudio.com/).
   logo:
     url: /images/econ_hires.png
     alt: Economy, Society, and Public Policy

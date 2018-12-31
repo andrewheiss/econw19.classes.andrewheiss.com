@@ -5,68 +5,67 @@ slug: assignments
 
 # Weekly reflection memo
 
-<span class="newthought">You will get the most out of this class</span> if you (1) attend class, (2) complete all the readings, and (3) engage^[Take detailed notes, work through the example code and try to understand it, have vivid dreams about graphs, etc.]  with the readings.^[Also (4) ask for help!]
+<span class="newthought">You will get the most out of this class</span> if you (1) attend class, (2) complete all the readings, and (3) engage^[Take detailed notes, watch the videos and supplementary content, work through the examples given in the textbook, have vivid dreams about them, etc.]  with the readings.^[Also (4) ask for help from me or the TAs!]
 
-To encourage engagement with the readings, you'll need to submit a 250–500 word reflection memo **by 11:59 PM each Monday** (the day before class). You can do a lot of different things with this memo: discuss something you learned from the readings, write about the best or worst data visualization you saw that week, connect the readings or projects from that week to your own work, etc. These memos essentially let you explore and answer some of the key questions of this course, including:
+To encourage attendance and preparation, I'm borrowing and adapting Dr. Thompson's system from his OB class that you just finished: regular self-reporting backed by the honor system. 
 
-- What is truth? How is truth related to visualization?
-- Why do we visualize data?
-- What makes a great visualization? What makes a bad visualization?
-- How do you choose which kind of visualization to use?
-- What is the role of stories in presenting analysis?
-- How can we communicate uncertainty?
-- How can you lie with statistics? How do you tell the truth with statistics?
-- How do you make sure people don’t think you’re lying with statistics?
+At the beginning of every class, I will post a quiz on Learning Suite with the following questions:
 
-The readings for each week will also include a set of questions specific to that week. *You do not have to answer all of these questions*. That would be impossible. They exist to guide your thinking, that's all.
+1. Are you here in class today?
+    - Yes (*1.5 points*)
+    - No (*0 points*)
+2. How much of today's reading did you finish?
+    - 100% (*4 points*)
+    - 75–99% (*3 points*)
+    - 50–74% (*2 points*)
+    - 11–49% (*1 points*)
+    - 0–10% (*0 points*)
+3. How well did you read?
+    - I was engaged and read carefully (*3 points*)
+    - I was fairly engaged and read fairly carefully (*2 points*)
+    - I skimmed it (*1 points*)
+    - I didn't read it at all (*0 points*)
 
-These memos are also to help me see what you glean from each week's reading so I can prepare class discussions to be most useful and interesting to you. I will grade these memos using a check system:
-
-- ✔+: ^[{-} *110% in gradebook*] Memo shows phenomenal thought and engagement with the readings. I will not assign these often.
-- ✔: ^[{-} *90% in gradebook*] Memo is thoughtful, well-written, and shows engagement with the readings. This is the expected level of performance.
-- ✔−: ^[{-} *50% in gradebook*] Memo is hastily composed, too short, and only cursorily engages with the readings. This grade signals that you need to improve next time. I will hopefully not asisgn these often.
-
-I will rescale everyone's memo grades at the end of the semester.
+Each day is worth 8.5 points. *It is unlikely that you'll score an 8.5 every day.*^[But it would be amazing if you did!] I will shift the distribution of everyone's final preparation score up at the end of the course.^[That means that if you could solve the collective action problem of getting everyone to not read or attend class, the average would be super low and I'd have to bump your scores way up, but don't do that, obviously.]
 
 
 # Problem sets
 
-<span class="newthought">To practice working with ggplot</span> and making data-based graphics, you will complete a series of 5 problem sets. You need to show that you made a good faith effort to work each question. The problem sets will also be graded using a check system:
+<span class="newthought">To practice solving microeconomic problems</span> you will complete a series of 9 problem sets. Many of the questions on these assignments will come from *Economy, Society, and Public Policy*, some will come from previous courses, and others will come from my head.
 
-- ✔+: ^[{-} *110% in gradebook*] Problem set is 100% completed. Every question was attempted and answered, and most answers are correct. Document is clean and easy to follow. Work is exceptional. I will not assign these often.
-- ✔: ^[{-} *90% in gradebook*] Problem set is 70–99% complete and most answers are correct. This is the expected level of performance.
+**You must turn in at least 8 of the 9 problem sets**. You need to show that you made a good faith effort to work each question. The problem sets will be graded using a check system:
+
+- ✔+: ^[{-} *110% in gradebook*] Problem set is 100% completed. Every question was attempted and answered, and most answers are correct. Work is exceptional. I will not assign these often.
+- ✔: ^[{-} *100% in gradebook*] Problem set is 70–99% complete and most answers are correct. This is the expected level of performance.
 - ✔−: ^[{-} *50% in gradebook*] Problem set is less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not asisgn these often.
 
-I will rescale everyone's problem set grades at the end of the semester.
-
-You may (and should!) work together on the problem sets, but you must turn in your own answers. You cannot work in groups of more than **three** people, and you must note who participated in the group in your assignment.
+You may (and should!) work together on the problem sets, but *you must turn in your own answers.* You cannot work in groups of more than **three** people, and you must note who participated in the group in your assignment.
 
 
-# Code-through
+# Talk like an economist
 
-<span class="newthought">The objectives of this class include</span> "Share data and graphics in open forums" and "Be curious and confident in consuming and producing data." To help you with this, you will write a short code-through tutorial of some data visualization principle, technique, or example.
+<span class="newthought">One of the objectives of this class</span> is to "explain social phenomena using economic vocabulary and reasoning", or in less jargony language, be able to talk like an economist. 
 
-One of the reasons R is so popular is because the R community is exceptionally generous and open and sharing.^[So are Python and other modern open source languages too.] The internet is full of tutorials and code-throughs where people explain how to do something interesting with R.
+There are two assignments that will help with this:
 
-You will write one code-through or tutorial during the semester on a topic of your choice. Complete details for the assignment (along with a lot of examples to look at) will be given later. You will complete this on your own, but you can get help from others (but you can't all write about the same topic).
+## Listen to podcasts
 
-The [R-Weekly e-mail newsletter](https://rweekly.org/) includes dozens of these every week, and [Mara Averick](https://twitter.com/dataandme) (chief tidyverse advocate at RStudio) regularly tweets out links to different posts as well. Here are some others examples to give you a jist of what you'll be doing:^[{-} Yours won't be nearly as complicated as these, by the way. Nor do they need to be. You'll illustrate and explain something simple.]
+The [course materials section of the syllabus](/syllabus/#course-materials) explains that you need to listen to at least one episode of an economics- or policy-related podcast every week. We will discuss current economic and policy events and research at the beginning of every class, and these podcasts will be an excellent source of material for these discussions.
 
-- [The Greatest Twitter Scheme of All Time?](https://www.garrickadenbuie.com/blog/2018/08/24/greatest-twitter-scheme/)
-- [Mapping Fall Foliage with sf](https://rud.is/b/2017/09/18/mapping-fall-foliage-with-sf/)
-- [Exploring Minard's 1812 plot with ggplot2](https://www.andrewheiss.com/blog/2017/08/10/exploring-minards-1812-plot-with-ggplot2/)
-- [Animations in R](https://www.infoworld.com/video/89987/r-tip-animations-in-r)
-- [Drone sightings in the US, visualized](https://www.andrewheiss.com/blog/2016/04/03/drone-sightings-in-the-us-visualized/)
-- [Quickly play with Polity IV and OECD data (and see the danger of US democracy)](https://www.andrewheiss.com/blog/2017/08/26/quickly-play-with-polity-iv-and-oecd-data-and-see-the-danger-of-us-democracy/)
+You will not need to report what you listen to. I trust that you'll do it. So just do it.
 
-This assignment will also be graded with a check system.
+## Present a brief economic briefing
+
+Near the end of the semester, you will prepare a 5-minute brief where you use economic concepts to explain some pattern or behavior you have observed in your own environment. These do not need to be big issues, but they do need to be real. Being creative is a bonus.^[Don't just explain how supply and demand change for a certain product or whatever—look for a Freakonomics-type question to answer, like [why the McRib follows a strange schedule](https://www.theawl.com/2011/11/a-conspiracy-of-hogs-the-mcrib-as-arbitrage/) (don't do that one, though, obviously).]
+
+You will present your brief to me in my office between April 1–5. I will post a signup sheet on March 25. You have 5 minutes to present, and then you will have up to 5 minutes of follow up questions from me.
 
 
-# Mini projects
+# Exams
 
-<span class="newthought">To give you practice</span> with the data and design principles you'll learn in this class, you will complete two smaller projects. I will provide you with real-world data and pose one or more questions—you will make a pretty picture to answer those questions.
+<span class="newthought">There will be three exams</span> covering (1) capitalism, markets, power, and institutions and (2) core economic models, and (3) market failures and government intervention in the economy.
 
-I will also grade these with a check system, and I will provide substantial feedback on your design and code.
+You will take these exams online through Learning Suite. The exams will be timed, but you can use notes and readings and [the Google](https://www.youtube.com/watch?v=AQ45fO1uiOQ). You must take the exams on your own though, and not talk to anyone about them.
 
 
 # Final project
@@ -75,7 +74,7 @@ I will also grade these with a check system, and I will provide substantial feed
 
 Project details will be posted later once I settle on the best form for it. This much is certain so far:
 
-- You will use some sort of real-world, public management-related data to explore some sort of research question with multiple graphics
+- You will use economic principles to analyze some sort of real-world, public management-related data
 - It will be so much fun!
 
 There is no final exam. This project is your final exam.

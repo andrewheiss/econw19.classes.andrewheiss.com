@@ -12,9 +12,9 @@ library(tibble)
 library(pander)
 ```
 
-<span class="newthought">Data rarely speaks for itself.</span> [^courseinfo] By itself, the facts contained in raw data are difficult to understand, and in the absence of beauty and order, it is impossible to understand the truth that the data shows.
+<span class="newthought">The public sector is complex.</span> [^courseinfo] Public administrators, managers, and policy makers need to be fluent in the language of economics and need to be able to engage in and understand quantitative analysis of social policies. 
 
-In this class, you'll learn how to use industry-standard graphic and data design techniques to create beautiful, understandable visualizations and uncover truth in data.
+In this class, you'll learn how to *speak* and *do* economics.
 
 [^courseinfo]: {-}
   `r blogdown::shortcode("courseinfo")`
@@ -22,40 +22,74 @@ In this class, you'll learn how to use industry-standard graphic and data design
 
 # Course objectives
 
-<span class="newthought">By the end of this course,</span> you will become (1) literate in data and graphic design principles, (2) an ethical data communicator, and (3) a collaborative sharer by producing beautiful, powerful, and clear visualizations of your own data. Specifically, you should:
+<span class="newthought">By the end of this course,</span> you will (1) be literate in fundamental economic principles, (2) understand the limits of economic theory and free markets, (3) justify government and nonprofit intervention in the economy, and (4) make informed policy recommendations by analyzing and evaluating public sector policies. Specifically, you'll be able to:
 
-- Understand the principles of data and graphic design
-- Evaluate the credibility, ethics, and aesthetics of data visualizations
-- Create well-designed data visualizations with appropriate tools
-- Share data and graphics in open forums
-- Be curious and confident in consuming and producing data
+- Understand the principles of microeconomics, public economics, and behavioral economics
+- Explain social phenomena using economic vocabulary and reasoning
+- Predict how individuals respond to incentives
+- Evaluate the costs, benefits, and long-term consequences of public and nonprofit sector policies
+- Justify government intervention in the free market and identify when public policies have been unethical or failures
+- Propose and argue for public and nonprofit sector policies
 
-Given these objectives, this course fulfills two of the four learning outcomes for BYU's [Master of Public Administration (MPA)](https://marriottschool.byu.edu/mpa/) program: 
+Given these objectives, this course fulfills three of the four learning outcomes for BYU's [Master of Public Administration (MPA)](https://marriottschool.byu.edu/mpa/) program:
 
 - **Quantitative Analysis**: BYU MPA graduates are skilled at evaluating programs and policies. They know how to gather data, correctly analyze it, and employ the analysis to recommend policy and programmatic action in public service organizations.
-
-- **Communications**: BYU MPA graduates effectively convey verbal and written information with the polish and professionalism appropriate for the public service context. They listen to and promote understanding among people with diverse viewpoints.
+- **Public Service Values**: BYU MPA graduates demonstrate an understanding of, passion for, and commitment to public service values, including reverence for the dignity and worth of all people and dedication to ethical governance.
+- **Communication**: BYU MPA graduates effectively convey verbal and written information with the polish and professionalism appropriate for the public service context. They listen to and promote understanding among people with diverse viewpoints.
 
 
 # Course materials
 
-<span class="newthought">Most of the readings in this class are free.</span> We will only use one physical textbook.^[And the library provides access to it for free.]
+<span class="newthought">Most of the readings in this class are free.</span> 
 
-- [@Cairo:2016] [$36 used, $38 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075)]
+## Books
 
-We'll rely heavily on these other books, which are all available online.^[*R for Data Science* exists in print, and both *Data Visualization: A practical introduction* and *Fundamentals of Data Visualization* will be released in print during the semester.]
+We will only use one physical textbook. There are two official textbooks for the class:
 
-- [@Healy:2018] [**FREE** online; $40 new at [Amazon](https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/) in December]
-- [@Wilke:2018] [**FREE** online; $50 new at [Amazon](https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089) in December]
-- [@WickhamGrolemund:2017] [**FREE** online; $16 used, $18 new at [Amazon](https://www.amazon.com/R-Data-Science-Hadley-Wickham/dp/1491910399/)]
+- [@core-espp] ^[[*Free!*](https://www.core-econ.org/espp/)]
+- [@Wheelan:2010] ^[\$1.50 used, \$11 new at [Amazon](https://www.amazon.com/Naked-Economics-Undressing-Science-Revised/dp/0393337642/); you need the 2010 edition]
+
+[CORE Econ](https://www.core-econ.org/) is a special new project that aims to make economics education accessible to all, replacing textbooks that cost hundreds of dollars with an open source textbook complete with videos and quizzes and other online resources. It's even been [lauded by The Economist](https://www.economist.com/news/finance-and-economics/21729443-students-are-forced-grapple-real-world-very-beginning-their). 
+
+CORE's original book, [*The Economy*](http://www.core-econ.org/the-economy/), was designed to serve as a 1–2 semester introduction to economics for economics majors. I used it for this class last year, but it was too complex and we only covered half of the chapters. Recognizing this, CORE recently created a version of their materials *specifically* for those interested in public administration and policy. [*Economy, Society, and Public Policy*](https://www.core-econ.org/espp/) is designed for non-economics majors who have no interest in becoming economists, but who want to understand economics and policy. This is an ideal book for our class and I'm so excited to use it. It's still a beta project, and there might be errors and quirks and bumps in the road, but (1) it's free, and (2) it's state of the art and you're some of the first students to ever use it. So live with the quirks :)
+
+[**Register for a student account at the CORE website.**](http://www.core-econ.org/register/)
+
+## Articles, book chapters, and other materials
 
 There will also occasionally be additional articles and videos to read and watch. When this happens, links to these other resources will be included on the reading page for that week.
 
-I also highly recommend subscribing to the [R Weekly newsletter](https://rweekly.org/). This e-mail is sent every Monday and is full of helpful tutorials about how to do stuff with R.
+## Podcasts
+
+Finally, you'll need to listen to at least one economics-related podcast episode every week. We will spend the first few minutes of every class session discussing current events or recent research related to micro, public, or behavioral economics, and podcasts are one of the best ways to do this.^[You can listen as you commute, wash the dishes, fold your laundry, eat breakfast, or work on homework for other classes!]
+
+Here are some of the best ones—subscribe to 3–4 of these:[^podcasts]
+
+- [Planet Money](https://www.npr.org/podcasts/510289/planet-money)
+- [The Indicator](https://www.npr.org/sections/money/567724614/the-indicator)
+- [The Weeds](https://itunes.apple.com/us/podcast/voxs-the-weeds/id1042433083?mt=2)
+- [Freakonomics Radio](https://itunes.apple.com/us/podcast/freakonomics-radio/id354668519?mt=2)
+- [50 Things that Made the Modern Economy](http://www.bbc.co.uk/programmes/p04b1g3c/episodes/downloads)
+- [EconTalk](http://www.econtalk.org/)
+- [The Uncertain Hour](https://www.marketplace.org/topics/uncertain-hour)
+- [The Impact](https://www.vox.com/the-impact)
+
+And these shows are excellent, but not always econ/policy-focused (but they're definitely worth checking out, especially if you're interested in behavioral economics and psychology):
+
+- [Hidden Brain](https://www.npr.org/podcasts/510308/hidden-brain)
+- [Stuff Mom Never Told You](https://www.stuffmomnevertoldyou.com/podcasts)
+- [Invisibilia](https://www.npr.org/podcasts/510307/invisibilia)
+- [Rationally Speaking](http://rationallyspeakingpodcast.org/)
+
+[^podcasts]: You can listen to all these shows on your computer, but it's best to listen on your smartphone. 
+
+    On iOS, you can use Apple's built-in Podcasts app, or download a third-party app like [Overcast](https://overcast.fm/) (my personal favorite). 
+    
+    On Android, you can use… something, probably.
 
 ## R and RStudio
 
-You will do all of your visualization work in this class with the open source (and free!) programming language [R](https://cran.r-project.org/). You will use [RStudio](https://www.rstudio.com/) as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.
+You will do your problem sets and final project with the open source (and free!) programming language [R](https://cran.r-project.org/). You will use [RStudio](https://www.rstudio.com/) as the main program to access R. Think of R as an engine and RStudio as a car dashboard—R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.
 
 R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free [RStudio.cloud](http://rstudio.cloud/) service, which lets you run a full instance of RStudio in your web browser. This means you won't have to install anything on your computer to get started with R! We will have a shared class workspace in RStudio.cloud that will let you quickly copy templates for labs and problem sets.
 
@@ -63,15 +97,17 @@ RStudio.cloud is convenient, but it can be slow and it is not designed to be abl
 
 You can [find instructions for installing R, RStudio, and all the tidyverse packages here.](/install/)
 
+I also highly recommend subscribing to the [R Weekly newsletter](https://rweekly.org/). This e-mail is sent every Monday and is full of helpful tutorials about how to do stuff with R.
+
 ## Online help and Slack
 
-Computer programming can be difficult. Computers are stupid and little errors in your code can cause hours of headache (even if you've been doing this stuff for years!).
+Economics can be difficult. Computer programming can be difficult. Computers are stupid and little errors in your code can cause hours of headache (even if you've been doing this stuff for years!).
 
 Fortunately there are tons of online resources to help you with this. Two of the most important are [StackOverflow](https://stackoverflow.com/) (a Q&A site with hundreds of thousands of answers to all sorts of programming questions) and [RStudio Community](https://community.rstudio.com/) (a forum specifically designed for people using RStudio and the tidyverse (i.e. you)). 
 
 Searching for help with R on Google can be tricky because the program is, um, a single letter. Try searching for "rstats" instead. If you use Twitter, post R-related questions and content with [#rstats](https://twitter.com/search?q=%23rstats).
 
-Additionally, we have a class chatroom at [Slack](https://byudatavizf2018.slack.com) where anyone in the class can ask questions and anyone can answer. Ask questions about the readings, problem sets, and projects [in the class Slack workspace](https://byudatavizf2018.slack.com). I will monitor Slack regularly, and you should also all do so as well. You'll likely have similar questions as your peers, and you'll likely be able to answer other peoples' questions too.
+Additionally, we have a class chatroom at [Slack](https://ripseecon19.slack.com/) where anyone in the class can ask questions and anyone can answer. Ask questions about the readings or problem sets [in the class Slack workspace](https://ripseecon19.slack.com/). I will monitor Slack regularly, and you should also all do so as well. You'll likely have similar questions as your peers, and you'll likely be able to answer other peoples' questions too.
 
 
 # Course policies
@@ -90,16 +126,7 @@ If you have difficulty affording groceries or accessing sufficient food to eat e
 
 ## Class conduct and expectations
 
-On the first day of class, we came up a few specific rules, expectations, and policies for the course:
-
-- Late work will be penalized by 10% each week it is late (starting the day after it is due)
-- You each get two free passes for late work. Just let me know when you want to use one.
-- Be responsible with laptop use. If you plan on taking notes with your computer, sit near the back or don't sit in front of people who are distracted by it (and if you don't sit in the back, be super responsible with your laptop). 
-- Be good and respectful. You're all adults.
-
-## Laptops
-
-This is a computer-heavy course and each class session will require extensive laptop use. Occasionally I may ask that laptops be closed for some in-class activities, you will be expected to use your computer. Please note that this is different from the laptop policy in other Romney Institute and Marriott School classes. Use your computer responsibly in class.
+On the first day of class, will come up with rules, expectations, and policies regarding late work, laptop use, and other issues. Those will be listed here.
 
 
 # Assignments and grades
@@ -109,11 +136,12 @@ This is a computer-heavy course and each class session will require extensive la
 ```{r assignments-grades, include=FALSE}
 assignments <- tribble(
   ~Points,  ~Assignment,
-  15 * 14 , "Reflection memos (≈ 15 × 14)",
-  5 * 40  , "Problem sets (5 × 40)",
-  50      , "Code-through",
-  75     , "Mini project 1",
-  75     , "Mini project 2",
+  250     , "Preparation (≈ 8.5 × 29)",
+  8 * 40  , "Problem sets (8 × 40)",
+  40      , "Economic briefing",
+  100     , "Exam 1",
+  100     , "Exam 2",
+  100     , "Exam 3",
   200     , "Final project"
 ) %>%
   mutate(Percent = Points / sum(Points),
@@ -154,4 +182,4 @@ grading %>%
 [^panda] <span class="newthought">Once you have read</span> this entire syllabus and [the assignments page](/assignments/), please [click here](mailto:andrew_heiss@byu.edu) and e-mail me a picture of a red panda. For real. Brownie points if it's animated.
 
 [^panda]: {-}
-  ![Hungry red panda](https://media.giphy.com/media/HUeE6FU2Ih0LC/giphy.gif)
+  ![Hungry red panda](https://media.giphy.com/media/r7Nbr97FsXxXG/giphy.gif)
