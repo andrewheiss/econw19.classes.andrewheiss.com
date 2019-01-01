@@ -3,7 +3,7 @@ title: "Assignments"
 slug: assignments
 ---
 
-# Weekly reflection memo
+# Preparation
 
 <span class="newthought">You will get the most out of this class</span> if you (1) attend class, (2) complete all the readings, and (3) engage^[Take detailed notes, watch the videos and supplementary content, work through the examples given in the textbook, have vivid dreams about them, etc.]  with the readings.^[Also (4) ask for help from me or the TAs!]
 
@@ -70,7 +70,7 @@ You will take these exams online through Learning Suite. The exams will be timed
 
 # Final project
 
-<span class="newthought">At the end of the course,</span> you will demonstrate your data visualization skills by completing a final project.
+<span class="newthought">At the end of the course,</span> you will demonstrate your knowledge of economics, society, and public policy by completing a final project.
 
 Project details will be posted later once I settle on the best form for it. This much is certain so far:
 
