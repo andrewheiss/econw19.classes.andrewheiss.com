@@ -1,3 +1,4 @@
+knit: function(...) stop("DON'T KNIT")
 blogdown::html_page:
   fig_retina: 2
   highlight: kate
