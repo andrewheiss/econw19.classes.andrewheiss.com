@@ -1,0 +1,262 @@
+---
+title: "Lab 2"
+date: "2019-01-18"
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    css: /css/gt-overrides.css
+    toc: true
+---
+
+```{r load-stuff, include=FALSE}
+library(tidyverse)
+library(magrittr)
+library(gt)
+```
+
+
+# Things we'll do
+
+- Calculate mixed strategies in games
+- Review concepts that are covered in [Problem Set 1](/assignment/01-problem-set/)
+
+
+# Mixed strategies
+
+When there is no single Nash equilibrium in a game, players have to engage in a mixed strategy and attempt to predict what the other players will do. The choices they make are determined by the payoffs in the game, since it is generally more likely that players will choose strategies that maximize their payoffs.
+
+Here's the general process for solving any game theory matrix:
+
+1. Determine if there are pure equilibria (cover each row/column and ask what each player's best strategy would be). If there are multiple equilibria, you need to find the mixed strategy.
+2. Calculate the expected utility for each choice for each player and find the probability cutoff for each choice.
+3. Calculate the expected payoff for each player.
+
+Let's do this with the Bach or Stravinksy game that [we used in class](/class/04-class/):
+
+```{r bos-general, echo=FALSE}
+choices <- c("Chinese", "Italian")
+players <- c("Friend 1", "Friend 2")
+
+bos_payoffs <- matrix(
+  c("2, 1", "0, 0",
+    "0, 0", "1, 2"),
+  byrow = TRUE, ncol = 2
+) %>% 
+  set_rownames(choices) %>% set_colnames(choices) %>% 
+  as_tibble(rownames = "choice") %>% 
+  mutate(player = c(players[1], "")) %>% 
+  select(player, everything())
+
+bos_payoffs %>% 
+  # Convert to the magical gt() class
+  gt() %>%
+  # Add a nifty column spanning header
+  tab_spanner(
+    label = players[2],
+    columns = choices
+  ) %>% 
+  # Get rid of these labels
+  cols_label(
+    player = "",
+    choice = ""
+  ) %>% 
+  # Center the payoff columns
+  cols_align(
+    align = "center",
+    columns = vars(choices)
+  ) %>% 
+  # Turn off table striping
+  tab_style(
+    style = cells_styles(bkgd_color = "white"),
+    locations = cells_data(rows = TRUE)
+  ) %>% 
+  # Make the player 2 column span bold
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_column_labels(groups = "Friend 2")
+  ) %>% 
+  # Make the player 1 column bold
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_data(columns = 1)
+  ) %>% 
+  # Make wider
+  tab_options(
+    table.width = pct(70)
+  )
+```
+
+**Step 1: Find the equilibria**:
+
+- Best response for Friend 1 if Friend 2 chooses Chinese = Chinese
+- Best response for Friend 1 if Friend 2 chooses Italian = Italian
+- Best response for Friend 2 if Friend 1 chooses Chinese = Chinese
+- Best response for Friend 2 if Friend 1 chooses Italian = Italian
+
+The game has two Nash equilibria, so it has a mixed strategy.
+
+**Step 2: Calculate the expected utility for each choice for each player**. We do this by assuming some probability for Friend 1's choices ($p$, $1 - p$) and for Friend 2's choices ($q$, $1 - q$):
+
+```{r echo=FALSE}
+bos_payoffs_probs <- matrix(
+  c("", "\\(q\\)", "\\(1 - q\\)",
+    '\\(p\\)', "2, 1", "0, 0",
+    "\\(1 - p\\)", "0, 0", "1, 2"),
+  byrow = TRUE, ncol = 3
+) %>% 
+  set_rownames(c("", choices)) %>% set_colnames(c("probs", choices)) %>% 
+  as_tibble(rownames = "choice") %>% 
+  mutate(player = c("", players[1], "")) %>% 
+  select(player, choice, probs, everything())
+
+bos_payoffs_probs %>% 
+  # Convert to the magical gt() class
+  gt() %>%
+  # Add a nifty column spanning header
+  tab_spanner(
+    label = players[2],
+    columns = choices
+  ) %>% 
+  # Get rid of these labels
+  cols_label(
+    player = "",
+    choice = "",
+    probs = ""
+  ) %>% 
+  # Center the payoff columns
+  cols_align(
+    align = "center",
+    columns = vars(choices)
+  ) %>% 
+  # Turn off table striping
+  tab_style(
+    style = cells_styles(bkgd_color = "white"),
+    locations = cells_data(rows = TRUE)
+  ) %>% 
+  # Make the player 2 column span bold
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_column_labels(groups = "Friend 2")
+  ) %>% 
+  # Make the player 1 column bold
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_data(columns = 1)
+  ) %>% 
+  # Make wider
+  tab_options(
+    table.width = pct(70)
+  )
+```
+
+To find the expected utility for a choice, add the utility × probability for each choice in the row (or column, for Player 2). Thus,
+
+$$
+\begin{aligned}
+EU_{\text{Friend 1, Chinese}} &= 2q + 0(1-q) =& 2q \\
+EU_{\text{Friend 1, Italian}} &= 0q + 1(1-q) =& 1 - q \\
+EU_{\text{Friend 2, Chinese}} &= 1p + 0(1-p) =& p \\
+EU_{\text{Friend 2, Italian}} &= 0p + 2(1-p) =& 2 - 2p
+\end{aligned}
+$$
+
+With these formulas, you can then determine $q$ and $p$ by setting the expected utilities for each player equal to each other and solving for the variable:
+
+$$
+\begin{aligned}
+2q &= 1 - q & p &= 2 - 2p \\
+3q &= 1 & 3p &= 2 \\
+q &= \frac{1}{3} & p &= \frac{2}{3}
+\end{aligned}
+$$
+
+Friend 1's best response is determined by what Friend 2's $q$ is in real life:
+
+$$
+\text{Best response}_{\text{Friend 1}} = 
+\left \{ 
+\begin{aligned}
+&\text{Chinese } & \text{if } q < \frac{1}{3} \\
+&\text{Italian } & \text{if } q > \frac{1}{3} \\
+&\text{indifferent } & \text{if } q = \frac{1}{3} \\
+\end{aligned}
+\right \}
+$$
+
+Similarly, Friend 2's best response is determined by what Friend 1's $p$ is in real life:
+
+$$
+\text{Best response}_{\text{Friend 2}} = 
+\left \{ 
+\begin{aligned}
+&\text{Chinese } & \text{if } p > \frac{2}{3} \\
+&\text{Italian } & \text{if } p < \frac{2}{3} \\
+&\text{indifferent } & \text{if } p = \frac{1}{3} \\
+\end{aligned}
+\right \}
+$$
+
+**Step 3: Calculate the expected payoff for each player when playing the mixed strategy**. This is the utility × probability for each cell, added together. First, calculate the joint probabilities for each cell by multiplying the row and column probabilities:
+
+```{r echo=FALSE}
+bos_payoffs_eu <- matrix(
+  c("", "\\(q = \\frac{1}{3}\\)", "\\(1 - q = \\frac{2}{3}\\)",
+    '\\(p = \\frac{2}{3}\\)', "\\(\\frac{2}{3} \\times \\frac{1}{3} = \\frac{2}{9}\\)", "\\(\\frac{2}{3} \\times \\frac{2}{3} = \\frac{4}{9}\\)",
+    "\\(1 - p = \\frac{1}{3}\\)", "\\(\\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9}\\)", "\\(\\frac{1}{3} \\times \\frac{2}{3} = \\frac{2}{9}\\)"),
+  byrow = TRUE, ncol = 3
+) %>% 
+  set_rownames(c("", choices)) %>% set_colnames(c("probs", choices)) %>% 
+  as_tibble(rownames = "choice") %>% 
+  mutate(player = c("", players[1], "")) %>% 
+  select(player, choice, probs, everything())
+
+bos_payoffs_eu %>% 
+  # Convert to the magical gt() class
+  gt() %>%
+  # Add a nifty column spanning header
+  tab_spanner(
+    label = players[2],
+    columns = choices
+  ) %>% 
+  # Get rid of these labels
+  cols_label(
+    player = "",
+    choice = "",
+    probs = ""
+  ) %>% 
+  # Center the payoff columns
+  cols_align(
+    align = "center",
+    columns = vars(choices)
+  ) %>% 
+  # Turn off table striping
+  tab_style(
+    style = cells_styles(bkgd_color = "white"),
+    locations = cells_data(rows = TRUE)
+  ) %>% 
+  # Make the player 2 column span bold
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_column_labels(groups = "Friend 2")
+  ) %>% 
+  # Make the player 1 column bold
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_data(columns = 1)
+  ) %>% 
+  # Make wider
+  tab_options(
+    table.width = pct(70)
+  )
+```
+
+Then multiply each probability by the payoff and add all the cells together:
+
+$$
+\begin{aligned}
+EP_{\text{Friend 1}} &= (2 \times \frac{2}{9}) + (0 \times \frac{4}{9}) + (0 \times \frac{1}{9}) + (1 \times \frac{2}{9}) =& \frac{2}{3} \\
+EP_{\text{Friend 2}} &= (1 \times \frac{2}{9}) + (0 \times \frac{4}{9}) + (0 \times \frac{1}{9}) + (2 \times \frac{2}{9}) =& \frac{2}{3}
+\end{aligned}
+$$
+
+The expected payoff for each player in the mixed strategy is $\frac{2}{3}$, which is less than what either player would make if they coordinated on their least preferred outcome. That is, it's better for Friend 1 to compromise and eat Italian and get 1 unit of utility rather than gamble on the mixed strategy.
