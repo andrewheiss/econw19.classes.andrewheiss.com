@@ -1,0 +1,125 @@
+---
+title: "Capitalism I"
+date: "2019-01-07"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-01-07.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-01-07.png)](/slides/MPA-612_2019-01-07.pdf)
+</figure>
+
+
+# Pit market
+
+```{r get-data-from-google, include=FALSE, eval=FALSE}
+library(tidyverse)
+library(googlesheets)
+library(here)
+
+gs_key("1MeizEpsBgQXQXo-WJzIhH6Lm6fISfO8vBnKaX0wsl_I", 
+       verbose = FALSE) %>%
+  gs_read_csv() %>% 
+  write_csv(here("static", "data", "pit_market.csv"))
+```
+
+Here are the supply and demand curves for paper clips. With no taxation, the equilibrium price should be \$6; with tax, it is \$7, borne equally by buyers and sellers.
+
+```{r pit-market-supply-demand, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(here)
+
+source(here("lib", "graphics.R"))
+
+supply_demand <- tribble(
+  ~Section, ~Supply, ~Demand,
+  "8:00", c(2, 2, 3, 4, 5, 6, 6, 7, 8), c(10, 10, 9, 8, 7, 6, 6, 5, 4),
+  "9:30", c(2, 2, 3, 4, 5, 6, 7, 8), c(10, 10, 9, 8, 7, 6, 5, 4),
+) %>% 
+  unnest(Supply, Demand) %>% 
+  mutate(`Supply (taxed)` = Supply + 2) %>% 
+  group_by(Section) %>% 
+  mutate(x = 1:n()) %>% 
+  gather(key, value, -x, -Section)
+
+ggplot(supply_demand, aes(x = x, y = value, color = key)) +
+  geom_line(size = 1.5) +
+  geom_point(size = 3) +
+  labs(x = "Quantity", y = "Price",
+       title = "Supply, demand, and price for paper clips",
+       caption = "MPA 612, Brigham Young University, January 2019") +
+  scale_color_manual(values = c("red", "black", "grey50"),
+                     name = NULL) +
+  scale_y_continuous(labels = scales::dollar) +
+  theme_econ() + 
+  theme(axis.text.x = element_blank(),
+        legend.position = "bottom") +
+  facet_wrap(~ Section)
+```
+
+And here's how you did!
+
+```{r plot-pit-market, echo=FALSE, warning=FALSE, message=FALSE}
+market_raw <- read_csv(here("static", "data", "pit_market.csv"))
+
+pairs <- supply_demand %>% 
+  count(Section, key) %>% 
+  group_by(Section) %>% 
+  slice(1) %>% 
+  select(-key, Pairs = n)
+
+market <- market_raw %>%
+  mutate(Section = recode(Section, `800` = "8:00", `930` = "9:30"),
+         Round = paste("Round", Round),
+         Round_long = ifelse(Rules == "Regular", Round, 
+                             paste0(Round, "\n", Rules))) %>%
+  left_join(pairs, by = "Section") %>% 
+  mutate(Section = fct_inorder(Section, ordered = TRUE)) %>% 
+  mutate(`Consumer surplus` = `Buyer number` - Price,
+         `Producer surplus` = Price - `Seller number`) %>%
+  group_by(Round, Section) %>%
+  mutate(index = 1:n())
+
+avg_prices <- market %>% 
+  group_by(Round_long, Section) %>%
+  summarize(avg_price = mean(Price))
+
+efficiency <- market %>%
+  group_by(Round_long, Section) %>%
+  mutate(num_trades = n(),
+         efficiency = num_trades / Pairs) %>%
+  slice(n()) %>%
+  mutate(efficiency = scales::percent(efficiency))
+
+ggplot(market, aes(x = index, y = Price, color = Round_long)) +
+  geom_line(size = 1.5) +
+  geom_point(size = 3) +
+  geom_hline(data = avg_prices, aes(yintercept = avg_price), color = nord_red,
+             linetype = "dashed", size = 0.5) +
+  geom_label(data = efficiency, aes(x = 1, y = 3, label = efficiency), 
+             inherit.aes = FALSE, hjust = "left", size = 3) +
+  coord_cartesian(ylim = c(2, 10)) +
+  scale_y_continuous(labels = scales::dollar, breaks = seq(2, 10, 2)) +
+  scale_x_continuous(breaks = NULL) +
+  scale_color_manual(values = c(nord_dk_blue, nord_yellow, nord_green,
+                                nord_red, nord_purple, nord_orange, nord_lt_blue)) +
+  labs(x = NULL, title = "Results of 5 simulation rounds",
+       subtitle = "Dashed line shows average price;\nbox shows market efficiency, or how many people made a trade",
+       caption = "MPA 612, Brigham Young University, January 2019") +
+  guides(color = FALSE) +
+  theme_econ() +
+  theme(panel.grid.minor = element_blank(),
+        strip.text = element_text(vjust = 1)) +
+  facet_grid(Section ~ Round_long, scales = "free_x")
+```

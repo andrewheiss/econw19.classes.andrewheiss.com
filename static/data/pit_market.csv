@@ -1,0 +1,46 @@
+Section,Round,Price,Seller number,Buyer number,Rules
+800,1,6,2,8,Regular
+800,1,6,4,8,Regular
+800,1,5,2,9,Regular
+800,1,5,2,10,Regular
+800,1,5,3,10,Regular
+800,2,6,4,8,Regular
+800,2,5,2,9,Regular
+800,2,5,2,6,Regular
+800,2,4,3,7,Regular
+800,2,6,6,10,Regular
+800,2,6,5,10,Regular
+800,3,6,2,8,$2 tax
+800,3,7,5,10,$2 tax
+800,3,7,4,9,$2 tax
+800,3,6,3,7,$2 tax
+800,4,6,3,9,$2 tax
+800,4,6,2,8,$2 tax
+800,4,6,2,7,$2 tax
+800,4,6,4,10,$2 tax
+800,4,8,5,10,$2 tax
+800,5,4,2,8,$4 ceiling
+800,5,4,2,6,$4 ceiling
+800,5,4,3,10,$4 ceiling
+800,5,4,4,5,$4 ceiling
+930,1,7,4,7,Regular
+930,1,4,3,8,Regular
+930,1,5,2,10,Regular
+930,1,7,6,9,Regular
+930,1,5,5,6,Regular
+930,1,6,5,9,Regular
+930,2,5,2,8,Regular
+930,2,4,3,9,Regular
+930,2,5,4,10,Regular
+930,2,6,6,7,Regular
+930,3,5,2,9,$2 tax
+930,3,5,3,6,$2 tax
+930,3,7,5,7,$2 tax
+930,3,7,4,10,$2 tax
+930,4,7,4,9,$2 tax
+930,4,6,2,8,$2 tax
+930,4,6,3,7,$2 tax
+930,4,9,6,6,$2 tax
+930,5,4,2,6,$4 ceiling
+930,5,4,4,7,$4 ceiling
+930,5,4,3,9,$4 ceiling
