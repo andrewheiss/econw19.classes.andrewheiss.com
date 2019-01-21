@@ -16,3 +16,4 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 - <i class="fas fa-podcast"></i> Planet Money, ["A Locked Door, a Secret Meeting, and the Birth of the Fed,"](https://www.npr.org/sections/money/2013/12/20/255839292/episode-505-a-locked-door-a-secret-meeting-and-the-birth-of-the-fed) episode 505, December 20, 2013
 - <i class="fab fa-youtube"></i> [What's all the Yellen About? Monetary Policy and the Federal Reserve](https://www.youtube.com/watch?v=1dq7mMort9o)
 - <i class="fab fa-youtube"></i> [The Fed Explains Monetary Policy](https://www.youtube.com/watch?v=wOfQPn9Jwpo)
+- <i class="fab fa-twitter-square"></i> [The Bank of Jamaica explains what it does](https://twitter.com/birdyword/status/1083638418192531456?s=21)
