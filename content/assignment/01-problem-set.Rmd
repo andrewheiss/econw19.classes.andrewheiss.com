@@ -1,0 +1,89 @@
+---
+title: "Problem set 1"
+date: "2018-01-18"
+due_date: "2018-01-19"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+**Submit this as a PDF on Learning Suite.** Show your work when possible.
+
+# 1
+
+Download one of these datasets^[Source: [Global Consumption and Income Project](https://jackblun.github.io/Globalinc/). All incomes expressed in 2005 USD PPP.] (they're identical; one is an Excel file, one is a CSV file, which is easier to work with in R):
+
+- [<i class="fas fa-file-excel"></i> `gcip_raw.xlsx`](/data/gcip_raw.xlsx)
+- [<i class="fas fa-table"></i> `gcip_raw.csv`](/data/gcip_raw.csv)
+
+1. Choose five countries you are interested in. 
+1. For each of these countries, calculate the 90/10 ratio for 1980, 1990, 2000, and 2014.^[Look at the [step-by-step instructions in ESPP](https://www.core-econ.org/espp/book/text/01.html#figure-1-4a).]
+1. Include a table of these ratios in your problem set. Try ploting all four ratios for all five countries at the same time too and include that graph.
+1. Speculate about country- and time-based differences between these countries. **Answer in ≈50 words.**
+
+
+# 2
+
+Download one of these datasets^[Source: ESPP. All numbers expressed in 1990 international USD (i.e. they're all real; you don't need to adjust for inflation or anything).] (they're identical; one is an Excel file, one is a CSV file, which is easier to work with in R):
+
+- [<i class="fas fa-file-excel"></i> `global_income_raw.xlsx`](/data/global_income_raw.xlsx)
+- [<i class="fas fa-table"></i> `global_income_raw.csv`](/data/global_income_raw.csv)
+
+1. Calculate the compound annual growth rate^[ESPP calls this the CAGR; we did this in [Lab 1 with compounding inflation](/class/01-lab/#compounding-inflation).] for China, Britain, Italy, and India for the years 1750–1850, 1851–1950, and 1951–2014.
+1. Include a table of these growth rates and try to plot them somehow.
+1. Explain why you need to calculate the compound annual growth rate. **Answer in a sentence.**
+1. Discuss the results. Which countries grew the most in which 100-year periods? Speculate about why. **Answer in ≈75 words.** 
+
+
+# 3
+
+The following table shows the nominal GDP (in 2015 US dollars) and the population of Japan in 2013 and 2014:^[Source: [The World Bank](https://data.worldbank.org/).]
+
+```{r japan-stats, echo=FALSE, results="asis"}
+tribble(
+  ~Measure, ~`2013`, ~`2014`,
+  "GDP", "$4,919,563,108,372.50", "$4,601,461,206,885.10",
+  "Population", "127,338,621", "127,131,800"
+) %>%
+  pandoc.table(justify = "lll")
+```
+
+&nbsp;
+
+Based on this information, which of the following statements regarding GDP per capita is correct? **Explain why or why not in a sentence for each**:
+
+1. The GDP per capita in 2013 was $36,194.41.
+1. The GDP per capita fell by 6.74% between 2013 and 2014.
+1. The fall in the population was enough to offset the fall in the GDP for an overall growth in GDP per capita between 2013 and 2014.
+1. The GDP per capita fell by 6.31% between 2013 and 2014.
+
+
+# 4
+
+```{r cpi, include=FALSE, warning=FALSE, message=FALSE}
+cpi <- read_csv(file.path(here::here(), "static", "data", "CPIAUCSL.csv"))
+```
+
+1. The consumer price index (1982–84 = 100) in December 1980 was `r filter(cpi, DATE == "1980-12-01") %>% pull(CPIAUCSL)`, and it was `r filter(cpi, DATE == "2017-12-01") %>% pull(CPIAUCSL)` in December 2017.^[Source: [`CPIAUCSL` from FRED](https://fred.stlouisfed.org/series/CPIAUCSL).] How much inflation has there been between 1980 and 2017?
+1. In December 1980 the average price of unleaded regular gasoline was \$1.34; in December 2017, it was \$2.48.^[Source: [Weekly U. S. Regular All Formulations Retail Gasoline Prices](https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=EMM_EPMR_PTE_NUS_DPG&f=W) from the US EIA.] Did the price of gasoline increase or decrease in real terms over this period? By what percentage has the price of gasoline changed (in real terms) over this period? What is the implied average annual rate of growth or decline in the real price over this period?
+1. In 1980 the federal minimum wage was \$3.10 per hour; today it is \$7.25. Has its real value increased or decreased over this period? What policy and managerial implications does this have?
+
+
+# 5
+
+Download one of these datasets^[Source: [FRED](https://fred.stlouisfed.org/). [See the R code I used to download and process this data](/class/02-class/#economic-indicators).] (they're identical; one is an Excel file, one is a CSV file, which is easier to work with in R):
+
+- [<i class="fas fa-file-excel"></i> `fred_gdp.xlsx`](/data/fred_gdp.xlsx)
+- [<i class="fas fa-file-excel"></i> `fred_gdp.csv`](/data/fred_gdp.csv)
+
+1. Calculate the nominal GDP per capita for the United States.
+1. Calculate the real GDP per capita for the United States in 2012 dollars.^[You shouldn't use the CPI here. The Fed and other national agencies have a special kind of CPI-like measure for GDP called the "GDP deflator", which is included in the dataset you downloaded. The reference year for this deflator is 2012.]
+1. Calculate the real GDP per capita for the United States in 2018 dollars.
+1. Create a plot showing three lines over time: nominal GDP per capita, real GDP per capita (2012 dollars), and real GDP per capita (2018 dollars).
+1. Calculate the percent change between each year for one of the real GDP columns. Which year saw the biggest growth rate? Which year saw the smallest growth rate?^[Plot the annual percent change if you're feeling adventurous.]
