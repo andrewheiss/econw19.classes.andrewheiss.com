@@ -1,0 +1,75 @@
+---
+title: "Social interactions and economic outcomes I"
+date: "2019-01-14"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-01-14.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-01-14.png)](/slides/MPA-612_2019-01-14.pdf)
+</figure>
+
+
+# Public goods game results
+
+^[{-} This game is based on @HoltLaury:1997.] Contributions to the public pool decreased fairly rapidly after the first round when you noticed how much free-riding had occurred. Shifting rules later on didn't do much to change the equilibrium of the game. In both sections, changing the value of a kept red card to \$8 in round 5 didn't really change the average contribution, and changing the value of a kept red card to \$10 and a public red card to \$2 in round 8 had diverging results. In the 8 AM section, more people contributed to the public pool; in the 9:30 section, more people kept their red cards.
+
+```{r show-results, echo=FALSE, fig.height=5, fig.width=8, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+source(file.path(here::here(), "lib", "graphics.R"))
+
+tribble(
+  ~round, ~section_8, ~section_930,
+  1,      14,         10,
+  2,      10,         7,
+  3,      9,          7,
+  4,      9,          8,
+  5,      9,          6,
+  6,      6,          10,
+  7,      10,         7,
+  8,      11,         7,
+  9,      10,         6,
+) %>%
+  gather(section, total, -round) %>%
+  filter(!is.na(total)) %>%
+  mutate(section = factor(section, labels = c("8:00 section", "9:30 section"), 
+                          ordered = TRUE)) %>%
+  ggplot(aes(x = as.factor(round), y = total, color = section, group = section)) + 
+  geom_line(size = 2) + 
+  geom_vline(xintercept = c(5, 8), size = 0.25) +
+  scale_color_manual(values = c(nord_orange, nord_purple)) +
+  scale_y_continuous(labels = scales::dollar) +
+  expand_limits(y = 0) +
+  labs(x = "Round", y = "Public dollars",
+       title = "Dollars contributed to public pool",
+       subtitle = "Vertical lines indicate rule changes") +
+  guides(color = guide_legend(title = NULL)) +
+  theme_econ(13) + 
+  theme(legend.position = "bottom",
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_blank())
+
+```
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.
