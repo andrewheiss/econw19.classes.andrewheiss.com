@@ -10,9 +10,11 @@ lessons:
   - title: "Capitalism II"
     date: "January 9 (W)"
     reading: "02-reading"
+    class: "02-class"
 
   - title: "Lab 1"
     date: "January 11 (F)"
+    class: "01-lab"
 
   - title: "*No class; Martin Luther King Jr. Day*"
     date: "January 14 (M)"

@@ -1,0 +1,148 @@
+---
+title: "Capitalism II"
+date: "2019-01-09"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-01-09.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-01-09.png)](/slides/MPA-612_2019-01-09.pdf)
+</figure>
+
+
+# Adjusting for inflation
+
+Converting nominal values (the numbers written down at the time) to real values (the numbers in today's / another year's dollars):
+
+$$
+\text{Real value} = \frac{\text{Nominal value}}{\text{Price index / 100}}
+$$
+
+Shifting the price index to a different year:
+
+$$
+\text{Price index}_{\text{new year}} = \frac{\text{Price index}_{\text{current year}}}{\text{Price index}_{\text{new year}}} \times 100
+$$
+
+Or, for the quickest and easiest method, use the BLS's [CPI inflation calculator](https://www.bls.gov/data/inflation_calculator.htm).
+
+
+# Calculating the inflation rate
+
+The inflation rate is the percent change in CPI between two periods. The formula for percent change is:
+
+$$
+\text{% change} = \frac{\text{New} - \text{Old}}{\text{Old}}
+$$
+
+or
+
+$$
+\text{% change} = \frac{\text{Current} - \text{Previous}}{\text{Previous}}
+$$
+
+The CPI in January 2010 was 217.488, and it was 249.245 in January 2018. The total inflation over the past 8 years is $\frac{249.245 - 217.488}{217.488}$, or `r scales::percent((249.245 - 217.488) / 217.488)`.
+
+
+# Economic indicators
+
+- [<i class="fas fa-chart-line"></i> GDP (nominal)](https://fred.stlouisfed.org/series/GDP)
+- [<i class="fas fa-chart-line"></i> GDP deflator](https://fred.stlouisfed.org/series/GDPDEF)
+- [<i class="fas fa-chart-line"></i> CPI](https://fred.stlouisfed.org/series/CPIAUCSL)
+- [<i class="fas fa-chart-line"></i> Personal income (nominal)](https://fred.stlouisfed.org/series/PINCOME)
+- [<i class="fas fa-chart-line"></i> Population](https://fred.stlouisfed.org/series/POPTOTUSA647NWDB)
+- [<i class="fas fa-chart-line"></i> Personal income per capita (nominal)](https://fred.stlouisfed.org/series/A792RC0A052NBEA)
+- [<i class="fas fa-chart-line"></i> Health expenditures per capita (nominal)](https://fred.stlouisfed.org/series/HLTHSCPCHCSA)
+
+You can download each of these indicators by hand and then compile them into an Excel spreadsheet, or you can use the `tidyquant` R package to access this data from the FRED API and compile them all automatically, like magic. 
+
+Here are a couple spreadsheets I compiled for you. The code for downloading and compiling this data is below:
+
+- [<i class="fas fa-file-excel"></i> `fred_cpi.xlsx`](/data/fred_cpi.xlsx)
+- [<i class="fas fa-file-excel"></i> `fred_gdp.xlsx`](/data/fred_gdp.xlsx)
+
+```{r fake-download-fred, eval=FALSE}
+library(tidyverse)  # Load ggplot, dplyr, tidyr, and friends
+library(tidyquant)  # Download FRED data and other quantitative financial data
+library(lubridate)  # Do cool stuff with dates
+
+# tribble() lets you make a miniature dataframe
+code_names <- tribble(
+  ~symbol,            ~title,
+  "GDP",              "GDP",
+  "GDPDEF",           "GDP deflator",
+  "CPIAUCSL",         "CPI",
+  "A792RC0A052NBEA",  "Personal income per capita",
+  "PINCOME",          "Personal income",
+  "HLTHSCPCHCSA",     "Health expenditures per capita",
+  "POPTOTUSA647NWDB", "Population"
+)
+
+# Download all those codes from FRED from 1979 to 2018
+fred_raw <- tq_get(code_names, 
+                   get = "economic.data",
+                   from = "1979-01-01", to = "2018-12-31")
+
+# tq_get downloads this data in tidy (long) format. spread() reshapes this data
+# so that there's a column for each indicators. filter() makes sure we only look
+# at January.
+fred <- fred_raw %>% 
+  select(-symbol) %>% 
+  spread(title, price) %>% 
+  filter(month(date) == 1)
+
+# Look at the first few rows
+head(fred)
+
+# Save as a CSV file
+write_csv(fred, "fred_stuff.csv")
+
+# Or save as an Excel file
+library(writexl)
+write_xlsx(fred, "fred_stuff.xlsx")
+```
+
+```{r fake-save-fred, include=FALSE, eval=FALSE}
+fred %>% 
+  mutate(`Personal income` = `Personal income` * 1000000000) %>% 
+  select(Date = date, CPI, Population, `Personal income`, contains("capita")) %>% 
+  write_xlsx(here("static", "data", "fred_cpi.xlsx"))
+
+fred %>% 
+  mutate(personal_income = `Personal income` * 1000000000) %>% 
+  select(date, CPI, population = Population, personal_income, 
+         contains("capita")) %>% 
+  write_csv(here("static", "data", "fred_cpi.csv"))
+
+fred %>% 
+  mutate(GDP = GDP * 1000000000) %>% 
+  select(Date = date, GDP, `GDP deflator`, Population) %>% 
+  write_xlsx(here("static", "data", "fred_gdp.xlsx"))
+
+fred %>% 
+  mutate(GDP = GDP * 1000000000) %>% 
+  select(date, GDP, gdp_deflator = `GDP deflator`, population = Population) %>% 
+  write_csv(here("static", "data", "fred_gdp.csv"))
+```
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.

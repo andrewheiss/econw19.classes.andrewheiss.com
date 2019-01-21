@@ -1,0 +1,181 @@
+---
+title: "Capitalism II"
+date: "2019-01-09"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- BLOGDOWN-HEAD -->
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+<!-- /BLOGDOWN-HEAD -->
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#adjusting-for-inflation">Adjusting for inflation</a></li>
+<li><a href="#calculating-the-inflation-rate">Calculating the inflation rate</a></li>
+<li><a href="#economic-indicators">Economic indicators</a></li>
+<li><a href="#clearest-and-muddiest-things">Clearest and muddiest things</a></li>
+</ul>
+</div>
+
+<h2 id="slides">Slides</h2>
+<p><a href="/slides/MPA-612_2019-01-09.pdf">Download the slides from today’s lecture</a>.</p>
+<figure>
+<a href="/slides/MPA-612_2019-01-09.pdf"><img src="/images/slides/slides_2019-01-09.png" alt="First slide" /></a>
+</figure>
+<h2 id="adjusting-for-inflation">Adjusting for inflation</h2>
+<p>Converting nominal values (the numbers written down at the time) to real values (the numbers in today’s / another year’s dollars):</p>
+<p><span class="math display">\[
+\text{Real value} = \frac{\text{Nominal value}}{\text{Price index / 100}}
+\]</span></p>
+<p>Shifting the price index to a different year:</p>
+<p><span class="math display">\[
+\text{Price index}_{\text{new year}} = \frac{\text{Price index}_{\text{current year}}}{\text{Price index}_{\text{new year}}} \times 100
+\]</span></p>
+<p>Or, for the quickest and easiest method, use the BLS’s <a href="https://www.bls.gov/data/inflation_calculator.htm">CPI inflation calculator</a>.</p>
+<h2 id="calculating-the-inflation-rate">Calculating the inflation rate</h2>
+<p>The inflation rate is the percent change in CPI between two periods. The formula for percent change is:</p>
+<p><span class="math display">\[
+\text{% change} = \frac{\text{New} - \text{Old}}{\text{Old}}
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+\text{% change} = \frac{\text{Current} - \text{Previous}}{\text{Previous}}
+\]</span></p>
+<p>The CPI in January 2010 was 217.488, and it was 249.245 in January 2018. The total inflation over the past 8 years is <span class="math inline">\(\frac{249.245 - 217.488}{217.488}\)</span>, or 14.6%.</p>
+<h2 id="economic-indicators">Economic indicators</h2>
+<ul>
+<li><a href="https://fred.stlouisfed.org/series/GDP"><i class="fas fa-chart-line"></i> GDP (nominal)</a></li>
+<li><a href="https://fred.stlouisfed.org/series/GDPDEF"><i class="fas fa-chart-line"></i> GDP deflator</a></li>
+<li><a href="https://fred.stlouisfed.org/series/CPIAUCSL"><i class="fas fa-chart-line"></i> CPI</a></li>
+<li><a href="https://fred.stlouisfed.org/series/PINCOME"><i class="fas fa-chart-line"></i> Personal income (nominal)</a></li>
+<li><a href="https://fred.stlouisfed.org/series/POPTOTUSA647NWDB"><i class="fas fa-chart-line"></i> Population</a></li>
+<li><a href="https://fred.stlouisfed.org/series/A792RC0A052NBEA"><i class="fas fa-chart-line"></i> Personal income per capita (nominal)</a></li>
+<li><a href="https://fred.stlouisfed.org/series/HLTHSCPCHCSA"><i class="fas fa-chart-line"></i> Health expenditures per capita (nominal)</a></li>
+</ul>
+<p>You can download each of these indicators by hand and then compile them into an Excel spreadsheet, or you can use the <code>tidyquant</code> R package to access this data from the FRED API and compile them all automatically, like magic.</p>
+<p>Here are a couple spreadsheets I compiled for you. The code for downloading and compiling this data is below:</p>
+<ul>
+<li><a href="/data/fred_cpi.xlsx"><i class="fas fa-file-excel"></i> <code>fred_cpi.xlsx</code></a></li>
+<li><a href="/data/fred_gdp.xlsx"><i class="fas fa-file-excel"></i> <code>fred_gdp.xlsx</code></a></li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)  <span class="co"># Load ggplot, dplyr, tidyr, and friends</span>
+<span class="kw">library</span>(tidyquant)  <span class="co"># Download FRED data and other quantitative financial data</span>
+<span class="kw">library</span>(lubridate)  <span class="co"># Do cool stuff with dates</span>
+
+<span class="co"># tribble() lets you make a miniature dataframe</span>
+code_names &lt;-<span class="st"> </span><span class="kw">tribble</span>(
+  <span class="op">~</span>symbol,            <span class="op">~</span>title,
+  <span class="st">&quot;GDP&quot;</span>,              <span class="st">&quot;GDP&quot;</span>,
+  <span class="st">&quot;GDPDEF&quot;</span>,           <span class="st">&quot;GDP deflator&quot;</span>,
+  <span class="st">&quot;CPIAUCSL&quot;</span>,         <span class="st">&quot;CPI&quot;</span>,
+  <span class="st">&quot;A792RC0A052NBEA&quot;</span>,  <span class="st">&quot;Personal income per capita&quot;</span>,
+  <span class="st">&quot;PINCOME&quot;</span>,          <span class="st">&quot;Personal income&quot;</span>,
+  <span class="st">&quot;HLTHSCPCHCSA&quot;</span>,     <span class="st">&quot;Health expenditures per capita&quot;</span>,
+  <span class="st">&quot;POPTOTUSA647NWDB&quot;</span>, <span class="st">&quot;Population&quot;</span>
+)
+
+<span class="co"># Download all those codes from FRED from 1979 to 2018</span>
+fred_raw &lt;-<span class="st"> </span><span class="kw">tq_get</span>(code_names, 
+                   <span class="dt">get =</span> <span class="st">&quot;economic.data&quot;</span>,
+                   <span class="dt">from =</span> <span class="st">&quot;1979-01-01&quot;</span>, <span class="dt">to =</span> <span class="st">&quot;2018-12-31&quot;</span>)
+
+<span class="co"># tq_get downloads this data in tidy (long) format. spread() reshapes this data</span>
+<span class="co"># so that there&#39;s a column for each indicators. filter() makes sure we only look</span>
+<span class="co"># at January.</span>
+fred &lt;-<span class="st"> </span>fred_raw <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>symbol) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">spread</span>(title, price) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">month</span>(date) <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)
+
+<span class="co"># Look at the first few rows</span>
+<span class="kw">head</span>(fred)
+
+<span class="co"># Save as a CSV file</span>
+<span class="kw">write_csv</span>(fred, <span class="st">&quot;fred_stuff.csv&quot;</span>)
+
+<span class="co"># Or save as an Excel file</span>
+<span class="kw">library</span>(writexl)
+<span class="kw">write_xlsx</span>(fred, <span class="st">&quot;fred_stuff.xlsx&quot;</span>)</code></pre>
+<h2 id="clearest-and-muddiest-things">Clearest and muddiest things</h2>
+<p>Go to <a href="https://goo.gl/forms/pyOvPIbRwI8CJlKE3">this form</a> and answer these three questions:</p>
+<ol style="list-style-type: decimal">
+<li>What was the muddiest thing from class today? What are you still wondering about?</li>
+<li>What was the clearest thing from class today?</li>
+<li>What was the most exciting thing you learned?</li>
+</ol>
+<p>I’ll compile the questions and send out answers after class.</p>
