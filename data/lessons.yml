@@ -16,12 +16,13 @@ lessons:
     date: "January 11 (F)"
     class: "01-lab"
 
-  - title: "*No class; Martin Luther King Jr. Day*"
-    date: "January 14 (M)"
-
   - title: "Social interactions and economic outcomes I"
-    date: "January 16 (W)"
+    date: "January 14 (M)"
     reading: "03-reading"
+
+  - title: "Social interactions and economic outcomes II"
+    date: "January 16 (W)"
+    reading: "04-reading"
 
   - title: "Lab 2"
     date: "January 18 (F)"
@@ -30,9 +31,8 @@ lessons:
     date: "January 18 (F)"
     assignment: "01-problem-set"
 
-  - title: "Social interactions and economic outcomes II"
+  - title: "*No class; Martin Luther King Jr. Day*"
     date: "January 21 (M)"
-    reading: "04-reading"
 
   - title: "Incentives and human behavior"
     date: "January 23 (W)"
