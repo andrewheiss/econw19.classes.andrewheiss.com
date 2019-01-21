@@ -1,6 +1,6 @@
 ---
 title: "Social interactions and economic outcomes II"
-date: "2019-01-21"
+date: "2019-01-16"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
@@ -8,5 +8,9 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Required
 
+***Important***: The PDFs of the individual chapters are posted on Learning Suite.
+
 - <i class="fas fa-book"></i> 2.6-2.12 in *Economy, Society, and Public Policy* [@core-espp]
-- Other readings TBD
+- <i class="far fa-file-pdf"></i> Chapter 2 in Frederick W. Mayer, *Narrative Politics: Stories and Collective Action* [@Mayer:2014]
+- <i class="far fa-file-pdf"></i> Chapter 1 in Brian Skyrms, *The Stag Hunt and the Evolution of Social Structure* [@Skyrms:2003]
+- <i class="far fa-file-pdf"></i> Chapter 1 in Timur Kuran, *Private Truths, Public Lies: The Social Consequences of Preference Falsification* [@Kuran:1995]
