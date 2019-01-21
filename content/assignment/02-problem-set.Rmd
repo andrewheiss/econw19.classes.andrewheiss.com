@@ -1,0 +1,209 @@
+---
+title: "Problem set 2"
+date: "2018-01-25"
+due_date: "2018-01-26"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+output:
+  blogdown::html_page:
+    css: /css/gt-overrides.css
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(gt)
+source(file.path(here::here(), "lib", "graphics.R"))
+```
+
+
+**Submit this as a PDF on Learning Suite.** You can use whatever you want to make your drawings, including [Gravit Designer](https://gravit.io/), Adobe Illustrator, Excel, PowerPoint, Microsoft Paint, or photographed/scanned pen and paper.
+
+**Cite your sources and show your work.**
+
+
+# 1
+
+Think about the news over the past couple weeks. Identify two events that are social dilemmas and explain what makes them social dilemmas. **Answer in ≈40 words for each event.**
+
+
+# 2
+
+Consider a repeated prisoners' dilemma game with a finite number of rounds.
+
+1. If we assume that all parties are narrowly rational, and that they know which is the last period, why would we predict no cooperation during the whole game? **Answer in a sentence.**
+
+1. Why, in practice, might parties not behave this way? **Answer in ≈30 words.**
+
+In the prisoners' dilemma computer tournament described in the Radiolab episode, the *Tit for Tat* strategy won. This was also the case in the ["Evolution of Trust"](http://ncase.me/trust/) game that you played.
+
+3. In what sense, exactly, did it win? **Answer in a sentence.**
+
+1. How robust was this finding? Are there situations where *Tit for Tat* is too nice? Too provocable? Too forgiving? **Answer in ≈30 words.**
+
+
+# 3
+
+The inherent negativeness in political campaigns is often described as a classic prisoner's dilemma. 
+
+1. Write down a payoff matrix that shows the choice between positive and negative campaigning as a prisoner's dilemma.
+
+1. Give a recent real-life example of a negative campaign prisoner's dilemma. **Answer in ≈30 words.**
+
+In class, I argued that negative political campaigning might be better modeled as a stag hunt.
+
+3. Why did I say this? What is the difference between a stag hunt and a prisoner's dilemma? **Answer in ≈50 words.**
+
+1. Write down a payoff matrix that shows the choice between positive and negative campaigning as a stag hunt.
+
+
+# 4
+
+The following game represents the interaction between two software engineers, Astrid and Bettina, who are working together to write code as a part of a project. Astrid is better at writing Java code, while Bettina prefers C++. The numbers represent the pay in dollars for completion of the project. 
+
+```{r java-cpp-payoffs, echo=FALSE}
+choices <- c("Java", "C++")
+players <- c("Astrid", "Bettina")
+
+java_cpp <- matrix(
+  c("$4,000, $3,000", "$2,000, $2,000",
+    "$0, $0",         "$3,000, $6,000"),
+  byrow = TRUE, ncol = 2
+) %>% 
+  magrittr::set_rownames(choices) %>% magrittr::set_colnames(choices) %>% 
+  as_tibble(rownames = "choice") %>% 
+  mutate(player = c(players[1], "")) %>% 
+  select(player, everything())
+
+java_cpp %>% 
+  gt() %>%
+  tab_spanner(
+    label = players[[2]],
+    columns = choices
+  ) %>% 
+  cols_label(
+    player = "",
+    choice = ""
+  ) %>% 
+  cols_align(
+    align = "center",
+    columns = vars(choices)
+  ) %>% 
+  tab_style(
+    style = cells_styles(bkgd_color = "white"),
+    locations = cells_data(rows = TRUE)
+  ) %>% 
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_column_labels(groups = "Bettina")
+  ) %>% 
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_data(columns = 1)
+  ) %>% 
+  tab_options(
+    table.width = pct(100)
+  )
+```
+
+\
+
+Based on this information, which of the following are true? Why or why not? **Explain why or why not in a sentence for each.**
+
+1. There are two Nash equilibria: (Java, Java) and (C++, C++).
+
+1. If Astrid can choose the language first and commit to it, then (Java, Java) will be chosen.
+
+1. If the two can make an agreement beforehand, including a transfer of $500 from Bettina to Astrid, then (C++, C++) will be chosen.
+
+1. If the two can make an agreement beforehand, including a transfer of $2,000 from Bettina to Astrid, then (C++, C++) will be chosen.
+
+1. If the two cannot make an agreement beforehand, then they may end up with the (Java, C++) outcome.
+
+
+# 5
+
+After Hurricane Maria, hundreds of nonprofit organizations streamed to Puerto Rico and other Caribbean islands to provide disaster relief. [Research has found](https://theconversation.com/response-to-natural-disasters-like-harvey-could-be-helped-with-game-theory-83125) that coordination between nonprofits during disasters is difficult to maintain—it's easy for individual nonprofits to fundraise and pursue programming on their own while ignoring other organizations working on the same issues. Additionally, there are incentives to do projects that are cheap and have fast turnaround, since [donors respond to the visibility of organizations providing disaster relief](https://www.sciencedirect.com/science/article/pii/S092552730900365X).
+
+Consider two nonprofit organizations working in Puerto Rico. Together, they could spend time coordinating their efforts and run a shelter for hurricane victims, providing each organization with 100 utils. Alternatively, they could individually distribute paper towels—a simple, low-cost, fast, and [visible](https://www.cnn.com/videos/politics/2017/10/03/donald-trump-puerto-rico-supplies-von.cnn/video/playlists/trumps-response-to-puerto-rico-crisis/) project—and receive 5 utils. 
+
+This situation can be modeled with the following payoff matrix:
+
+```{r maria-payoffs, echo=FALSE}
+choices <- c("Run shelter", "Distribute paper towels")
+players <- c("Nonprofit 1", "Nonprofit 2")
+
+maria_payoffs <- matrix(
+  c("100, 100", "0, 5",
+    "5, 0", "5, 5"),
+  byrow = TRUE, ncol = 2
+) %>% 
+  magrittr::set_rownames(choices) %>% magrittr::set_colnames(choices) %>% 
+  as_tibble(rownames = "choice") %>% 
+  mutate(player = c(players[1], "")) %>% 
+  select(player, everything())
+
+maria_payoffs %>% 
+  gt() %>%
+  tab_spanner(
+    label = players[[2]],
+    columns = choices
+  ) %>% 
+  cols_label(
+    player = "",
+    choice = ""
+  ) %>% 
+  cols_align(
+    align = "center",
+    columns = vars(choices)
+  ) %>% 
+  tab_style(
+    style = cells_styles(bkgd_color = "white"),
+    locations = cells_data(rows = TRUE)
+  ) %>% 
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_column_labels(groups = "Nonprofit 2")
+  ) %>% 
+  tab_style(
+    style = cells_styles(text_weight = "bold"),
+    locations = cells_data(columns = 1)
+  ) %>% 
+  tab_options(
+    table.width = pct(100)
+  )
+```
+
+
+1. What are the consequences of this kind of interaction? What will the two organizations naturally tend to do? Why? (i.e. what are the equilibria?) **Answer in ≈30 words.**
+
+1. What kind of game is this? Why? Can cooperation be ensured? How? **Answer in ≈20 words.**
+
+1. **Extra credit:** In the absence of communication, what are the two nonprofits' mixed strategies?^[See the example from [Lab 2](/class/02-lab/) about how to calculate mixed strategy probability cutoffs. Also, see [this post](https://policonomics.com/mixed-strategy/) and/or [this video](https://www.youtube.com/watch?v=sww-Zsl0IRY) on solving mixed strategies.] How will they guess what the other organization will do? Under what conditions will nonprofit 1 choose to run the shelter? (i.e. what are the probability cutoffs for each nonprofit choosing to run the shelter or distribute paper towels?) **Answer in ≈40 words. Show your work.**
+
+1. **Extra credit:** What is the expected payoff of engaging in a mixed strategy? (i.e. choosing to gamble based on probability cutoffs rather than communicate and coordinate in person?) **Show your work.**
+
+
+# 6
+
+[A recent poll by the Edelman Trust Barometer](https://www.edelman.com/trust-barometer) shows a staggering drop in trust in private and public institutions in the United States. Only 33% of Americans surveyed have trust in government, and "no country saw steeper declines than the United States, with a 37-point aggregate drop in trust across all institutions"
+
+1. Why does a community with a high level of trust have an advantage over one with lower levels of trust? [*Hint*: recall @Mayer:2014.] **Answer in ≈40 words.**
+
+1. To what extent can the institution of trust be thought of as a cooperative equilibrium in a stag hunt game? **Answer in ≈30 words.**
+
+1. How might a cooperative equilibrium degenerate into a non-cooperative equilibrium? **Answer in ≈30 words.**
+
+
+# 7
+
+Universities have typically had a hard time recruiting female students in STEM^[Science, technology, engineering, and math] fields. Suppose that the introduction to computer science class (CS 142) at BYU has typically been all male. This year, though, 30 female students enrolled in CS 142 after transferring to BYU from different schools. To the ASB's surprise, 40 additional female BYU students enrolled in the course after the first week of classes. 
+
+1. Provide a possible explanation for this surge in enrollment. Illustrate your explanation with a diagram that illustrates why there were no female students in the past and a jump to 70 this year.^[*Hint*: Think of preference falsification and the disconnect between expected and actual values.] **Answer in ≈40 words.**
+
+1. Does this situation reflect a stag hunt game? Create a payoff matrix and explain why or why not. **Answer in ≈20 words.**
+
+1. What do you think will happen to female enrollment in CS 142 next year, assuming that there are no more transfer students? **Answer in ≈20 words.**

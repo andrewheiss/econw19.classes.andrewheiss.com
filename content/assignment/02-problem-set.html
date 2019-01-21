@@ -1,0 +1,610 @@
+---
+title: "Problem set 2"
+date: "2018-01-25"
+due_date: "2018-01-26"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+output:
+  blogdown::html_page:
+    css: /css/gt-overrides.css
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+  <link rel="stylesheet" href="/css/gt-overrides.css" type="text/css" />
+
+
+<p><strong>Submit this as a PDF on Learning Suite.</strong> You can use whatever you want to make your drawings, including <a href="https://gravit.io/">Gravit Designer</a>, Adobe Illustrator, Excel, PowerPoint, Microsoft Paint, or photographed/scanned pen and paper.</p>
+<p><strong>Cite your sources and show your work.</strong></p>
+<h2 id="section">1</h2>
+<p>Think about the news over the past couple weeks. Identify two events that are social dilemmas and explain what makes them social dilemmas. <strong>Answer in ≈40 words for each event.</strong></p>
+<h2 id="section-1">2</h2>
+<p>Consider a repeated prisoners’ dilemma game with a finite number of rounds.</p>
+<ol style="list-style-type: decimal">
+<li><p>If we assume that all parties are narrowly rational, and that they know which is the last period, why would we predict no cooperation during the whole game? <strong>Answer in a sentence.</strong></p></li>
+<li><p>Why, in practice, might parties not behave this way? <strong>Answer in ≈30 words.</strong></p></li>
+</ol>
+<p>In the prisoners’ dilemma computer tournament described in the Radiolab episode, the <em>Tit for Tat</em> strategy won. This was also the case in the <a href="http://ncase.me/trust/">“Evolution of Trust”</a> game that you played.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>In what sense, exactly, did it win? <strong>Answer in a sentence.</strong></p></li>
+<li><p>How robust was this finding? Are there situations where <em>Tit for Tat</em> is too nice? Too provocable? Too forgiving? <strong>Answer in ≈30 words.</strong></p></li>
+</ol>
+<h2 id="section-2">3</h2>
+<p>The inherent negativeness in political campaigns is often described as a classic prisoner’s dilemma.</p>
+<ol style="list-style-type: decimal">
+<li><p>Write down a payoff matrix that shows the choice between positive and negative campaigning as a prisoner’s dilemma.</p></li>
+<li><p>Give a recent real-life example of a negative campaign prisoner’s dilemma. <strong>Answer in ≈30 words.</strong></p></li>
+</ol>
+<p>In class, I argued that negative political campaigning might be better modeled as a stag hunt.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Why did I say this? What is the difference between a stag hunt and a prisoner’s dilemma? <strong>Answer in ≈50 words.</strong></p></li>
+<li><p>Write down a payoff matrix that shows the choice between positive and negative campaigning as a stag hunt.</p></li>
+</ol>
+<h2 id="section-3">4</h2>
+<p>The following game represents the interaction between two software engineers, Astrid and Bettina, who are working together to write code as a part of a project. Astrid is better at writing Java code, while Bettina prefers C++. The numbers represent the pay in dollars for completion of the project.</p>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#gcpvarxxqg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: 100%;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#gcpvarxxqg .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#gcpvarxxqg .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gcpvarxxqg .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gcpvarxxqg .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#gcpvarxxqg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gcpvarxxqg .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#gcpvarxxqg .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#gcpvarxxqg .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#gcpvarxxqg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#gcpvarxxqg .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#gcpvarxxqg .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#gcpvarxxqg .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#gcpvarxxqg .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#gcpvarxxqg .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#gcpvarxxqg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#gcpvarxxqg .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#gcpvarxxqg .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#gcpvarxxqg .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#gcpvarxxqg .gt_center {
+  text-align: center;
+}
+
+#gcpvarxxqg .gt_left {
+  text-align: left;
+}
+
+#gcpvarxxqg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gcpvarxxqg .gt_font_normal {
+  font-weight: normal;
+}
+
+#gcpvarxxqg .gt_font_bold {
+  font-weight: bold;
+}
+
+#gcpvarxxqg .gt_font_italic {
+  font-style: italic;
+}
+
+#gcpvarxxqg .gt_super {
+  font-size: 65%;
+}
+
+#gcpvarxxqg .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="gcpvarxxqg" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_center' rowspan='2' colspan='1'></th>
+<th class='gt_col_heading gt_center' rowspan='2' colspan='1'></th>
+<th class='gt_col_heading gt_column_spanner gt_center' rowspan='1' colspan='2' style="font-weight:bold;">Bettina</th>
+</tr>
+<tr>
+<th class='gt_col_heading gt_center' rowspan='1' colspan='1'>Java</th>
+<th class='gt_col_heading gt_NA' rowspan='1' colspan='1'>C++</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left' style="background-color:white;font-weight:bold;">Astrid</td>
+<td class='gt_row gt_left' style="background-color:white;">Java</td>
+<td class='gt_row gt_center' style="background-color:white;">$4,000, $3,000</td>
+<td class='gt_row gt_center' style="background-color:white;">$2,000, $2,000</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped' style="background-color:white;font-weight:bold;"></td>
+<td class='gt_row gt_left gt_striped' style="background-color:white;">C++</td>
+<td class='gt_row gt_center gt_striped' style="background-color:white;">$0, $0</td>
+<td class='gt_row gt_center gt_striped' style="background-color:white;">$3,000, $6,000</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+<p><br />
+</p>
+<p>Based on this information, which of the following are true? Why or why not? <strong>Explain why or why not in a sentence for each.</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>There are two Nash equilibria: (Java, Java) and (C++, C++).</p></li>
+<li><p>If Astrid can choose the language first and commit to it, then (Java, Java) will be chosen.</p></li>
+<li><p>If the two can make an agreement beforehand, including a transfer of $500 from Bettina to Astrid, then (C++, C++) will be chosen.</p></li>
+<li><p>If the two can make an agreement beforehand, including a transfer of $2,000 from Bettina to Astrid, then (C++, C++) will be chosen.</p></li>
+<li><p>If the two cannot make an agreement beforehand, then they may end up with the (Java, C++) outcome.</p></li>
+</ol>
+<h2 id="section-4">5</h2>
+<p>After Hurricane Maria, hundreds of nonprofit organizations streamed to Puerto Rico and other Caribbean islands to provide disaster relief. <a href="https://theconversation.com/response-to-natural-disasters-like-harvey-could-be-helped-with-game-theory-83125">Research has found</a> that coordination between nonprofits during disasters is difficult to maintain—it’s easy for individual nonprofits to fundraise and pursue programming on their own while ignoring other organizations working on the same issues. Additionally, there are incentives to do projects that are cheap and have fast turnaround, since <a href="https://www.sciencedirect.com/science/article/pii/S092552730900365X">donors respond to the visibility of organizations providing disaster relief</a>.</p>
+<p>Consider two nonprofit organizations working in Puerto Rico. Together, they could spend time coordinating their efforts and run a shelter for hurricane victims, providing each organization with 100 utils. Alternatively, they could individually distribute paper towels—a simple, low-cost, fast, and <a href="https://www.cnn.com/videos/politics/2017/10/03/donald-trump-puerto-rico-supplies-von.cnn/video/playlists/trumps-response-to-puerto-rico-crisis/">visible</a> project—and receive 5 utils.</p>
+<p>This situation can be modeled with the following payoff matrix:</p>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#njjuruoarf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: 100%;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#njjuruoarf .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#njjuruoarf .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#njjuruoarf .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#njjuruoarf .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#njjuruoarf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#njjuruoarf .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#njjuruoarf .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#njjuruoarf .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#njjuruoarf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#njjuruoarf .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#njjuruoarf .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#njjuruoarf .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#njjuruoarf .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#njjuruoarf .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#njjuruoarf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#njjuruoarf .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#njjuruoarf .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#njjuruoarf .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#njjuruoarf .gt_center {
+  text-align: center;
+}
+
+#njjuruoarf .gt_left {
+  text-align: left;
+}
+
+#njjuruoarf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#njjuruoarf .gt_font_normal {
+  font-weight: normal;
+}
+
+#njjuruoarf .gt_font_bold {
+  font-weight: bold;
+}
+
+#njjuruoarf .gt_font_italic {
+  font-style: italic;
+}
+
+#njjuruoarf .gt_super {
+  font-size: 65%;
+}
+
+#njjuruoarf .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="njjuruoarf" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_center' rowspan='2' colspan='1'></th>
+<th class='gt_col_heading gt_center' rowspan='2' colspan='1'></th>
+<th class='gt_col_heading gt_column_spanner gt_center' rowspan='1' colspan='2' style="font-weight:bold;">Nonprofit 2</th>
+</tr>
+<tr>
+<th class='gt_col_heading gt_center' rowspan='1' colspan='1'>Run shelter</th>
+<th class='gt_col_heading gt_NA' rowspan='1' colspan='1'>Distribute paper towels</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left' style="background-color:white;font-weight:bold;">Nonprofit 1</td>
+<td class='gt_row gt_left' style="background-color:white;">Run shelter</td>
+<td class='gt_row gt_center' style="background-color:white;">100, 100</td>
+<td class='gt_row gt_center' style="background-color:white;">0, 5</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped' style="background-color:white;font-weight:bold;"></td>
+<td class='gt_row gt_left gt_striped' style="background-color:white;">Distribute paper towels</td>
+<td class='gt_row gt_center gt_striped' style="background-color:white;">5, 0</td>
+<td class='gt_row gt_center gt_striped' style="background-color:white;">5, 5</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+<ol style="list-style-type: decimal">
+<li><p>What are the consequences of this kind of interaction? What will the two organizations naturally tend to do? Why? (i.e. what are the equilibria?) <strong>Answer in ≈30 words.</strong></p></li>
+<li><p>What kind of game is this? Why? Can cooperation be ensured? How? <strong>Answer in ≈20 words.</strong></p></li>
+<li><p><strong>Extra credit:</strong> In the absence of communication, what are the two nonprofits’ mixed strategies?<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">See the example from <a href="/class/02-lab/">Lab 2</a> about how to calculate mixed strategy probability cutoffs. Also, see <a href="https://policonomics.com/mixed-strategy/">this post</a> and/or <a href="https://www.youtube.com/watch?v=sww-Zsl0IRY">this video</a> on solving mixed strategies.<br />
+<br />
+</span></span> How will they guess what the other organization will do? Under what conditions will nonprofit 1 choose to run the shelter? (i.e. what are the probability cutoffs for each nonprofit choosing to run the shelter or distribute paper towels?) <strong>Answer in ≈40 words. Show your work.</strong></p></li>
+<li><p><strong>Extra credit:</strong> What is the expected payoff of engaging in a mixed strategy? (i.e. choosing to gamble based on probability cutoffs rather than communicate and coordinate in person?) <strong>Show your work.</strong></p></li>
+</ol>
+<h2 id="section-5">6</h2>
+<p><a href="https://www.edelman.com/trust-barometer">A recent poll by the Edelman Trust Barometer</a> shows a staggering drop in trust in private and public institutions in the United States. Only 33% of Americans surveyed have trust in government, and “no country saw steeper declines than the United States, with a 37-point aggregate drop in trust across all institutions”</p>
+<ol style="list-style-type: decimal">
+<li><p>Why does a community with a high level of trust have an advantage over one with lower levels of trust?<span class="citation"><span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote"><em>Hint</em>: recall Frederick W. Mayer, <em>Narrative Politics: Stories and Collective Action</em> (Oxford: Oxford University Press, 2014).<br />
+<br />
+</span></span></span> <strong>Answer in ≈40 words.</strong></p></li>
+<li><p>To what extent can the institution of trust be thought of as a cooperative equilibrium in a stag hunt game? <strong>Answer in ≈30 words.</strong></p></li>
+<li><p>How might a cooperative equilibrium degenerate into a non-cooperative equilibrium? <strong>Answer in ≈30 words.</strong></p></li>
+</ol>
+<h2 id="section-6">7</h2>
+<p>Universities have typically had a hard time recruiting female students in STEM<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Science, technology, engineering, and math<br />
+<br />
+</span></span> fields. Suppose that the introduction to computer science class (CS 142) at BYU has typically been all male. This year, though, 30 female students enrolled in CS 142 after transferring to BYU from different schools. To the ASB’s surprise, 40 additional female BYU students enrolled in the course after the first week of classes.</p>
+<ol style="list-style-type: decimal">
+<li><p>Provide a possible explanation for this surge in enrollment. Illustrate your explanation with a diagram that illustrates why there were no female students in the past and a jump to 70 this year.<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote"><em>Hint</em>: Think of preference falsification and the disconnect between expected and actual values.<br />
+<br />
+</span></span> <strong>Answer in ≈40 words.</strong></p></li>
+<li><p>Does this situation reflect a stag hunt game? Create a payoff matrix and explain why or why not. <strong>Answer in ≈20 words.</strong></p></li>
+<li><p>What do you think will happen to female enrollment in CS 142 next year, assuming that there are no more transfer students? <strong>Answer in ≈20 words.</strong></p></li>
+</ol>
