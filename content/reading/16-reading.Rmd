@@ -1,5 +1,5 @@
 ---
-title: "Labor markets I"
+title: "Firms and markets III"
 date: "2019-03-04"
 citeproc: false
 bibliography: ../../static/bib/references.bib
@@ -8,6 +8,9 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Required
 
-- <i class="fas fa-book"></i> Introduction and 8.1-8.6 *Economy, Society, and Public Policy* [@core-espp]
-- <i class="fas fa-book"></i> Chapter 5 in *Naked Economics* [@Wheelan:2010]
-- Other readings TBD
+- <i class="fas fa-book"></i> Chapters 7 and 12 in *Naked Economics* [@Wheelan:2010]
+- <i class="fas fa-external-link-square-alt"></i> ["Continued Existence Of Edible Arrangements Disproves Central Tenets Of Capitalism,"](https://www.theonion.com/continued-existence-of-edible-arrangements-disproves-ce-1819572513), The Onion, March 31, 2011
+- <i class="fas fa-external-link-square-alt"></i> Maurice E. Stucke, ["Is Competition Always Good?,"](https://blog.oup.com/2013/03/is-competition-always-good-antitrust/) March 25, 2013
+- At least one of these episodes (both if you're adventurous):
+    - <i class="fas fa-podcast"></i> Planet Money, ["The Tale Of The Onion King,"](https://www.npr.org/sections/money/2015/10/14/448718171/episode-657-the-tale-of-the-onion-king) episode 657, October 14, 2015
+    - <i class="fas fa-podcast"></i> Planet Money, ["Mavericks, Monopolies And Beer,"](https://www.npr.org/sections/money/2013/02/23/172724026/episode-438-mavericks-monopolies-and-beer) episode 438, February 23, 2013

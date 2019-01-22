@@ -9,5 +9,7 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 # Required
 
 - <i class="fas fa-book"></i> 7.7-7.12 in *Economy, Society, and Public Policy* [@core-espp]
-- <i class="fas fa-book"></i> Chapter 12 in *Naked Economics* [@Wheelan:2010]
-- Other readings TBD
+- <i class="fas fa-trophy"></i> Play at least *15 minutes* of ["Universal Paperclips"](http://www.decisionproblem.com/paperclips/)^[**WARNING**: This game can take over your life for the next day or so, which can be really fun and rewarding, but also *it will seriously for real consume every waking moment* for a few hours. This is your official warning.]
+- <i class="fas fa-external-link-square-alt"></i> Michael Eisen, ["Amazon's $23,698,655.93 book about flies,"](http://www.michaeleisen.org/blog/?p=358) April 22, 2011
+- <i class="fas fa-external-link-square-alt"></i> José-Daniel Reyes, ["Quinoa: The Little Cereal That Could,"](http://blogs.worldbank.org/trade/quinoa-the-little-cereal-that-could) March 19, 2013
+- <i class="fas fa-external-link-square-alt"></i> Jeremy Cherfas, ["Your Quinoa Habit Really Did Help Peru's Poor. But There's Trouble Ahead,"](https://www.npr.org/sections/thesalt/2016/03/31/472453674/your-quinoa-habit-really-did-help-perus-poor-but-theres-trouble-ahead), March 31, 2016

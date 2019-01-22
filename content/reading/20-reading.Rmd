@@ -11,4 +11,3 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 - <i class="fas fa-book"></i> Introduction and 11.1-11.4 in *Economy, Society, and Public Policy* [@core-espp]
 - <i class="far fa-file-pdf"></i> A. Danny Ellerman, ["US Experience with Emissions Trading"](http://www.cesifo-group.de/DocDL/dicereport407-forum3.pdf) [@Ellerman:2007]
 - <i class="fab fa-youtube"></i> *The Lorax*, ["How Bad Can I Be?"](https://www.youtube.com/watch?v=W_HUdf89hI8)
-- Other readings TBD

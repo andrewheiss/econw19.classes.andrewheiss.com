@@ -9,4 +9,9 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 # Required
 
 - <i class="fas fa-book"></i> 6.8-6.14 in *Economy, Society, and Public Policy* [@core-espp]
-- Other readings TBD
+- <i class="far fa-file-pdf"></i> Oliver Hart and Andrei Shleifer and Robert W. Vishny, "The Proper Scope of Government: Theory and an Application to Prisons" [@HartShleiferVishny:1997]
+    - ***Note***: This is really dense and the middle is full of equations. You can skip those. Read the introduction, discussion, and conclusion and make sure you understand the gist of the article.
+- Look at these real-life examples of information asymmetries and principal-agent problems:
+    - <i class="fas fa-external-link-square-alt"></i> Sam Dolnick, ["Air-Conditioners That Run When Nobody's Home,"](http://www.nytimes.com/2010/08/16/nyregion/16chill.html) New York Times, August 15, 2010
+    - <i class="fas fa-external-link-square-alt"></i> Ceci Connolly, ["U.S. worker's case reveals how drug cartels get help from this side of border,"](http://www.washingtonpost.com/wp-dyn/content/article/2010/09/11/AR2010091105087.html) Washington Post, September 12, 2010
+    - <i class="fas fa-external-link-square-alt"></i> Rob Ferguson, ["Ontario’s winter roads 'less safe' since privatization: auditor,"](https://www.thestar.com/news/canada/2015/04/29/ontarios-winter-roads-are-less-safe-since-privatization-auditor.html) The Star, April 29, 2015

@@ -9,4 +9,9 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 # Required
 
 - <i class="fas fa-book"></i> Introduction and 6.1-6.7 in *Economy, Society, and Public Policy* [@core-espp]
-- Other readings TBD
+- <i class="fas fa-book"></i> Chapter 5 in *Naked Economics* [@Wheelan:2010]
+- <i class="fab fa-youtube"></i> CORE team, ["Richard Freeman: You can't outsource responsibility"](https://www.youtube.com/watch?v=2Zm5ZLMKhgQ)
+- <i class="fab fa-youtube"></i> Marginal Revolution University, [Asymmetric Information and Used Cars](https://www.youtube.com/watch?v=sXPXpJ5vMnU)
+- <i class="fab fa-youtube"></i> Marginal Revolution University, [Asymmetric Information and Health Insurance](https://www.youtube.com/watch?v=pUkRo9COd38)
+- <i class="fab fa-youtube"></i> Marginal Revolution University, [Moral Hazard](https://www.youtube.com/watch?v=5v7TWKlYoN0)
+- <i class="fab fa-youtube"></i> Marginal Revolution University, [Solutions to Moral Hazard](https://www.youtube.com/watch?v=6faL76QZ2AA)

@@ -9,4 +9,5 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 # Required
 
 - <i class="fas fa-book"></i> 3.7-3.11 in *Economy, Society, and Public Policy* [@core-espp]
-- Other readings TBD
+- <i class="fas fa-podcast"></i> Planet Money, ["Retraining Day,"](https://www.npr.org/sections/money/2017/01/27/512060753/episode-750-retraining-day) episode 750, January 27, 2017
+- <i class="fas fa-podcast"></i> Planet Money, ["The Bottom of the Well,"](https://www.npr.org/sections/money/2015/07/22/425392169/episode-640-the-bottom-of-the-well) episode 640, July 22, 2015

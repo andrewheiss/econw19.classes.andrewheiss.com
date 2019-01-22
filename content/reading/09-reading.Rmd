@@ -9,4 +9,5 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 # Required
 
 - <i class="fas fa-book"></i> 4.7-4.12 in *Economy, Society, and Public Policy* [@core-espp]
-- Other readings TBD
+- <i class="fas fa-podcast"></i> Freakonomics Radio, ["Are We Running Out of Ideas?,"](http://freakonomics.com/podcast/no-new-ideas/) November 30, 2017
+- <i class="fas fa-podcast"></i> Planet Money, ["Why We Work So Much,"](https://www.npr.org/sections/money/2015/07/24/426017148/episode-641-why-we-work-so-much) episode 641, July 24, 2015

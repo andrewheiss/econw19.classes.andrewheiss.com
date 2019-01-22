@@ -9,4 +9,6 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 # Required
 
 - <i class="fas fa-book"></i> 11.5-11.8 in *Economy, Society, and Public Policy* [@core-espp]
-- Other readings TBD
+- <i class="fas fa-podcast"></i> Freakonomics, ["Parking Is Hell,"](http://freakonomics.com/podcast/parking-is-hell-a-new-freakonomics-radio-podcast/) Episode 118, March 13, 2013
+- <i class="fas fa-podcast"></i> All Things Considered, ["Nobel Laureate: 'I've Been Wrong So Often, I Don't Find It Extraordinary At All',"](https://www.npr.org/sections/money/2012/05/09/152197483/nobel-laureate-ive-been-wrong-so-often-i-dont-find-it-extraordinary-at-all) May 8, 2012
+- <i class="fas fa-podcast"></i> All Things Considered, ["The Nobel Laureate Who Figured Out How To Deal With Annoying People,"](https://www.npr.org/sections/money/2013/09/10/218526472/the-nobel-prizewinner-who-figured-out-how-to-deal-with-annoying-people) September 3, 2013

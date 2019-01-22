@@ -10,6 +10,6 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 - <i class="fas fa-book"></i> Introduction and 4.1-4.6 in *Economy, Society, and Public Policy* [@core-espp]
 - <i class="fas fa-book"></i> Chapter 6 in *Naked Economics* [@Wheelan:2010]
-- <i class="fa fa-external-link" aria-hidden="true"></i> Charles Duhigg, ["Warning: Habits May Be Good for You,"](http://www.nytimes.com/2008/07/13/business/13habit.html) New York Times, July 13, 2008
-- <i class="fa fa-external-link" aria-hidden="true"></i> Randall Munroe, ["Cost of Pennies"](https://what-if.xkcd.com/22/)
-- <i class="fa fa-external-link" aria-hidden="true"></i> Randall Munroe, ["Working"](https://xkcd.com/951/)
+- <i class="fas fa-external-link-square-alt"></i> Charles Duhigg, ["Warning: Habits May Be Good for You,"](http://www.nytimes.com/2008/07/13/business/13habit.html) New York Times, July 13, 2008
+- <i class="fas fa-external-link-square-alt"></i> Randall Munroe, ["Cost of Pennies"](https://what-if.xkcd.com/22/)
+- <i class="fas fa-external-link-square-alt"></i> Randall Munroe, ["Working"](https://xkcd.com/951/)

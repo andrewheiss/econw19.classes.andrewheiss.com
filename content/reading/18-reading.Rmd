@@ -11,4 +11,7 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 *Note: This chapter starts inching into the world of macroeconomics, which goes beyond the scope of this class. Read chapter 9 in ESPP, but don't do it super in depth.*
 
 - <i class="fas fa-book"></i> Chapter 9 in *Economy, Society, and Public Policy* [@core-espp]
-- Other readings TBD
+- <i class="fas fa-external-link-square-alt"></i> [Why Are Americans So Bad At Saving? (Part I)](https://www.npr.org/sections/money/2011/12/19/143961175/why-are-americans-so-bad-at-saving)
+- <i class="fas fa-external-link-square-alt"></i> [Why Are Americans So Bad At Saving? (Part II)](https://www.npr.org/sections/money/2011/12/19/143950265/why-are-americans-so-bad-at-saving)
+- <i class="fas fa-podcast"></i> Planet Money, ["DIY Finance,"](https://www.npr.org/sections/money/2016/02/10/466281062/episode-466-diy-finance) Episode 466, February 10, 2016
+- <i class="fas fa-podcast"></i> Freakonomics, ["How to Think About Money, Choose Your Hometown, and Buy an Electric Toothbrush,"](http://freakonomics.com/podcast/how-to-think-about-money-choose-your-hometown-and-buy-an-electric-toothbrush-a-new-freakonomics-radio-podcast/) Episode 140, October 3, 2013 

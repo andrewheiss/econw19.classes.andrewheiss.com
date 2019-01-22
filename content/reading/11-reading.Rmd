@@ -10,6 +10,8 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 ***Important***: The PDFs of the North and Putnam chapters are posted on Learning Suite.
 
+**ALSO IMPORTANT**: Remember to use your grad school reading skills on these longer PDFs.
+
 - <i class="fas fa-book"></i> 5.6–5.10 in *Economy, Society, and Public Policy* [@core-espp]
 - <i class="far fa-file-pdf"></i> Chapter 1 in Douglass C. North, *Institutions, Institutional Change, and Economic Performance* [@North:1990]
 - <i class="far fa-file-pdf"></i> Chapter 6 in Robert D. Putnam, *Making Democracy Work: Civic Traditions in Modern Italy* [@Putnam:1994]
