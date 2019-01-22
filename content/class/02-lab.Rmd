@@ -12,6 +12,9 @@ output:
 library(tidyverse)
 library(magrittr)
 library(gt)
+
+# Make gt's random id tags consistent
+set.seed(1234)
 ```
 
 

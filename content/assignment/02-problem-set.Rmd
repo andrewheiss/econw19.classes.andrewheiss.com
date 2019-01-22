@@ -17,6 +17,9 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 library(tidyverse)
 library(gt)
 source(file.path(here::here(), "lib", "graphics.R"))
+
+# Make gt's random id tags consistent
+set.seed(1234)
 ```
 
 
