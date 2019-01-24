@@ -1,0 +1,182 @@
+---
+title: "Incentives and human behavior"
+date: "2019-01-23"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-01-23.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-01-23.png)](/slides/MPA-612_2019-01-23.pdf)
+</figure>
+
+
+# Heuristics and biases
+
+```{r load-packages, include=FALSE}
+library(tidyverse)
+library(lubridate)
+library(ggstance)
+library(here)
+
+source(here("lib", "graphics.R"))
+```
+
+```{r get-data-from-google, include=FALSE, eval=FALSE}
+library(googlesheets)
+
+# Pop quiz 1: Insensitivity to prior probability of outcomes
+# https://goo.gl/forms/iQVaeTp5w9bF25JF2
+gs_key("1m3nhsbdo6-D5wQTtLhmzD4IMdjSZPx_2MZhq0s_K5uA", 
+       verbose = FALSE) %>%
+  gs_read_csv() %>% 
+  magrittr::set_colnames(c("timestamp", "Q1")) %>% 
+  write_csv(here("static", "data", "pop-quiz-1.csv"))
+
+# Pop quiz 2: Insensitiviy to sample size
+# https://goo.gl/forms/HYBwTfih2UDjka3j1
+gs_key("1zHhs_tRhhJWJHG6h_MVZz4P8zG8VeqaQow8pz3dleBk", 
+       verbose = FALSE) %>%
+  gs_read_csv() %>% 
+  magrittr::set_colnames(c("timestamp", "Q2")) %>% 
+  write_csv(here("static", "data", "pop-quiz-2.csv"))
+```
+
+## Insensitivity to prior probability of outcomes
+
+> *Vignette*: Sarah loves to listen to New Age music and faithfully reads her horoscope each day. In her spare time, she enjoys aromatherapy and participating in a local spirituality community.^[Borrowed from Kendra Cherry, ["What is the Representativeness Heuristic?,"](https://www.verywell.com/representativeness-heuristic-2795805) July 21, 2017.]
+
+This example followed expectations. Few of you chose the more probable outcome—there are far more teachers than holistic healers in the world.
+
+```{r pop-quiz-1, message=FALSE, warning=FALSE, echo=FALSE, fig.height=4}
+quiz1_prob_outcomes <- read_csv(here("static", "data", "pop-quiz-1.csv")) %>% 
+  mutate(timestamp = mdy_hms(timestamp),
+         hour_taken = hour(timestamp),
+         section = factor(hour_taken, levels = c(8, 9), 
+                          labels = c("8:00 section", "9:30 section"), ordered = TRUE))
+
+q1_plot_data <- quiz1_prob_outcomes %>%
+  count(section, Q1) %>%
+  group_by(section) %>%
+  mutate(nn = sum(n)) %>%
+  ungroup() %>%
+  mutate(perc = n / nn)
+
+ggplot(q1_plot_data, aes(x = perc, y = Q1, color = fct_rev(section))) + 
+  geom_pointrangeh(aes(xmin = 0, xmax = perc), size = 1.5,
+                   position = position_dodgev(height = 0.25)) +
+  scale_color_manual(values = c(nord_purple, nord_orange), name = NULL,
+                     guide = guide_legend(reverse = TRUE)) +
+  scale_x_continuous(labels = scales::percent) +
+  labs(x = NULL, y = NULL) +
+  theme_econ(13) +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_blank())
+```
+
+## Insensitivity to sample size
+
+> *Vignette*: Provo is served by two hospitals. In the larger hospital, about 45 babies are born each day, and in the smaller hospital about 15 babies are born each day. As you know, about 50% of all babies are boys, but the exact percentage varies from day to day—sometimes it's a bit higher than 50%, and sometimes it's lower. The hospitals make special note of when more than 60% of the babies born that day are boys. Which hospital do you think recorded more of these boy-heavy days?^[Adapted from @TverskyKahneman:1974]
+
+The 9:30 class generally got the correct answer here. The smaller hospital has fewer births and thus has higher variance (i.e. a less stable mean), so it's more likely to see variations in outcomes. Some people in the 8:00 class demonstrated typical representativeness bias and went for the larger hospital.
+
+```{r pop-quiz-2, message=FALSE, warning=FALSE, echo=FALSE}
+quiz2_sample_size <- read_csv(here("static", "data", "pop-quiz-2.csv")) %>% 
+  mutate(timestamp = mdy_hms(timestamp),
+         hour_taken = hour(timestamp),
+         section = factor(hour_taken, levels = c(8, 9), 
+                          labels = c("8:00 section", "9:30 section"), ordered = TRUE))
+
+q2_plot_data <- quiz2_sample_size %>%
+  count(section, Q2) %>%
+  group_by(section) %>%
+  mutate(nn = sum(n)) %>%
+  ungroup() %>%
+  mutate(perc = n / nn)
+
+ggplot(q2_plot_data, aes(x = perc, y = Q2, color = fct_rev(section))) + 
+  geom_pointrangeh(aes(xmin = 0, xmax = perc), size = 1.5,
+                   position = position_dodgev(height = 0.25)) +
+  scale_color_manual(values = c(nord_purple, nord_orange), name = NULL,
+                     guide = guide_legend(reverse = TRUE)) +
+  scale_x_continuous(labels = scales::percent) +
+  labs(x = NULL, y = NULL) +
+  theme_econ(13) +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_blank())
+```
+
+## Anchoring
+
+> *Low vignette*: International NGOs don't have regular access to regional international organizations. Today, NGOs participate in only **5%** of African Union meetings.
+
+> *High vignette*: Regional international organizations have become increasingly important. Today, nearly **100%** of African countries are part of the African Union.
+
+> *Question*: What percent of North American and European countries are members of NATO (the North American Treaty Organization)?^[Adapted from @TverskyKahneman:1974]
+
+Ha, this example ***did not*** follow expectations. Those with the high frame should have given answers that were higher, and vice versa, but they did not in either section. The difference between the mean responses across the vignettes is not statistically significant.
+
+```{r pop-quiz-3, message=FALSE, warning=FALSE, echo=FALSE}
+# Pop quiz 3: Anchoring
+# https://byu.az1.qualtrics.com/jfe/form/SV_9NNSlsdH18OqIRL
+q3_anchoring_headers <- read_csv(here("static", "data", "pop-quiz-3.csv"),
+                                 n_max = 2) 
+
+q3_anchoring_raw <- read_csv(here("static", "data", "pop-quiz-3.csv"),
+                             skip = 3, col_names = colnames(q3_anchoring_headers))
+
+q3_anchoring_clean <- q3_anchoring_raw %>%
+  mutate(hour_taken = hour(RecordedDate),
+         section = factor(hour_taken, levels = c(8, 9), 
+                          labels = c("8:00 section", "9:30 section"), ordered = TRUE)) %>%
+  select(starts_with("Q"), section) %>%
+  gather(condition, value, -section) %>%
+  filter(!is.na(value)) %>%
+  mutate(condition = recode(condition, 
+                            Q4_1 = "Low anchored vignette",
+                            Q2_1 = "High anchored vignette"),
+         condition = fct_inorder(condition, ordered = TRUE),
+         value = value / 100)
+
+mean_cl_booth <- function(...) {
+  mean_cl_boot(...) %>%
+    rename(x = y, xmin = ymin, xmax = ymax)
+}
+
+set.seed(1234)
+ggplot(q3_anchoring_clean, aes(x = value, y = condition)) + 
+  stat_summaryh(fun.data = mean_cl_booth, geom = "pointrangeh", 
+                colour = nord_red, size = 1.5) +
+  geom_point(alpha = 0.6) +
+  scale_x_continuous(labels = scales::percent) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(x = NULL, y = NULL, 
+       caption = "Error bars show the bootstrapped 95% confidence interval") +
+  theme_econ(13) +
+  theme(panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_blank()) +
+  facet_wrap(~ section, ncol = 1)
+```
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.
