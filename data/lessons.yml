@@ -44,6 +44,7 @@ lessons:
 
   - title: "Lab 3"
     date: "January 25 (F)"
+    class: "03-lab"
 
   - title: '<i class="fas fa-laptop-code"></i> **Problem set 2**'
     date: "January 25 (F)"
