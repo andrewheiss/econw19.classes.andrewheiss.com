@@ -1,0 +1,182 @@
+---
+title: "Problem set 3"
+date: "2018-02-01"
+due_date: "2018-02-02"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+output:
+  blogdown::html_page:
+    css: /css/gt-overrides.css
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(gt)
+source(file.path(here::here(), "lib", "graphics.R"))
+
+# Make gt's random id tags consistent
+set.seed(1234)
+```
+
+
+**Submit this as a PDF on Learning Suite.** You can use whatever you want to make your drawings, including [Gravit Designer](https://gravit.io/), Adobe Illustrator, Excel, PowerPoint, Microsoft Paint, or photographed/scanned pen and paper.
+
+**Cite your sources and show your work.**
+
+
+# 1
+
+1. How are people likely to judge the likelihood of shark attack at the ocean beach? What kinds of information will influence that judgment, and the choice of whether to go swimming? Use specific heuristics to explain your answer. (**≈40 words**)
+2. In *Nudge*, Thaler and Sunstein note that credit card companies try to stop retailers from requiring that customers pay a fee if they use a credit card. The credit card companies would rather that retailers offer a discount for customers who pay cash. What's the difference? (**≈30 words**)
+3. Is a tax a nudge? Why or why not? (**≈40 words**)
+
+
+# 2
+
+Consider **the society you live in,** or **another society** with which you are familiar.
+
+1. To make society fairer (according to the substantive judgement of fairness), would you want greater equality of income, happiness, or freedom? Why? Would there be a trade-off between these aspects? (**≈30 words**)
+1. Are there other things that should be more equal to achieve greater substantive fairness in this society? (**≈30 words**)
+1. How fair is this society, according to the procedural judgement of fairness? (**≈30 words**)
+1. Suppose that, behind a Rawlsian veil of ignorance, you could choose to live in a society in which one (but only one) of the three procedural standards for fairness (voluntary exchange of property, equality of opportunity, and deservingness) would be the guiding principle for how institutions are organized. Which procedural standard would you choose, and why? (**≈50 words**)
+
+
+# 3
+
+1. Two farmers have unlimited access to a common plot of land and can let their cows graze on it. The matrix below shows the benefits they get from grazing either 1 or 2+ cows on the land.
+
+    ```{r pd-payoffs, echo=FALSE}
+    choices <- c("1 cow", "2+ cows")
+    players <- c("Farmer 1", "Farmer 2")
+    
+    pd_payoffs <- matrix(
+      c("8, 8", "2, 10",
+        "10, 2", "4, 4"),
+      byrow = TRUE, ncol = 2
+    ) %>% 
+      magrittr::set_rownames(choices) %>% magrittr::set_colnames(choices) %>% 
+      as_tibble(rownames = "choice") %>% 
+      mutate(player = c(players[1], "")) %>% 
+      select(player, everything())
+    
+    pd_payoffs %>% 
+      gt() %>%
+      tab_spanner(
+        label = players[[2]],
+        columns = choices
+      ) %>% 
+      cols_label(
+        player = "",
+        choice = ""
+      ) %>% 
+      cols_align(
+        align = "center",
+        columns = vars(choices)
+      ) %>% 
+      tab_style(
+        style = cells_styles(bkgd_color = "white"),
+        locations = cells_data(rows = TRUE)
+      ) %>% 
+      tab_style(
+        style = cells_styles(text_weight = "bold"),
+        locations = cells_column_labels(groups = "Farmer 2")
+      ) %>% 
+      tab_style(
+        style = cells_styles(text_weight = "bold"),
+        locations = cells_data(columns = 1)
+      ) %>% 
+      tab_options(
+        table.width = pct(100)
+      )
+    ```
+
+    a. What category of game is this?
+    b. What is/are the Nash equilibrium/equilibria?
+    c. Plot the payffs in a scatterplot like you saw in [Figure 3.5 in ESPP](https://www.core-econ.org/espp/book/text/03.html#figure-3-5) (don't worry about the shaded areas; just plot the points). What is/are the Pareto efficient outcome(s) in this game?
+
+1. The government offers a reward or subsidy for communities where farmers only allow 1 cow to graze on the common field, resulting in this new payoff matrix: 
+
+    ```{r stag-payoffs, echo=FALSE}
+    choices <- c("1 cow", "2+ cows")
+    players <- c("Farmer 1", "Farmer 2")
+    
+    stag_payoffs <- matrix(
+      c("15, 15", "2, 10",
+        "10, 2", "4, 4"),
+      byrow = TRUE, ncol = 2
+    ) %>% 
+      magrittr::set_rownames(choices) %>% magrittr::set_colnames(choices) %>% 
+      as_tibble(rownames = "choice") %>% 
+      mutate(player = c(players[1], "")) %>% 
+      select(player, everything())
+    
+    stag_payoffs %>% 
+      gt() %>%
+      tab_spanner(
+        label = players[[2]],
+        columns = choices
+      ) %>% 
+      cols_label(
+        player = "",
+        choice = ""
+      ) %>% 
+      cols_align(
+        align = "center",
+        columns = vars(choices)
+      ) %>% 
+      tab_style(
+        style = cells_styles(bkgd_color = "white"),
+        locations = cells_data(rows = TRUE)
+      ) %>% 
+      tab_style(
+        style = cells_styles(text_weight = "bold"),
+        locations = cells_column_labels(groups = "Farmer 2")
+      ) %>% 
+      tab_style(
+        style = cells_styles(text_weight = "bold"),
+        locations = cells_data(columns = 1)
+      ) %>% 
+      tab_options(
+        table.width = pct(100)
+      )
+    ```
+
+    a. What category of game is this?
+    b. What is/are the Nash equilibrium/equilibria?
+    c. Plot the payffs in a scatterplot like you saw in [Figure 3.5 in ESPP](https://www.core-econ.org/espp/book/text/03.html#figure-3-5) (don't worry about the shaded areas; just plot the points). What is/are the Pareto efficient outcome(s) in this game?
+
+1. How is Pareto efficiency different from fairness? (**≈30 words**)
+
+
+# 4
+
+You're in for some exciting times! You get to do some actual econometric analysis and measure the effect of a real world policy using a fundamental causal inference method: differences-in-differences (DD). With DD, you compare the difference between two groups (treatment and control) before and after an intervention took place. With this difference, you can actually tell a causal story about an intervention, rather than just talking about correlations.
+
+[Go to chapter 3 in CORE's new *Doing Economics* book](https://www.core-econ.org/doing-economics/book/text/03-01.html) and walk through the empirical project there, measuring the effect of Berkeley's 2014 sugar-sweetened beverage tax. 
+
+You can do this either in Excel or in R, and CORE provides step-by-step instructions for both. When  questions ask about statistical significance, you can either run a bunch of t-tests in R, or [look in the original article](https://doi.org/10.1371/journal.pmed.1002283). You don't need to calculate the p-values on your own (and you can't really in Excel anyway). Look for \*, \*\*, †, and ‡ signs and look in the figure footnotes to see what ranges of p-values they indicate (like ‡ means $p < 0.05$).
+
+**Importantly**, [CORE provides the answers for you](https://www.core-econ.org/doing-economics/book/text/03-04.html) (\\(•◡•)/) so you can check your own findings. The important part of this assignment is figuring out the process for making PivotTables (in Excel) or using `group_by() %>% summarize()` or `count()` (in R) + understanding the intuition behind DD as a method of analyzing the effectiveness of a policy. 
+
+Answer the questions below (these are in the *Doing Economics* chapter, but tend to get buried in the explanatory text). I've added some additional hints below, too.
+
+## The treatment group
+
+1. Do this. (But don't just copy/paste the answer from CORE. It'll be tempting, but don't do it!)
+2. Make these frequency tables.
+3. Do this. The trickiest part here is filtering the data correctly. In the original paper, the authors included products that existed in a store across all three time periods. For instance, if one store dropped a product in 2016, the product for that store is not included—but it can be included for other stores if they still sold it in 2016. Use the `COUNTIFS()` function in Excel (as shown in *Doing Economics* Excel Walk-Through 3.2), or use the `any()` function in R to calculate the number of survey cycles each product was available in each store (if you're using `COUNTIFS()`, a value of 3 means the product was in the store for all 3 cycles; if it's 2 or 1, it was missing in one or more cycles). Also, remember to exclude supplementary drinks.
+4. Calculate differences in average price per ounce and make the graph.
+5. Answer this, but you don't need to calculate any of the p-values—look at the original paper for stars and confidence intervals.
+
+## The control group
+
+1. Do this. (Again, for this and all these others, don't copy/paste the answer from CORE!)
+2. Make the table and plot.
+3. Answer this. Again, you don't need to calculate any of the p-values here, but you do need to discuss what they mean.
+4. Answer this.
+5. Answer this.
+6. Speculate about this.
