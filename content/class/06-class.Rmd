@@ -1,0 +1,97 @@
+---
+title: "Public policy for fairness and efficiency I"
+date: "2019-01-28"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-01-28.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-01-28.png)](/slides/MPA-612_2019-01-28.pdf)
+</figure>
+
+
+# Veil of ignorance simulation
+
+This simulation comes from ["What is Economic Justice?,"](https://facultystaff.richmond.edu/~jwight/NCEE/Chapters%20PDFs/e10_economic_justice.pdf) created by the National Council on Economic Education.
+
+```{r voting-results, echo=FALSE, warning=FALSE, message=FALSE, fig.width=8, fig.height=9}
+library(tidyverse)
+library(ggstance)
+library(patchwork)
+library(here)
+source(here("lib", "graphics.R"))
+
+results <- tribble(
+  ~section, ~issue, ~option, ~vote_1, ~vote_2,
+  "8:00", "Raising government revenue", "Progressive tax", 16, 16,
+  "8:00", "Raising government revenue", "Flat tax", 3, 2,
+  "8:00", "Unemployment assistance", "Modest assistance", 4, 6,
+  "8:00", "Unemployment assistance", "Generous assistance", 19, 13,
+  "8:00", "Immigrant workers", "Guest worker law", 17, 18,
+  "8:00", "Immigrant workers", "Stronger immigration law", 2, 1,
+  "8:00", "Health insurance", "Private insurance", 12, 5,
+  "8:00", "Health insurance", "National insurance", 7, 14,
+  "9:30", "Raising government revenue", "Progressive tax", 9, 10,
+  "9:30", "Raising government revenue", "Flat tax", 3, 2,
+  "9:30", "Unemployment assistance", "Modest assistance", 6, 1,
+  "9:30", "Unemployment assistance", "Generous assistance", 6, 11,
+  "9:30", "Immigrant workers", "Guest worker law", 10, 2,
+  "9:30", "Immigrant workers", "Stronger immigration law", 12, 0,
+  "9:30", "Health insurance", "Private insurance", 3, 1,
+  "9:30", "Health insurance", "National insurance", 9, 11
+) %>%
+  gather(round, votes, starts_with("vote")) %>% 
+  mutate(round = as.integer(str_replace(round, "vote_", ""))) %>% 
+  mutate(issue = fct_inorder(issue)) %>% 
+  mutate(section = paste(section, "section")) %>% 
+  group_by(round, issue, section) %>% 
+  mutate(winner = votes == max(votes))
+
+round1 <- ggplot(filter(results, round == 1), aes(x = votes, y = option)) +
+  geom_pointrangeh(size = 1, aes(xmin = 0, xmax = votes, color = fct_rev(section)),
+                   position = position_dodgev(height = 0.5)) +
+  facet_wrap(~ issue, scales = "free_y") +
+  scale_color_manual(values = c(nord_orange, nord_purple),
+                     guide = guide_legend(reverse = TRUE, title = NULL)) +
+  labs(x = "Votes", y = NULL, title = "Round 1: Roles known") +
+  theme_econ(13) +
+  theme(legend.position = "bottom",
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank())
+
+round2 <- ggplot(filter(results, round == 2), aes(x = votes, y = option)) +
+  geom_pointrangeh(size = 1, aes(xmin = 0, xmax = votes, color = fct_rev(section)),
+                   position = position_dodgev(height = 0.5)) +
+  facet_wrap(~ issue, scales = "free_y") +
+  scale_color_manual(values = c(nord_orange, nord_purple),
+                     guide = guide_legend(reverse = TRUE, title = NULL)) +
+  labs(x = "Votes", y = NULL, title = "Round 2: Veil of ignorance") +
+  theme_econ(13) +
+  theme(legend.position = "bottom",
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank())
+
+round1 + round2 + plot_layout(ncol = 1)
+```
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.
