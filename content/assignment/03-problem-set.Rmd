@@ -30,7 +30,7 @@ set.seed(1234)
 
 # 1
 
-1. How are people likely to judge the likelihood of shark attack at the ocean beach? What kinds of information will influence that judgment, and the choice of whether to go swimming? Use specific heuristics to explain your answer. (**≈40 words**)
+1. How are people likely to judge the likelihood of shark attacks ([doo doo doo doo doo doo](https://youtu.be/XqZsoesa55w?t=10)) at the ocean beach? What kinds of information will influence that judgment, and the choice of whether to go swimming? Use specific heuristics to explain your answer. (**≈40 words**)
 2. In *Nudge*, Thaler and Sunstein note that credit card companies try to stop retailers from requiring that customers pay a fee if they use a credit card. The credit card companies would rather that retailers offer a discount for customers who pay cash. What's the difference? (**≈30 words**)
 3. Is a tax a nudge? Why or why not? (**≈40 words**)
 
