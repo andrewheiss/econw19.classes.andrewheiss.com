@@ -1,0 +1,119 @@
+---
+title: "Work, wellbeing, and scarcity II"
+date: "2019-02-06"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#utility-maximization">Utility maximization</a><ul>
+<li><a href="#figure-out-the-feasible-set-and-the-mrt">1. Figure out the feasible set and the MRT</a></li>
+<li><a href="#figure-out-indifference-curves-and-the-mrs">2. Figure out indifference curves and the MRS</a></li>
+<li><a href="#set-mrs-mrt-and-solve-for-x-and-y">3. Set MRS = MRT and solve for x and y</a></li>
+<li><a href="#tldr-desmos-version">tl;dr Desmos version</a></li>
+</ul></li>
+<li><a href="#clearest-and-muddiest-things">Clearest and muddiest things</a></li>
+</ul>
+</div>
+
+<h2 id="slides">Slides</h2>
+<p><a href="/slides/MPA-612_2019-02-06.pdf">Download the slides from today’s lecture</a>.</p>
+<figure>
+<a href="/slides/MPA-612_2019-02-06.pdf"><img src="/images/slides/slides_2019-02-06.png" alt="First slide" /></a>
+</figure>
+<h2 id="utility-maximization">Utility maximization</h2>
+<p>In this unit we’ve talked about two different things:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>The feasible set</strong> (also known as the production possibility frontier or budget line): this represents the <em>actual</em> tradeoffs between two goods and the constraints on your choices. We’ve seen this with the airplane production functions (where there’s a tradeoff between workers and planes) and with Alexei’s decision to study (where there’s a tradeoff between hours of free time and his grade).</p>
+<p>The slope of this line is known as the <strong>marginal rate of transformation (MRT)</strong>, or the rate at which you can transform workers to planes or study hours to grades. The slope of this line is also the <strong>opportunity cost</strong>.</p></li>
+<li><p><strong>Indifference curves</strong>: these represent the <em>theoretical</em> tradeoff of two goods and your individual preferences. Each curve shows the combination of goods that produce the same level of utility.</p>
+<p>The slope of this line is known as the <strong>marginal rate of substitution (MRS)</strong>. It can be shown as a lot of other things:</p>
+<p><span class="math display">\[
+ MRS = \frac{dy}{dx} = \frac{\Delta y}{\Delta x} = \frac{\text{Price}_x}{\text{Price}_y} = \frac{MU_x}{MU_y} = \frac{\partial u / \partial x}{\partial u / \partial y}
+ \]</span></p></li>
+</ol>
+<p>We can find the optimum combination of goods (workers and planes, hours and grades, etc.) by combining the feasible set with indifference curves. With some algebra and calculus, we can find the combination of goods that maximizes utility.</p>
+<p>In class, we worked out this example:</p>
+<blockquote>
+<p>Imagine that waffles (x) cost $1 and calzones (y) cost $2. You have a food budget of $20. Your utility function for waffles and calzones is <span class="math inline">\(u = xy\)</span>.</p>
+</blockquote>
+<p>Here’s how to figure this out.</p>
+<h3 id="figure-out-the-feasible-set-and-the-mrt">1. Figure out the feasible set and the MRT</h3>
+<p>In this case our feasible set is not a production function—we aren’t limited by workers or time. Instead, we’re limited by our budget. We can only spend $20. If we spend all our money on calzones, we could buy 10 of them. If we spend all our money on waffles, we can buy 20 of them. We can plot all the combinations of waffles and calzones as a <em>budget line</em>:</p>
+<p><img src="/class/09-class_files/figure-html/budget-line-1.png" width="672" /></p>
+<p>We can write this budget line as an equation following the <span class="math inline">\(y = mx + b\)</span> format, where <span class="math inline">\(m\)</span> is the slope and <span class="math inline">\(b\)</span> is the y-intercept. The slope here is the marginal rate of transformation (MRT).</p>
+<p><span class="math display">\[
+y = -\frac{1}{2} x + 10
+\]</span></p>
+<h3 id="figure-out-indifference-curves-and-the-mrs">2. Figure out indifference curves and the MRS</h3>
+<p>We can afford every combination of waffles and calzones along the budget line, but we don’t know what the optimal mix of waffles and calzones is—that depends on how much we like the two foods, or our <em>preferences</em>.</p>
+<p>Our utility function is <span class="math inline">\(u = xy\)</span>, which means that we multiply the quantity of waffles and calzones together to get our utility. That is, if we eat 10 waffles and 4 calzones, we’ll get 40 utils; if we eat 5 waffles and 14 calzones, we’ll get 70 utils; and so on.</p>
+<p>Indifference curves show all the combinations of two goods that provide the same utility. If we want to get 40 utils, we could eat 20 waffles and 2 calzones, 10 waffles and 4 calzones, 5 waffles and 8 calzones, etc. Each of those combinations provides 40 utils of happiness.</p>
+<p>We can calculate the combinations of waffles and calzones that lead to any amount of utility. In the chart below, I show three different indifference curves. Every point along the curve represents the combination of waffles and calzones that would lead to 10, 20, and 40 utils.</p>
+<p><img src="/class/09-class_files/figure-html/indifference-curves-1.png" width="672" /></p>
+<p>Next, we can use this utility function to calculate the <em>marginal rate of substitution</em> or MRS, which is the slope of the curve at any given point. In calculus land, we find the slope of a function by calculating the first derivative. For easier one-variable functions like <span class="math inline">\(x^2\)</span>, this involves moving the exponent down, multiplying it by the coefficient, and reducing the exponent by one. The first derivative of <span class="math inline">\(x^2\)</span> is <span class="math inline">\(2x\)</span>. The derivative of <span class="math inline">\(2x^3\)</span> would be <span class="math inline">\(6x^2\)</span>, and so on.</p>
+<p>When differentiating a two-variable function like <span class="math inline">\(xy\)</span>, though, we can’t just follow the simple rule of moving an exponent down and subtracting one. Instead, we have to calculate partial derivatives—we find the derivative of just the <span class="math inline">\(x\)</span> part while holding <span class="math inline">\(y\)</span> constant and divide it by the derivative of just the <span class="math inline">\(y\)</span> part while holding <span class="math inline">\(x\)</span> constant.</p>
+<p>Don’t worry if that sounds complicated. The easiest way to do this is to go to <a href="https://www.wolframalpha.com/">Wolfram Alpha</a>, type in the phrase <a href="https://www.wolframalpha.com/input/?i=derivative+xy">“derivative xy”</a> and see what it calculates for you. You’ll see two partial derivatives: <span class="math inline">\(\frac{\partial}{\partial x}\)</span> and <span class="math inline">\(\frac{\partial}{\partial y}\)</span>. Make those two partial derivatives a ratio and you’ll have the derivative of the whole function: <span class="math inline">\(\frac{\partial / \partial x}{\partial / \partial y}\)</span>. To make your life easier, I will always provide you with the MRS in any problem set or test.<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Which I’ll calculate by letting Wolfram Alpha do it for me.<br />
+<br />
+</span></span></p>
+<p>In this case, where <span class="math inline">\(u = xy\)</span>, the slope / first derivative / MRS is <span class="math inline">\(\frac{y}{x}\)</span>.</p>
+<p>Next, we can add actual numbers to this MRS by setting it equal to the ratio of the prices of waffles and calzones (remember from that big list of things that MRS is, from up above, that MRS also is <span class="math inline">\(\frac{\text{Price}_x}{\text{Price}_y}\)</span>):</p>
+<p><span class="math display">\[
+\frac{y}{x} = \frac{1}{2}
+\]</span></p>
+<p>We can use algebra to rearrange this formula so that it’s based on <span class="math inline">\(y\)</span>:</p>
+<p><span class="math display">\[
+y = \frac{1}{2} x
+\]</span></p>
+<p>That is our MRS given the prices that exist in the world. Phew.</p>
+<h3 id="set-mrs-mrt-and-solve-for-x-and-y">3. Set MRS = MRT and solve for x and y</h3>
+<p>Now that we have formulas for the MRT and the MRS, we can set them equal to each other to find where they are tangent to each other (i.e where their slopes are the same). Algebra time!</p>
+<p><span class="math display">\[
+\begin{aligned}
+MRS &amp;= MRT \\
+\frac{1}{2} x &amp;= -\frac{1}{2} x + 10 \\
+x &amp;= 10
+\end{aligned}
+\]</span></p>
+<p>The optimal level of waffles is thus 10. We can plug that back into either the MRS or the MRT equation to figure out the optimal level of calzones:</p>
+<p><span class="math display">\[
+\begin{aligned}
+y &amp;= -\frac{1}{2} x + 10 \\
+y &amp;= (-\frac{1}{2} \times 10) + 10 \\
+y &amp;= 5
+\end{aligned}
+\]</span></p>
+<p>5 calzones! The best combination food that maximizes our utility given our budget constraint and current prices is <strong>10 waffles and 5 calzones</strong>.</p>
+<p>We can use our utility function to calculate how many utils we get from that level of consumption: <span class="math inline">\(u = xy\)</span>, or 10 × 5, or 50.</p>
+<p>We can verify this combination graphically by plotting the budget line and indifference curve for 50 utils all at the same time:</p>
+<p><img src="/class/09-class_files/figure-html/all-together-1.png" width="672" /></p>
+<h3 id="tldr-desmos-version">tl;dr Desmos version</h3>
+<p>You can avoid some of the math get the same answer by plotting these formulas at <a href="https://www.desmos.com/">Desmos</a> or with a graphing calculator:</p>
+<ol style="list-style-type: decimal">
+<li>Figure out the budget line or feasible set and plot it: <span class="math inline">\(y = -\frac{1}{2} + 10\)</span></li>
+<li>Figure out the MRS (<span class="math inline">\(\frac{y}{x}\)</span>), set it equal to the price ratio (<span class="math inline">\(\frac{1}{2}\)</span>), and rearrange it so that it is in terms of y: <span class="math inline">\(y = \frac{1}{2} x\)</span>. Plot that.</li>
+<li>Notice how the two lines intersect at (10, 5). That’s the optimal point.</li>
+<li>You can add an indifference curve by figuring out what level of utility you get when consuming 10 waffles and 5 calzones (10 × 5), and then plotting the utility function at that level. You don’t need to rearrange the formula or anything; Desmos is smart enough to figure it out: <span class="math inline">\(50 = xy\)</span>.</li>
+<li>If you did it right, you should get an indifference curve tangent to the budget line at (10, 5).</li>
+</ol>
+<h2 id="clearest-and-muddiest-things">Clearest and muddiest things</h2>
+<p>Go to <a href="https://goo.gl/forms/pyOvPIbRwI8CJlKE3">this form</a> and answer these three questions:</p>
+<ol style="list-style-type: decimal">
+<li>What was the muddiest thing from class today? What are you still wondering about?</li>
+<li>What was the clearest thing from class today?</li>
+<li>What was the most exciting thing you learned?</li>
+</ol>
+<p>I’ll compile the questions and send out answers after class.</p>
