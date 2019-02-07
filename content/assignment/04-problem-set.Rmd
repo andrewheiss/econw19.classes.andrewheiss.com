@@ -1,0 +1,76 @@
+---
+title: "Problem set 4"
+date: "2018-02-08"
+due_date: "2018-02-09"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+output:
+  blogdown::html_page:
+    css: /css/gt-overrides.css
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+
+**Submit this as a PDF on Learning Suite.** You can use whatever you want to make your drawings, including [Gravit Designer](https://gravit.io/), Adobe Illustrator, Excel, PowerPoint, Microsoft Paint, or photographed/scanned pen and paper.
+
+**Cite your sources and show your work.**
+
+
+# 1
+
+In 1991, the New York Times reported on a study using the headline "Study Finds Enrollment Is Up At Colleges Despite Recession."^[William Celis III, ["Study Finds Enrollment Is Up At Colleges Despite Recession,"](http://www.nytimes.com/1991/12/28/us/study-finds-enrollment-is-up-at-colleges-despite-recession.html) December 28, 1991.] How would you rewrite this headline now that you understand the idea of opportunity cost? Why? (**≈50 words**)
+
+
+# 2
+
+The utility functions for three people, where $w =$ waffles (measured in waffles per week) and $b =$ bacon (measured in strips of bacon per week) are:
+
+- R. Swanson: $U_S = 5w + 3b$
+- J.^[Or G. or L. or T. or B.] Gergich: $U_G = 0.2wb$
+- L. Knope: $U_K = \sqrt{wb}$
+
+1. If they all consume 4 waffles and 10 strips of bacon, who is best off? Explain. (**≈30 words**)
+2. If $w =$ 4, what is the marginal utility of the 11th and 12th strip of bacon for each person?
+3. Which of these functions most closely corresponds to our notions about consumer behavior? Why? (**≈30 words**)
+
+
+# 3
+
+By tradition if no longer by law, school uniforms are a requirement for a young person to attend secondary school in Kenya. However, uniforms are expensive and this cost constitutes a barrier to secondary school attendance for some students. A recently conducted social experiment in that country found that giving out school uniforms for free to some randomly selected students just finishing elementary school caused these selected students to have lower dropout rates, that is, more of them went on to secondary school, as compared to students who did not receive the free uniforms.^[David Evans, Michael Robert Kremer, and Mũthoni Ngatia, ["The Impact of Distributing School Uniforms on Children's Education in Kenya,"](http://documents.worldbank.org/curated/en/311551491549236505/The-impact-of-distributing-school-uniforms-on-children-s-education-in-Kenya).] Economists explained this result by saying this experimental program had for these students "increased the opportunity cost of dropping out of school." What did they mean by this? (**≈50 words**)
+
+
+# 4
+
+[Recall Alexei's feasible set.](https://www.core-econ.org/espp/book/text/04.html#figure-4-11) 
+
+1. Describe a situation in which Alexei's grade points and free time would not be scarce. Remember, scarcity depends on both his preferences and the production function. (**≈30 words**)
+2. What could bring about a technological improvement in his production function and those of his fellow students? (**≈30 words**)
+3. Draw a diagram to illustrate how this improvement would affect the feasible set of grades and study hours.
+4. Analyze what might happen to Alexei's choice of study hours. What might your choice be? How are those choices determined? (**≈50 words**)
+
+
+# 5
+
+Imagine that you are offered at job at the end of your university course that requires you to work for 40 hours per week. This would leave you with 128 hours of free time per week. Estimate the weekly pay that you expect to receive (be realistic!).
+
+1. Draw a diagram with free time on the horizontal axis and weekly pay on the vertical axis, and plot the combination corresponding to your job offer, calling it A. Assume you need about 10 hours a day for sleeping and eating, so you may want to draw the horizontal axis with 70 hours at the origin (i.e. `0, 0`).
+
+Now imagine you were offered another job requiring 45 hours of work per week.
+
+2. What level of weekly pay would make you indifferent between this and the original offer?
+1. By asking yourself more questions about the trade-offs you would make, plot an indifference curve through A to represent your preferences.
+1. Use your diagram to estimate your marginal rate of substitution between pay and free time at A.
+
+
+# 6
+
+Consider a mild-mannered (immortal) architect named Michael [^michael] whose utility function for slices of Hawaiian pizza per week ($p$) and cups of frozen yogurt per week ($y$) and is $U_M = \sqrt{py}$. For this function, $MRS = \frac{y}{p}$.
+
+[^michael]: {-} He's so nice. ![Michael from The Good Place](/images/assignments/michael-good-place.jpg)
+
+1. Graph Michael's indifference curves for $U_M =$ 10 and $U_M =$ 5, labeling axes and curves. Put pizza ($p$) on the x-axis. 
+1. If the price of pizza is $1 per slice and frozen yogurt is $2 per cup, what can you guess about Michael's consumption?
+1. If Michael has a budget of $10 per week to spend on these two foods, and pizza costs $1 per slice and frozen yogurt costs $2 per cup, how much of each food will Michael consume? How many utils will Michael enjoy?
