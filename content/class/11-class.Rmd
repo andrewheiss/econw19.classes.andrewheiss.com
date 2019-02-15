@@ -1,0 +1,139 @@
+---
+title: "Institutions, power, and inequality II"
+date: "2019-02-13"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-02-13.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-02-13.png)](/slides/MPA-612_2019-02-13.pdf)
+</figure>
+
+
+# International Trade Game
+
+This game was originally developed by the international NGO Action Aid and [adapted by Dr. John Sloman from the University of the West of England](https://www.economicsnetwork.ac.uk/showcase/sloman_game).
+
+## Results
+
+```{r calc-results, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)
+library(pander)
+library(ggstance)
+library(here)
+
+source(here("lib", "graphics.R"))
+
+results <- tribble(
+  ~section, ~team,     ~total,
+  "8:00",   "A1",      10500,
+  "8:00",   "A2 & B1", 38900,
+  "8:00",   "C1 & C2", 33200,
+  "9:30",   "A1",      15050,
+  "9:30",   "B1",      16600,
+  "9:30",   "C1",      17300,
+  "9:30",   "C2",      15400
+) %>%
+  mutate(team = fct_inorder(team, ordered = TRUE) %>% fct_rev())
+
+results_summary <- results %>%
+  group_by(section, team) %>%
+  summarise(`Total earnings` = sum(total)) %>%
+  mutate(`% of world earnings` = `Total earnings` / sum(`Total earnings`)) %>%
+  ungroup() %>% 
+  arrange(desc(`% of world earnings`)) %>%
+  mutate(total = `Total earnings`)
+```
+
+In the 8:00 section, two mergers happened, resulting in higher incomes for both countries. In the 9:30 section, nobody merged and the resulting society was pretty much perfectly equal—no one country had an inordinate amount of the world's wealth.
+
+```{r plot-results, echo=FALSE}
+ggplot(results, aes(x = total, y = team, color = fct_rev(section))) +
+  geom_pointrangeh(aes(xmin = 0, xmax = total), size = 0.75,
+                   position = position_dodgev(height = 0.5)) +
+  scale_x_continuous(labels = scales::dollar) +
+  scale_color_manual(values = c(nord_dk_blue, nord_red), name = NULL,
+                     guide = FALSE) +
+  labs(x = "Final earnings", y = NULL) +
+  theme_econ(13) +
+  theme(panel.grid.major.y = element_blank(),
+        legend.position = "bottom") + 
+  facet_wrap(~ section, scales = "free_y", ncol = 1)
+```
+
+```{r table-results-8, echo=FALSE, results="asis"}
+results_summary %>%
+  filter(section == "8:00") %>% 
+  select(Country = team, everything(), -total, -section) %>%
+  mutate(`Total earnings` = scales::dollar(`Total earnings`),
+         `% of world earnings` = scales::percent(`% of world earnings`)) %>%
+  pandoc.table(caption = "8:00 section", justify = "lcc")
+```
+
+```{r table-results-930, echo=FALSE, results="asis"}
+results_summary %>%
+  filter(section == "9:30") %>% 
+  select(Country = team, everything(), -total, -section) %>%
+  mutate(`Total earnings` = scales::dollar(`Total earnings`),
+         `% of world earnings` = scales::percent(`% of world earnings`)) %>%
+  pandoc.table(caption = "9:30 section", justify = "lcc")
+```
+
+\
+
+## Gini coefficients
+
+This distribution of wealth created societies with different Gini coefficients: `r results_summary %>% filter(section == "8:00") %>% pull(total) %>% ineq::Gini() %>% round(2)` in the 8:00 section and `r results_summary %>% filter(section == "9:30") %>% pull(total) %>% ineq::Gini() %>% round(2)` in the 9:30 section (almost exactly 0!)
+
+```{r plot-gini, echo=FALSE, fig.height=8}
+get_lorenz <- function(x) {
+  lorenz_raw <- ineq::Lc(x)
+  tibble(prop_population = lorenz_raw$p,
+         prop_income = lorenz_raw$L)
+}
+
+results_gini <- results_summary %>% 
+  group_by(section) %>% 
+  nest() %>% 
+  mutate(earnings = data %>% map(~ get_lorenz(.$`Total earnings`))) %>% 
+  unnest(earnings)
+
+ggplot(data = results_gini) +
+  geom_ribbon(aes(x = prop_population,
+                  ymin = prop_income,
+                  ymax = prop_population,
+                  fill = section), alpha = 0.3) +
+  geom_line(aes(x = prop_population, y = prop_income, color = section), size = 2) +
+  geom_abline(slope = 1, intercept = 0, size = 0.5, color = "grey50") +
+  labs(x = "Cumulative % of population", y = "Cumulative % of income") +
+  scale_x_continuous(expand = c(0, 0), labels = scales::percent, breaks = seq(0, 1, 0.2)) +
+  scale_y_continuous(expand = c(0, 0), labels = scales::percent, breaks = seq(0, 1, 0.2)) +
+  scale_fill_manual(values = c(nord_dk_blue, nord_red), guide = FALSE) +
+  scale_color_manual(values = c(nord_dk_blue, nord_red), guide = FALSE) +
+  facet_wrap(~ section, ncol = 1) +
+  theme_econ(13) +
+  theme(panel.grid = element_blank(),
+        axis.line = element_line(color = "black", size = 0.25))
+```
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.

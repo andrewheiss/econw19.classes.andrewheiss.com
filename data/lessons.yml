@@ -91,10 +91,12 @@ lessons:
   - title: "Institutions, power, and inequality I"
     date: "February 11 (M)"
     reading: "10-reading"
+    class: "10-class"
 
   - title: "Institutions, power, and inequality II"
     date: "February 13 (W)"
     reading: "11-reading"
+    class: "11-class"
 
   - title: "Lab 6"
     date: "February 15 (F)"
