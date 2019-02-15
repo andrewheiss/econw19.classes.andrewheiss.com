@@ -185,7 +185,7 @@ ggplot() +
 
 You can avoid some of the math get the same answer by plotting these formulas at [Desmos](https://www.desmos.com/) or with a graphing calculator:
 
-1. Figure out the budget line or feasible set and plot it: $y = -\frac{1}{2} + 10$
+1. Figure out the budget line or feasible set and plot it: $y = -\frac{1}{2}x + 10$
 2. Figure out the MRS ($\frac{y}{x}$), set it equal to the price ratio ($\frac{1}{2}$), and rearrange it so that it is in terms of y: $y = \frac{1}{2} x$. Plot that.
 3. Notice how the two lines intersect at (10, 5). That's the optimal point.
 4. You can add an indifference curve by figuring out what level of utility you get when consuming 10 waffles and 5 calzones (10 × 5), and then plotting the utility function at that level. You don't need to rearrange the formula or anything; Desmos is smart enough to figure it out: $50 = xy$.
