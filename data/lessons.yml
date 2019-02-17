@@ -121,10 +121,6 @@ lessons:
   - title: "Lab 7"
     date: "February 22 (F)"
 
-  - title: '<i class="fas fa-laptop-code"></i> **Problem set 5**'
-    date: "February 22 (F)"
-    assignment: "05-problem-set"
-
   - title: "Firms and markets I"
     date: "February 25 (M)"
     reading: "14-reading"
@@ -135,6 +131,10 @@ lessons:
 
   - title: "Lab 8"
     date: "March 1 (F)"
+
+  - title: '<i class="fas fa-laptop-code"></i> **Problem set 5**'
+    date: "March (F)"
+    assignment: "05-problem-set"
 
   - title: "Firms and markets III"
     date: "March 4 (M)"
