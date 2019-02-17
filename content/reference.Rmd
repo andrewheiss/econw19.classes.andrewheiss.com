@@ -129,6 +129,8 @@ source(here("lib", "graphics.R"))
 - …how public policy can be used to change the payoffs in games (e.g. making it more expensive to use water and deplete public goods)
 - …what elasticity measures (i.e. what it means for something to be inelastic vs. elastic)
 - …why good public policies should be a Nash equilibrium
+- …how philosophy and research deisgn allow us to estimate causal relationships
+- …how difference-in-difference estimation works
 
 **Games and simulations played in class**
 
@@ -152,6 +154,14 @@ source(here("lib", "graphics.R"))
 **Games and simulations played in class:**
 
 - *XYZ Airlines*: diminishing marginal product
+
+**Important formulas:**
+
+- All the ways marginal utility (or marginal rate of substitution) can be written: 
+
+    $$
+    MRS = \frac{dy}{dx} = \frac{\Delta y}{\Delta x} = \frac{\text{Price}_x}{\text{Price}_y} = \frac{MU_x}{MU_y} = \frac{\partial u / \partial x}{\partial u / \partial y}
+    $$
 
 **Helpful resources:**
 
