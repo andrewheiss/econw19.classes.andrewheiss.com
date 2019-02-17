@@ -1,0 +1,12 @@
+---
+title: "Lab 6"
+date: "2019-02-15"
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+---
+
+# Henry's review slides
+
+[Download slides](/files/exam1-review.pptx)
