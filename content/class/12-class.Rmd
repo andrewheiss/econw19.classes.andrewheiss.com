@@ -29,7 +29,7 @@ Here's an example of how to calculate Gini coefficients in Excel:
 
 - [<i class="fas fa-file-excel"></i> `gini_filled.xlsx`](/files/gini_filled.xlsx)
 
-Instead of use calculus to find the area under Lorenz curve, we used this formula where $x$ = income, $y$ = cumulative proportion of the population, and $\mu_x$ = mean of income:
+Instead of using calculus to find the area under Lorenz curve, we used this formula where $x$ = income, $y$ = cumulative proportion of the population, and $\mu_x$ = mean of income:
     
 $$
 \text{Gini} = \frac{2}{\mu_x} \text{Cov}(x, y)
