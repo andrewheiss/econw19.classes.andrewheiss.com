@@ -1,0 +1,122 @@
+---
+title: "The firm I"
+date: "2019-02-19"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-02-19.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-02-19.png)](/slides/MPA-612_2019-02-19.pdf)
+</figure>
+
+
+# Calculating Gini coefficients
+
+You can see [global inequality statistics at Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_income_equality). There are several columns here—the World Bank and CIA both calculate Gini coefficients (multiplied by 100 to be on a 0–100 scale), and the R/P columns are the 90/10 ratios you calculated in Problem Set 1 (income held by top 10% compared to income held by bottom 10%).
+
+Here's an example of how to calculate Gini coefficients in Excel:
+
+- [<i class="fas fa-file-excel"></i> `gini_filled.xlsx`](/files/gini_filled.xlsx)
+
+Instead of use calculus to find the area under Lorenz curve, we used this formula where $x$ = income, $y$ = cumulative proportion of the population, and $\mu_x$ = mean of income:
+    
+$$
+\text{Gini} = \frac{2}{\mu_x} \text{Cov}(x, y)
+$$
+
+You can also do this in R with the **ineq** package:
+
+```{r gini-example, echo=TRUE}
+library(ineq)
+
+# List of incomes
+incomes <- c(10000, 20000, 50000, 100000, 200000)
+
+# Calculate Gini coefficient
+gini_coef <- Gini(incomes)
+gini_coef
+
+# Plot Lorenz curve
+plot(Lc(incomes), xlab = "Proportion of population", ylab = "Proportion of income")
+text(x = 0.2, y = 0.8, labels = paste("Gini:", round(gini_coef, 3)))
+```
+
+
+# Market for lemons
+
+This is pretty exciting, since the experiment worked perfectly!^[{-} This game comes from experiment 9 by Dirk Yandell, *Using Economic Experiments in the Classroom* (Upper Saddle River, New Jersey: Prentice Hall, 1999). The book is sadly out of print and doesn't exist anywhere, but [an abstract of the game is listed as Game #66 here](https://w3.marietta.edu/~delemeeg/games/games61-70.htm).] In the first round, lemons dominated and few good cars were sold. Buyers who got the lemons lost thousands of dollars, while the sellers walked away with phenomel profits. Had we kept repeating the simulation under these rules, the good cars would have evaporated completely and the market would have been dominated by lemons.
+
+In the second round, though, given the opportunity to buy the right to share information (sellers could pay \$200 for the ability to advertise the quality of their cars), good cars returned and lemons almost disappeared completely.
+
+<figure class="fullwidth">
+
+```{r lemon-market, warning=FALSE, message=FALSE, echo=FALSE, fig.height=5, fig.width=10}
+library(tidyverse)
+library(here)
+
+source(here("lib", "graphics.R"))
+
+lemons_raw <- read_csv(here("static", "data", "lemon-results.csv"),
+                       col_types = "cilddc")
+
+lemons <- lemons_raw %>% 
+  mutate(`Seller profit` = Price - Carfax,
+         `Buyer profit` = case_when(
+           Quality == "Lemon" ~ 500 - Price,
+           Quality != "Lemon" ~ 2500 - Price
+         )) %>% 
+  mutate_at(vars(contains("profit")),
+            funs(ifelse(!Sold, 0, .)))
+
+plot_lemons <- lemons %>%
+  mutate(id = 1:n()) %>% 
+  gather(key, profit, contains("profit")) %>% 
+  arrange(desc(profit)) %>% 
+  mutate(Round = paste("Round", Round)) %>% 
+  mutate(carfax_binary = ifelse(Carfax > 0, "Carfax purchased", "Nope")) %>% 
+  mutate(id = fct_inorder(factor(id)))
+
+ggplot(plot_lemons, aes(x = id, y = profit, fill = key, linetype = Quality)) +
+  geom_col(color = "black", size = 0.25) +
+  geom_point(data = filter(plot_lemons, carfax_binary != "Nope", key == "Seller profit"),
+             aes(x = id, y = 500, shape = carfax_binary), inherit.aes = FALSE) +
+  scale_fill_manual(values = c(nord_red, nord_yellow)) +
+  scale_linetype_manual(values = c(22, "solid")) +
+  scale_y_continuous(labels = scales::dollar) +
+  guides(fill = guide_legend(title = "    ", order = 1, reverse = TRUE),
+         linetype = guide_legend(title = "    ", order = 2,
+                                 override.aes = list(fill = "white")),
+         shape = guide_legend(title = "    ", order = 3)) +
+  labs(x = NULL, y = "Profit") +
+  facet_wrap(~ Section + Round, scales = "free_x") +
+  theme_econ() +
+  theme(legend.position = "bottom", 
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        axis.text.x = element_blank(),
+        legend.key.size = unit(0.75, "lines"))
+```
+
+</figure>
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.
