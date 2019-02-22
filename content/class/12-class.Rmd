@@ -55,7 +55,7 @@ text(x = 0.2, y = 0.8, labels = paste("Gini:", round(gini_coef, 3)))
 
 # Market for lemons
 
-This is pretty exciting, since the experiment worked perfectly!^[{-} This game comes from experiment 9 by Dirk Yandell, *Using Economic Experiments in the Classroom* (Upper Saddle River, New Jersey: Prentice Hall, 1999). The book is sadly out of print and doesn't exist anywhere, but [an abstract of the game is listed as Game #66 here](https://w3.marietta.edu/~delemeeg/games/games61-70.htm).] In the first round, lemons dominated and few good cars were sold. Buyers who got the lemons lost thousands of dollars, while the sellers walked away with phenomel profits. Had we kept repeating the simulation under these rules, the good cars would have evaporated completely and the market would have been dominated by lemons.
+This is pretty exciting, since the experiment worked perfectly!^[{-} This game comes from experiment 9 by Dirk Yandell, *Using Economic Experiments in the Classroom* (Upper Saddle River, New Jersey: Prentice Hall, 1999). The book is sadly out of print and doesn't exist anywhere, but [an abstract of the game is listed as Game #66 here](https://w3.marietta.edu/~delemeeg/games/games61-70.htm).] In the first round, lemons dominated and few good cars were sold. Buyers who got the lemons lost thousands of dollars, while the sellers walked away with phenomenal profits. Had we kept repeating the simulation under these rules, the good cars would have evaporated completely and the market would have been dominated by lemons.
 
 In the second round, though, given the opportunity to buy the right to share information (sellers could pay \$200 for the ability to advertise the quality of their cars), good cars returned and lemons almost disappeared completely.
 
