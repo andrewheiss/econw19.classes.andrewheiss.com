@@ -1,0 +1,260 @@
+---
+title: "Problem set 5"
+date: "2019-03-01"
+due_date: "2019-03-01"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+output:
+  blogdown::html_page:
+    css: /css/gt-overrides.css
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+
+**Submit this as a PDF on Learning Suite.** You can use whatever you want to make your drawings, including [Gravit Designer](https://gravit.io/), [Desmos](https://www.desmos.com/), Adobe Illustrator, Excel, PowerPoint, Microsoft Paint, or photographed/scanned pen and paper.
+
+**Cite your sources and show your work.**
+
+```{r load-packages, include=FALSE}
+library(tidyverse)
+library(Deriv)
+library(ineq)
+library(pander)
+library(scales)
+library(here)
+
+source(here("lib", "graphics.R"))
+```
+
+
+# 1
+
+The distribution of incomes in Pawnee, Eagleton, and The Good Place follows the Lorenz curves plotted below, with the following Gini coefficients:
+
+```{r gini-table, echo=FALSE, results="asis"}
+set.seed(1234)
+schuriverse_incomes <- tibble(Pawnee = rpois(1000, lambda = 5) * 10000,
+                              Eagleton = as.integer(rchisq(1000, df = 1) * 10000),
+                              `The Good Place` = rnorm(1000, mean = 50000, sd = 10000)) %>% 
+  gather(city, income) %>%
+  nest(income) %>%
+  mutate(gini = data %>% map_dbl(~ Gini(.$income)))
+
+schuriverse_incomes %>%
+  select(City = city, -data, `Gini` = gini) %>%
+  pandoc.table(justify = "ll")
+```
+
+```{r lorenz-curve, echo=FALSE, fig.width=6, fig.height=6}
+get_lorenz <- function(x) {
+  lorenz_raw <- Lc(x)
+  tibble(prop_population = lorenz_raw$p,
+         prop_income = lorenz_raw$L)
+}
+
+schuriverse_ineq <- schuriverse_incomes %>%
+  mutate(lorenz = data %>% map(~ get_lorenz(.$income))) %>%
+  unnest(lorenz)
+
+ggplot() +
+  geom_line(data = schuriverse_ineq, aes(x = prop_population, y = prop_income, color = city),
+            size = 2) +
+  geom_abline(slope = 1, intercept = 0, size = 0.25, color = "grey50") +
+  labs(x = "Cumulative % of population", y = "Cumulative % of income") +
+  scale_x_continuous(labels = percent, breaks = seq(0, 1, 0.2)) +
+  scale_y_continuous(labels = percent, breaks = seq(0, 1, 0.2)) +
+  scale_color_manual(values = c(nord_green, nord_orange, nord_purple)) +
+  theme_econ(13) +
+  guides(color = guide_legend(title = NULL)) +
+  theme(panel.grid = element_blank(),
+        legend.position = "bottom")
+```
+
+Which city has the most equally distributed income? Which has the least? How do you know? What are the possible implications of the income distributions in each of the cities? ***Discuss in ≈60 words***
+
+
+# 2
+
+Think of two public or nonprofit sector jobs. In each case, describe why the employment contract is necessarily incomplete. What important parts of the person's job—things that the employer would like to see the employee do or not do—cannot be covered in a contract, or if they are, cannot be enforced? ***Discuss in ≈75 words***.
+
+
+# 3
+
+Consider the following income distribution in a 10-person society:
+
+```{r income-village-numbers, echo=FALSE, results="asis"}
+incomes <- tibble(Person = 1:10,
+                  Income = c(10000, 12000, 15000, 30000, 50000, 
+                             70000, 100000, 110000, 120000, 800000))
+incomes %>%
+  mutate(Income = dollar(Income)) %>%
+  pandoc.table(justify = "cc")
+```
+
+&nbsp;
+
+**Draw** the Lorenz curve for the society and **calculate** the Gini coefficient.
+
+
+# 4
+
+Most cocaine is sold illegally to recreational users.^[Don't do drugs, y'all. Follow the Word of Wisdom.] The cocaine sold on the street is not pure, but rather heavily diluted with other substances. Buyers are not able to determine the purity of the cocaine being offered for sale until they actually use it, and even then will be uncertain.
+
+1. Explain why the only cocaine available for sale on the street is diluted—users who would prefer purer cocaine (and are willing to pay a premium for it) will not be served. ***Discuss in ≈40 words***
+2. Would this situation be different if cocaine were legal? ***Discuss in ≈40 words***
+
+
+# 5
+
+The British Road Safety Act of 1967 created a mandatory penalty for drunken driving—those convicted of a DUI lost their licenses for one year. Several insurance companies began offering policies that insured against loss of license. Policyholders were guaranteed a chauffeur-driven vehicle if they were convicted of DUI.
+
+It is reasonable to predict that people who chose to buy this insurance would subsequently have a higher rate of DUI arrests than those who did not buy the insurance.
+
+1. Justify this prediction using adverse selection. What is adverse selection and how does it apply here? ***Discuss in ≈50 words***
+2. Justify this prediction using moral hazard. What is moral hazard and how does it apply here? ***Discuss in ≈50 words***
+
+
+# 6
+
+A car insurance company offers a reduced premium to high school students with a good academic record. The insurance company advertises that this offer is its way of recognizing and rewarding academic achievement.
+
+Provide an alternative explanation of why this company would offer such a deal. *Hint*: think about the company's self interest and problems with asymmetric information. ***Discuss in ≈50 words***.
+
+
+# 7
+
+In each of these situations, explain who is the principal, who is the agent, and what aspects of their interaction are of interest to each and are not covered by a complete contract. 
+
+1. A company hires a security guard to protect its premises at night.
+2. A charity wants to commission research to find out as much as possible about a new virus.
+
+For each of these siutations, predict a few possible consequences if the contract is poorly defined.
+
+
+# 8
+
+```{r labor-discipline-stuff, echo=FALSE}
+# Formula for polynomial curve: 60x^4 + 5x + 6
+#
+# I invented this by using WolframAlpha to fit a polynomial linear model that
+# when through a set of specific points using this command (with a maximum
+# exponent of 4):
+#
+# LinearModelFit[{{0, 6}, {0.5, 12}, {-0.8, 24}, {-0.9, 48}}, {1, x, x^4}, x]
+#
+# It yielded a messy model with like 78.3x^4, 10.1x + 3.44, so I put that in
+# Desmos.com, moved the y intercept to 6, and tinkered with the other coefficients
+# until it looked okay. Finally, I switched x and y so it's horizontal
+response_curve <- function(y) 60*y^4 + 5*y + 6
+response_deriv <- Deriv(response_curve)
+
+# We can use these functions to find the x value (wage) that corresponds with a
+# given y value (level of effort)
+# response_curve(0.5)
+
+# We can also find the slope of the response curve at that point:
+# response_deriv(0.5)
+
+# Armed with a slope an a single point (here slope = 35, point = (12.25, 0.5)),
+# we can create a formula for the line that is tangent to the response curve at
+# that point.
+#
+# Formula for y-intercept give a slope and a single point
+# y - y1 = m(x = x1)
+#
+# Because we've flipped the curve sidways and switched x and y, we need to
+# rearrange this in terms of x:
+#
+# x = (y - y1) / m + x1
+#
+tangent_intercept <- function(x, m, x1, y1) (x - x1) / m + y1
+
+# Here we invert tangent_intercept() by dividing by the negative derivative
+# It's negative because 1/y is really y^-1
+flipped_intercept <- function(x, effort) {
+  # m needs to be inverted because of switched x/y thing, so it's 1/deriv
+  tangent_intercept(x, m = 1 / response_deriv(effort), 
+                    x1 = effort, y1 = response_curve(effort)) / 
+    -response_deriv(effort)
+}
+
+# Create a line based on the slope and intercept of the flipped derivative
+tangent_line <- function(x, effort) {
+  (1 / response_deriv(effort) * x) + flipped_intercept(0, effort)
+}
+
+isocost_line <- function(x, m, b) m * x + b
+
+# FINALLY we can plot the flipped polynomial curve. This should, in theory, be
+# as simple as rearranging our x = 60y^4 + 5y + 6 formula to be in terms of y
+# and then using stat_function() to plot it, BUT polynomials are demonic beasts
+# and doing this is beyond my abilities.
+#
+# GO HERE and see what I mean: 
+# https://www.wolframalpha.com/input/?i=x+%3D+60y%5E4+%2B+5y+%2B+6+in+terms+of+y
+#
+# So to cheat, we make a little data frame with a range of x and y values and
+# then plot that with geom_line()
+flipped_curve <- tibble(y = seq(0, 1, 0.01)) %>% 
+  mutate(x = response_curve(y))
+
+# Finally, we can plot all these things!
+ggplot(data = tibble(x = 0:50), aes(x = x)) + 
+  # Add flipped polynomial curve
+  geom_line(data = flipped_curve, aes(x = x, y = y), 
+            size = 1, color = nord_dk_blue) +
+  # Mark tangent point
+  annotate(geom = "segment", x = response_curve(0.5), y = 0, 
+           xend = response_curve(0.5), yend = 0.5,
+           linetype = "dashed", color = "grey50", size = 0.5) +
+  annotate(geom = "segment", x = 0, y = 0.5, 
+           xend = response_curve(0.5), yend = 0.5,
+           linetype = "dashed", color = "grey50", size = 0.5) +
+  # Add tangent lines
+  # If I wanted to be super fancy, I could figure out the width of the base of
+  # the triangle formed by each tangent line so that I could get ± the same x
+  # distance to the left and right of each point and have each tangent segment
+  # use the same horizontal distance, but that sounds too hard, so I just picked
+  # numbers until it looked okay
+  stat_function(fun = tangent_line, args = list(effort = 0.5),
+                color = nord_red, size = 1, 
+                xlim = c(response_curve(0.5) - 10, response_curve(0.5) + 10)) +
+  stat_function(fun = isocost_line, args = list(m = 1/80, b = 0.15),
+                color = nord_orange, size = 1,
+                xlim = c(response_curve(0.5) - 10, response_curve(0.5) + 10)) + 
+  stat_function(fun = isocost_line, args = list(m = 1/20, b = 0.15),
+                color = nord_yellow, size = 1,
+                xlim = c(response_curve(0.5) - 10, response_curve(0.5) + 10)) + 
+  # annotate(geom = "label", x = tangent_line(5, 0.5), y = 0.5)
+  annotate(geom = "label", x = 15, y = isocost_line(15, m = 1/20, b = 0.15), 
+           label = "A", fill = nord_yellow, color = "white", size = pts(12)) +
+  annotate(geom = "label", x = 17.5, y = tangent_line(17.5, effort = 0.5), 
+           label = "B", fill = nord_red, color = "white", size = pts(12)) +
+  annotate(geom = "label", x = 20, y = isocost_line(20, m = 1/80, b = 0.15), 
+           label = "C", fill = nord_orange, color = "white", size = pts(12)) +
+  annotate(geom = "point", x = response_curve(0.5), y = 0.5, size = 2) +
+  annotate(geom = "text", x = response_curve(0.5), y = 0.5, 
+           hjust = -0.1, vjust = 1.1, size = pts(10),
+           label = paste0("(", dollar(response_curve(0.5)), ", ", 
+                          percent_format(accuracy = 1)(0.5), ")")) +
+  annotate(geom = "text", x = 6, y = 0, hjust = 1, vjust = -1,
+           label = "$6 reservation wage", size = pts(10)) +
+  # Labels and scale stuff
+  labs(x = "Wage per hour", y = "Work effort from employee",
+       title = "Maria's best response curve and employer isocost lines") +
+  scale_x_continuous(labels = dollar, expand = c(0, 0.3)) +
+  scale_y_continuous(labels = percent_format(accuracy = 1), expand = c(0, 0)) +
+  coord_cartesian(xlim = c(0, 25), ylim = c(0, 1)) +
+  theme_econ(base_size = 13, axis_line = TRUE) +
+  theme(panel.grid = element_blank(),
+        plot.title = element_text(size = rel(1.1), hjust = 0.5))
+```
+
+Would any of the following affect Maria’s best response curve or the firm's isocost lines for effort in the figure above? If so, explain how (***≈20 words each***).
+
+1. The government decides to increase childcare subsidies for working parents but not for those unemployed. Assume Maria has a child and is eligible for the subsidy.
+2. Demand for the firm's output rises as celebrities endorse the good.
+3. Improved technology makes Maria's job easier.

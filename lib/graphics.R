@@ -1,3 +1,7 @@
+pts <- function(x) {
+  as.numeric(grid::convertUnit(grid::unit(x, "pt"), "mm"))
+}
+
 # Aurora and Frost color palettes from Nord
 # https://github.com/arcticicestudio/nord
 nord_red <- "#BF616A"  # nord11
