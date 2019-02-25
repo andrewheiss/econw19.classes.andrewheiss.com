@@ -1,5 +1,5 @@
 ---
-title: "Labor markets"
+title: "Firms and markets IV"
 date: "2019-03-06"
 citeproc: false
 bibliography: ../../static/bib/references.bib
@@ -8,10 +8,4 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Required
 
-*Note: This chapter starts inching into the world of labor economics, which goes beyond the scope of this class. Read through chapter 8 in ESPP, but don't do it super in depth.*
-
-- <i class="fas fa-book"></i> 8.1-8.13 *Economy, Society, and Public Policy* [@core-espp]
-- <i class="fas fa-podcast"></i> All Things Considered, ["What These Overlooked Economic Indicators Say About Work And The Labor Market,"](https://www.npr.org/2018/10/04/654518414/what-these-overlooked-economic-indicators-say-about-work-and-the-labor-market) October 4, 2018
-- <i class="fas fa-podcast"></i> The Indicator, ["How Companies Cope (With A Tight Labor Market),"](https://www.npr.org/sections/money/2018/11/02/663640858/how-companies-cope-with-a-tight-labor-market) November 2, 2018
-- <i class="fas fa-podcast"></i> Planet Money, ["Strike One,"](https://www.npr.org/sections/money/2018/11/02/663640858/how-companies-cope-with-a-tight-labor-market) Episode 658, October 16, 2015
-- <i class="fas fa-external-link-square-alt"></i> [50 Years Of Shrinking Union Membership, In One Map](https://www.npr.org/sections/money/2015/02/23/385843576/50-years-of-shrinking-union-membership-in-one-map)
+Nothing! You've read everything for this unit already!
