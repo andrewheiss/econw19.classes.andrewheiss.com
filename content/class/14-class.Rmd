@@ -1,0 +1,161 @@
+---
+title: "Firms and markets I"
+date: "2019-02-25"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-02-25.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-02-25.png)](/slides/MPA-612_2019-02-25.pdf)
+</figure>
+
+
+# XYZ Frames
+
+- [<i class="fas fa-file-excel"></i> Popsicle economics](/files/popsicle-economics.xlsx)
+
+```{r process-popsicle-data, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(readxl)
+library(pander)
+library(scales)
+library(here)
+
+pandoc_fullwidth_table <- function(tbl, ...) {
+  html <- markdown::markdownToHTML(text = pandoc.table.return(tbl, style = "rmarkdown", ...),
+                                   fragment.only = TRUE)
+  html <- sub("<table>", '<table class="fullwidth">', html)
+  return(cat(html))
+}
+
+source(here("lib", "graphics.R"))
+
+popsicles_raw <- read_excel(here("static", "data", "popsicles.xlsx")) %>% 
+  mutate(Section = recode(Section, `800` = "8:00 AM", `930` = "9:30 AM"))
+
+popsicles_by_firm <- popsicles_raw %>%
+  mutate(TFC = `Cost of desk` + `Cost of scissors`,
+         TVC = `Cost of sticks` + `Cost of corners` + `Cost of labor`,
+         TC = TFC + TVC,
+         TR = 2 * `Viable units produced`,
+         AFC = TFC / `Viable units produced`,
+         AVC = TVC / `Viable units produced`,
+         ATC = TC / `Viable units produced`,
+         MC = (TC - lag(TC) / 
+                 (`Viable units produced` - lag(`Viable units produced`))),
+         Profit = TR - TC)
+
+popsicles_aggregate <- popsicles_by_firm %>% 
+  group_by(Round) %>% 
+  summarize_at(vars(-Section, -Firm, -Round), funs(sum)) %>% 
+  mutate(AFC = TFC / `Viable units produced`,
+         AVC = TVC / `Viable units produced`,
+         ATC = TC / `Viable units produced`,
+         MC = (TC - lag(TC) / 
+                 (`Viable units produced` - lag(`Viable units produced`))))
+```
+
+\
+
+## Most profitable firms
+
+\
+
+```{r tbl-most-profit, echo=FALSE, results="asis"}
+popsicles_firm_results <- popsicles_by_firm %>% 
+  group_by(Firm) %>% 
+  summarize(`Frames produced` = sum(`Viable units produced`),
+            `Total profit` = sum(Profit)) %>% 
+  arrange(desc(`Total profit`)) %>% 
+  mutate(`Total profit` = dollar(`Total profit`))
+
+pandoc.table(popsicles_firm_results, justify = "lcr")
+```
+
+\
+
+## Costs and revenues and profits
+
+These are the totals across all six firms (3 per section).
+
+```{r tbl-popsicle-data-top, echo=FALSE, results="asis"}
+tbl_top <- popsicles_aggregate %>% 
+  select(Round, starts_with("Viable"), contains(" used"), starts_with("Cost of"))
+
+pandoc_fullwidth_table(tbl_top, split.tables = Inf)
+```
+
+\
+
+```{r tbl-popsicle-data-bottom, echo=FALSE, results="asis"}
+tbl_bottom <- popsicles_aggregate %>% 
+  select(Round, starts_with("Viable"), TFC, TVC, TC, TR, AFC, AVC, ATC, MC, Profit) %>%
+  mutate(AFC = ifelse(is.infinite(AFC), NA, AFC),
+         AVC = ifelse(is.infinite(AVC), NA, AVC),
+         ATC = ifelse(is.infinite(ATC), NA, ATC))
+
+pandoc_fullwidth_table(tbl_bottom, split.tables = Inf, missing = "—")
+```
+
+\
+
+## Costs and revenue graphs
+
+<figure class="fullwidth">
+
+```{r plot-popsicle-data, echo=FALSE, warning=FALSE, fig.width=7, fig.height=10}
+popsicles_plot <- popsicles_aggregate %>%
+  gather(curve_name, amount, TFC, TVC, TC, TR, AFC, AVC, ATC, Profit) %>%
+  mutate(cost_type = case_when(
+    str_sub(curve_name, 1, 1) == "P" | curve_name == "TR" ~ "Revenue and profit",
+    str_sub(curve_name, 1, 1) == "A" ~ "Average costs",
+    str_sub(curve_name, 1, 1) == "T" ~ "Total costs"
+  )) %>% 
+  mutate(cost_type = factor(cost_type, levels = c("Total costs", "Average costs", "Revenue and profit"),
+                            ordered = TRUE)) %>%
+  mutate(curve_name = factor(curve_name, levels = c("TC", "TVC", "TFC",
+                                                    "ATC", "AVC", "AFC",
+                                                    "TR", "Profit"),
+                             ordered = TRUE)) %>% 
+  mutate(curve_label = ifelse(Round == 3, as.character(curve_name), NA))
+
+color_assignments <- c(TFC = nord_red, TVC = nord_dk_blue, TC = nord_green,
+                       AFC = nord_red, AVC = nord_dk_blue, ATC = nord_green, 
+                       TR = nord_yellow, Profit = nord_orange)
+
+ggplot(popsicles_plot, aes(x = `Viable units produced`, y = amount, color = curve_name)) +
+  geom_line(size = 1.5) +
+  geom_label(aes(label = curve_label, fill = curve_name), color = "white") +
+  labs(x = "Viable units produced", y = NULL) +
+  scale_y_continuous(labels = scales::dollar) +
+  scale_color_manual(values = color_assignments, guide = FALSE) +
+  scale_fill_manual(values = color_assignments, guide = FALSE) +
+  theme_econ() +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank()) +
+  facet_wrap(~ cost_type, ncol = 1, scales = "free")
+```
+
+</figure>
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.
