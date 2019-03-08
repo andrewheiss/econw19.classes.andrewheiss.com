@@ -236,8 +236,174 @@ source(here("lib", "graphics.R"))
 
 # Things you should know for Exam 2
 
-I'll put stuff here as we get closer to the exam.
+## The firm
 
+**You should understand…**
+
+- …how the decision-making structures of firms and markets are different
+- …that perfectly complete contracts are difficult (if not impossible) to create
+- …what happens when there are incomplete contracts
+- …what a principal-agent problem is
+- …adverse selection
+- …moral hazard
+- …how firms can use the labor discipline model to induce higher worker effort
+- …why involuntary unemployment is necessary
+- …the conditions under which the outsourcing and privatization of government services can be effective and ethical (or ineffective)
+
+**Games and simulations played in class**
+
+- *Market for lemons*: how adverse selection distorts markets and how the presence of information restores competition to markets
+
+\
+
+## Firms and markets
+
+**You should understand…**
+
+- …how demand curves are derived from consumer willingness to pay
+- …the difference between fixed costs and variable costs
+- …how to calculate total cost, total revenue, average fixed costs, average variable costs, marginal cost, marginal revenue, and maximum profit
+- …that maximum profit occurs where marginal revenue is equal to marginal cost ($MR = MC$)
+- …that socially optimal quantity occurs when the demand is equal to the marginal cost ($\text{demand} = MC$)
+- …how to calculate elasticity of demand ($-\frac{\Delta Q}{\Delta P} \times \frac{P}{Q}$)
+- …what elasticity measures and why it is important in public policy and administration
+- …how a single demand curve can have an overall elasticity *and* different elasticities at each point
+- …economies of scale, diseconomies of scale, economies of agglomeration, network effects, and the difference between short-run and long-run costs
+- …that market equilibria (i.e. optimal price and quantity) occur at the intersection of supply and demand curves
+- …how government-imposed price floors and price ceilings distort market-clearing equilibria 
+- …and be able to identify the differences between changes in supply/demand and changes in quantity supplied/demanded
+- …what consumer and producer surplus represent
+- …the relationship between elasticity of supply and/or demand and the size of consumer and producer surplus
+- …how taxes impose deadweight loss on society
+- …how the burden of taxes depends on the elasticity of supply and/or demand
+- …why governments tax and the philosophical and ethical principles behind who should bear the burden of taxes
+- …the difference between price-taking and price-making
+- …how firms try to gain market power, including monopolies, branding, cost controls, regulation, and switching costs
+- …why firms try to gain market power
+- …why firms want to price discriminate
+- …the consequences of monopolistic production (lower Q and higher P than what would happen under perfect competition; deadweight loss)
+- …how governments can regulate monopolies
+- …why natural monopolies exist and how governments can induce them to produce at socially optimal levels
+- …how firms need to be somewhat anti-competitive and anti-capitalist in order to maximize profits, innovate, and (essentially) be more competitive and capitalist
+
+**Games and simulations played in class:**
+
+- *XYZ Frames*: fixed costs, variable costs, average costs
+- *BYU Creamery chocolate milk*: Q, TVC, TFC, TC, MC, AVC, AFC, ATC, and π
+
+**Important fomulas:**
+
+- Demand:
+
+    $$
+    P = aQ + b
+    $$
+
+- Total cost:
+
+    $$
+    TC = TFC + TVC \\
+    \text{or} \\
+    \text{A formula using } Q \text{, like} \\
+    TC = aQ^2 + b
+    $$
+
+- Average cost:
+
+    $$
+    AC = \frac{TC}{Q}
+    $$
+
+- Marginal cost:
+
+    $$
+    \begin{aligned}
+    MC &= \frac{\Delta TC}{\Delta Q} \\
+    &\text{or} \\
+    MC &= \text{First derivative of TC} \\
+    &= 2aQ \text{ (if } TC = aQ^2 + b)
+    \end{aligned}
+    $$
+
+- Total revenue:
+
+    $$
+    \begin{aligned}
+    TR &= PQ \\
+    &\text{or} \\
+    TR &= (aQ + b)Q \\
+    &= aQ^2 + bQ
+    \end{aligned}
+    $$
+
+- Average revenue:
+
+    $$
+    AR = \frac{TR}{Q}
+    $$
+
+- Marginal revenue:
+
+    $$
+    \begin{aligned}
+    MR &= \frac{\Delta TR}{\Delta Q} \\
+    &\text{or} \\
+    MR &= \text{First derivative of TR} \\
+    &= 2aQ + b \text{ (if } TR = aQ^2 + bQ)
+    \end{aligned}
+    $$
+
+- Maximum profit:
+
+    $$
+    max(\pi): MC = MR
+    $$
+
+- Price elasticity of demand ([see class 15 for an explanation](/class/15-class/#elasticity-of-demand) of how to get to $- \frac{\Delta Q}{\Delta P} \times \frac{P}{Q}$):
+
+    $$
+    \varepsilon = -\frac{\% \text{ change in quantity demand}}{\% \text{ change in price}} = - \frac{\Delta Q}{\Delta P} \times \frac{P}{Q}
+    $$
+
+**Important graphs:**
+
+- Consumer surplus, producer surplus, tax revenues, tax burdens, and deadweight loss (use algebra and geometry to figure out the areas of the triangles ($\frac{1}{2} \times b \times h$) and rectangles ($l \times w$)):
+
+    ```{r supply-demand-surplus, echo=FALSE, warning=FALSE, message=FALSE, fig.width=5, fig.height=5}
+    source(here("lib", "supply-demand-surplus.R"))
+    
+    tax_graph(demand, supply, supply_tax, NULL, TRUE)
+    ```
+
+**Helpful resources:**
+
+- [<i class="fab fa-youtube"></i> Derivatives of Exponential Functions](https://www.youtube.com/watch?v=xgarjF9DP78) (how to calculate derivatives quickly)
+- [<i class="fas fa-file-excel"></i> BYU chocolate milk (empty file)](/files/byu-chocolate-milk.xlsx)
+- [<i class="fas fa-file-excel"></i> BYU chocolate milk (completed file)](/files/byu-chocolate-milk-filled.xlsx)
+- [<i class="fab fa-youtube"></i> Jason Welker, "Natural Monopoly and the Need for Government Regulation"](https://www.youtube.com/watch?v=LhiyJlI5xa0)
+
+\
+
+## Macroeconomics
+
+**You should understand…**
+
+- …the basic mechanics of fractional reserve banking
+- …the role of central banks in overseeing the money supply
+- …the Fed's dual mandate and the Fed's three tools for manipulating money supply
+- …the difference between monetary policy fiscal policy. Be prepared to identify examples of each type.
+- …how federal government budgets differ from state and local government budgets (and household budgets)
+
+**Games and simulations played in class:**
+
+- *Banking in Smallville, USA*: how fractional reserve banking creates money
+
+**Helpful resources:**
+
+- <i class="fab fa-youtube"></i> Super clear explanation of all the Fed's tools for dealing with monetary policy (watch this one!): [What's all the Yellen About? Monetary Policy and the Federal Reserve](https://www.youtube.com/watch?v=1dq7mMort9o)
+- <i class="fab fa-youtube"></i> The Atlanta Fed's explanation of monetary policy: [The Fed Explains Monetary Policy](https://www.youtube.com/watch?v=wOfQPn9Jwpo)
+
+\
 
 # Things you should know for Exam 3
 
