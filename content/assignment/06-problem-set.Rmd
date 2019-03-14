@@ -119,7 +119,7 @@ The fixed costs of running a musical performance at this theater are substantial
 
 # 6
 
-The market demand for pizza in Provo is given by the equation $Q = 100 - 10P$, where Q is the number of pizzas sold per day and P is the price of a standard pizza.^[*Hint*: remember that a linear demand curve like this can also be expressed with P on the lefthand side, like $P = 10 - 0.1Q$.] (Assume that all pizzas are about the same.) Assume initially that the market for pizzas in the town is competitive. All firms have the same total cost function for making pizzas: $TC = 6Q$ (and the corresponding marginal cost, or first derivative, is $MR = 6$).
+The market demand for pizza in Provo is given by the equation $Q = 100 - 10P$, where Q is the number of pizzas sold per day and P is the price of a standard pizza.^[*Hint*: remember that a linear demand curve like this can also be expressed with P on the lefthand side, like $P = 10 - 0.1Q$.] (Assume that all pizzas are about the same.) Assume initially that the market for pizzas in the town is competitive. All firms have the same total cost function for making pizzas: $TC = 6Q$ (and the corresponding marginal cost, or first derivative, is $MC = 6$).
 
 1. Draw the demand curve (label it D) and the competitive supply curve (label it S).
 2. What is the equilibrium price and quantity of pizzas in competitive equilibrium? (Calculate your answers and give them here, not on the graph.)
