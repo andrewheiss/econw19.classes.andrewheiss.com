@@ -161,10 +161,12 @@ lessons:
   - title: "Credit markets"
     date: "March 11 (M)"
     reading: "18-reading"
+    class: "18-class"
 
   - title: "Markets and macroeconomics"
     date: "March 13 (W)"
     reading: "19-reading"
+    class: "19-class"
 
   - title: "*No lab; fake Marriott School spring break*"
     date: "March 15 (F)"
