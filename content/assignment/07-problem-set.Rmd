@@ -1,0 +1,94 @@
+---
+title: "Problem set 7"
+date: "2019-03-22"
+due_date: "2019-03-22"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+output:
+  blogdown::html_page:
+    css: /css/gt-overrides.css
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+
+**Submit this as a PDF on Learning Suite.** You can use whatever you want to make your drawings, including [Gravit Designer](https://gravit.io/), [Desmos](https://www.desmos.com/), Adobe Illustrator, Excel, PowerPoint, Microsoft Paint, or photographed/scanned pen and paper.
+
+**Cite your sources and show your work.**
+
+```{r load-packages, include=FALSE}
+library(tidyverse)
+library(pander)
+library(scales)
+library(here)
+
+source(here("lib", "graphics.R"))
+```
+
+# 1
+
+To what degree is radio broadcasting a public good? To what degree is a highway a public good? Under what conditions might these two goods be purely private or purely public? **Answer in ≈30 words.**
+
+
+# 2
+
+In what sense is K–12 education a public good? How should your answer to this question affect the nature of government involvement in education? **Answer in ≈30 words.**
+
+
+# 3
+
+Imagine a beekeeper who produces honey and sells it at a constant price per kilogram.
+
+1. Draw a diagram with the quantity of honey on the horizontal axis, showing the marginal cost of honey production as an upward-sloping line, and the price of honey as a horizontal line. Show the amount of honey that the profit-maximizing beekeeper produces.
+2. For the beekeeper, the marginal private benefit (MPB) of producing a kilogram of honey is equal to the price. But since the bees benefit a neighbouring farmer by helping to pollinate her crops, honey produc- tion has a positive external effect. Draw a line on your diagram to represent the marginal social benefit (MSB) of honey production. Show the quantity of honey that would be Pareto efficient. How does it compare with the quantity chosen by the beekeeper?
+3. Explain how the farmer and beekeeper could both be made better off through bargaining. **Answer in ≈25 words.**
+
+
+# 4
+
+When the state of Virginia imposed stricter regulations on air pollution in 2003, it also authorized an auction of pollution permits, allowing some plants to emit larger amounts of CO~2~ than would otherwise be allowed, and some to emit less. Economic theory predicts that this action led to a socially efficient allocation of pollution. Describe how this outcome could occur. **Answer in ≈50 words.**
+
+
+# 5
+
+In close congressional votes, many members of Congress choose to remain undecided until the last moment. Why might they do this? What lesson does this teach about a shortcoming of Coasian bargaining in fixing externalities? **Answer in ≈30 words.**
+
+
+# 6
+
+Suppose that the negative externalities associated with hog farming (including water pollution and airborne odors) are $5 per hog given current techniques.
+
+1. Explain why "too many" hogs will be produced (**≈20 words**). In your answer use terms like "private cost" and "social cost." **Draw a diagram** of the hog market that illustrates your answer.
+2. One proposal for solving this problem is to impose a tax of \$5. Explain the effect of such a tax and illustrate it on your diagram (**≈20 words**).  
+3. What are the shortcomings of this solution? (**≈20 words**)
+4. What alternative policies might be worth considering? (**≈30 words**)
+
+
+# 7
+
+If at least 24 students in the class (across both sections) complete this question, the entire class will get **10 extra credit points**.^[For real.] If fewer than 24 students do this, nobody will get extra credit.
+
+Get a pencil and a sheet of paper. Write the following sentence, 30 times, by hand:
+
+> I am willingly contributing to the production of this public good, even though I know that I will benefit even if I don't participate.
+
+Take a picture of this and upload it with the rest of your assignment. It must be your own handwriting. If you work on this problem set in a group, each person must upload a picture of their own sheet of paper. 
+
+
+# 8
+
+Suppose the demand for Coca Cola products at BYU is
+
+$$
+Q = 10,000 - 10,000P
+$$
+
+where Q is the number of cans of soft drink purchased per day and P is the price per can. The market supply curve is horizontal at \$0.75 per can.^[*Hint*: Remember that in supply/demand graphs, Q is on the x-axis and P is on the y-axis. You might need to do some algebra.] Given existing habits and disposal and recyling technology, it has been estimated that the average soft drink can ends up costing 10 cents in the form of unsightly litter and pick-up costs. 
+
+1. Explain how the concept of market failure applies to this example (**≈20 words**). Illustrate your explanation with a graph showing the extent of this failure.^[*Hint*: think about social vs. private marginal costs] Be as precise as you can be in describing the extent of the failure.
+2. Can society's loss from this market failure be quantified (**≈10 words**)? If so, calculate it as precisely as possible and indicate it in your illustration.
+3. How could taxation be used to overcome this market failure? (**≈25 words**)
+4. What are the shortcomings of this solution? (**≈25 words**)
+5. What alternative policies might be worth considering? (**≈30 words**)
