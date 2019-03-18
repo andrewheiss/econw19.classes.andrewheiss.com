@@ -1,0 +1,206 @@
+---
+title: "Market failures I"
+date: "2019-03-18"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-03-18.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-03-18.png)](/slides/MPA-612_2019-03-18.pdf)
+</figure>
+
+
+# Simulation results
+
+This simulation is an adaptation of "The Paper River,"[@HoytRyanHouston:1999] with some modifications borrowed from [John Whitehead](http://www.appstate.edu/~whiteheadjc/eco3620/games/paperriver/index.htm).
+
+```{r game-results, message=FALSE, warning=FALSE, echo=FALSE}
+library(tidyverse)
+library(here)
+
+source(here("lib", "graphics.R"))
+
+results <- read_csv(here("static", "data", "multiplicative-airlines.csv"),
+                    col_types = cols(Section = col_character())) %>%
+  mutate(Role = recode(Role, A = "Math", B = "Planes"))
+
+# Total earnings
+results %>%
+  group_by(Section, Round, Role) %>% 
+  summarize(Average = mean(Profits)) %>% 
+  ggplot(aes(x = Round, y = Average, color = Role, group = Role)) +
+  geom_line(size = 1.5) +
+  scale_x_continuous(breaks = 1:3) +
+  scale_y_continuous(labels = scales::dollar) +
+  scale_color_manual(values = c(nord_lt_blue, nord_orange), name = NULL) +
+  coord_cartesian(ylim = c(0, 12)) +
+  labs(y = "Average profit",
+       title = "Average profit for upstream and downstream firms") +
+  facet_wrap(~ Section) +
+  theme_econ(13) +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank())
+
+# Costs imposed on downstream firms
+results %>% 
+  filter(Role == "Planes") %>% 
+  group_by(Section, Round) %>% 
+  summarize(Costs = mean(Costs)) %>% 
+  ggplot(aes(x = Round, y = Costs, color = Section)) +
+  geom_line(size = 1.5) +
+  scale_x_continuous(breaks = 1:3) +
+  scale_y_continuous(labels = scales::dollar) +
+  scale_color_manual(values = c(nord_yellow, nord_purple), name = NULL) +
+  labs(y = "Average costs for XYZ Airlines", 
+       title = "Average costs taken on by downstream firms") +
+  theme_econ(13) +
+  theme(legend.position = "bottom",
+        panel.grid.minor = element_blank())
+```
+
+```{r eval=FALSE, include=FALSE}
+bloop <- results %>% 
+  group_by(Role, Person) %>% 
+  summarize(total = sum(Profits)) %>% 
+  mutate(adjusted = total / 5) %>% 
+  mutate(points = round(adjusted, 0)) %>% 
+  arrange(desc(total))
+mean(bloop$adjusted)
+```
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.
+
+
+```{r build-problems, include=FALSE}
+library(tidyverse)
+library(pander)
+library(here)
+
+rounds <- 4
+qs_per_round <- 15
+out_cols <- 3
+
+write_problems <- function(df, game_round) {
+  cat(pandoc.table.return(matrix(df$question, ncol = out_cols)), 
+      file = paste0(here(), "/static/data/math_round", game_round, "_questions.md"))
+  cat(pandoc.table.return(matrix(scales::comma(df$answer), ncol = out_cols)), 
+      file = paste0(here(), "/static/data/math_round", game_round, "_answers.md"))
+}
+
+set.seed(1234)
+data_frame(col1 = sample(100:999, rounds * qs_per_round, replace = TRUE),
+           col2 = sample(10:99, rounds * qs_per_round, replace = TRUE)) %>% 
+  mutate(question = paste(col1, "×", col2),
+         answer = col1 * col2,
+         game_round = sample(rep(1:rounds, qs_per_round))) %>% 
+  group_by(game_round) %>% 
+  nest() %>%
+  deframe() %>%
+  iwalk(write_problems)
+
+# Neat walking stuff 
+# https://lsru.github.io/tv_course/TD_purrr_solution.html
+# Older way with transpose() + walk()
+# airplane_math %>%
+#   group_by(game_round) %>% 
+#   nest() %>%
+#   transpose() %>%
+#   walk(~ write_problems(.$data, .$game_round))
+```
+
+```{r figures-for-slides, include=FALSE, eval=FALSE}
+source(file.path(here(), "lib", "graphics.R"))
+
+mb <- function(Q) 20 - 0.5 * Q
+smb_positive <- function(Q) mb(Q) + 5
+smb_negative <- function(Q) mb(Q) - 5
+
+mc <- function(Q) 2 + 0.25 * Q
+smc_positive <- function(Q) mc(Q) - 5
+smc_negative <- function(Q) mc(Q) + 5
+
+
+# Positive production externality
+ggplot(mapping = aes(x = 0:45)) + 
+  stat_function(fun = mc, color = nord_red, size = 1.5) +
+  stat_function(fun = mb, color = nord_dk_blue, size = 1.5) +
+  stat_function(fun = smc_positive, color = nord_green, size = 1.5) +
+  annotate(geom = "label", x = 10, y = mc(10), label = "MC",
+           size = 4, fill = nord_red, color = "white") +
+  annotate(geom = "label", x = 10, y = mb(10), label = "MB",
+           size = 4, fill = nord_dk_blue, color = "white") +
+  annotate(geom = "label", x = 10, y = smc_positive(10), label = "SMC",
+           size = 4, fill = nord_green, color = "white") +
+  labs(x = "Quantity", y = "Price") +
+  scale_y_continuous(labels = scales::dollar) +
+  theme_econ(13, axis_line = TRUE) +
+  theme(panel.grid = element_blank())
+
+# Negative production externality
+ggplot(mapping = aes(x = 0:45)) + 
+  stat_function(fun = mc, color = nord_red, size = 1.5) +
+  stat_function(fun = mb, color = nord_dk_blue, size = 1.5) +
+  stat_function(fun = smc_negative, color = nord_green, size = 1.5) +
+  annotate(geom = "label", x = 10, y = mc(10), label = "MC",
+           size = 4, fill = nord_red, color = "white") +
+  annotate(geom = "label", x = 10, y = mb(10), label = "MB",
+           size = 4, fill = nord_dk_blue, color = "white") +
+  annotate(geom = "label", x = 10, y = smc_negative(10), label = "SMC",
+           size = 4, fill = nord_green, color = "white") +
+  labs(x = "Quantity", y = "Price") +
+  scale_y_continuous(labels = scales::dollar) +
+  theme_econ(13, axis_line = TRUE) +
+  theme(panel.grid = element_blank())
+
+# Positive consumption externality
+ggplot(mapping = aes(x = 0:45)) + 
+  stat_function(fun = mc, color = nord_red, size = 1.5) +
+  stat_function(fun = mb, color = nord_dk_blue, size = 1.5) +
+  stat_function(fun = smb_positive, color = nord_orange, size = 1.5) +
+  annotate(geom = "label", x = 10, y = mc(10), label = "MC",
+           size = 4, fill = nord_red, color = "white") +
+  annotate(geom = "label", x = 10, y = mb(10), label = "MB",
+           size = 4, fill = nord_dk_blue, color = "white") +
+  annotate(geom = "label", x = 10, y = smb_positive(10), label = "SMB",
+           size = 4, fill = nord_orange, color = "white") +
+  labs(x = "Quantity", y = "Price") +
+  scale_y_continuous(labels = scales::dollar) +
+  theme_econ(13, axis_line = TRUE) +
+  theme(panel.grid = element_blank())
+
+# Negative consumption externality
+ggplot(mapping = aes(x = 0:45)) + 
+  stat_function(fun = mc, color = nord_red, size = 1.5) +
+  stat_function(fun = mb, color = nord_dk_blue, size = 1.5) +
+  stat_function(fun = smb_negative, color = nord_orange, size = 1.5) +
+  annotate(geom = "label", x = 10, y = mc(10), label = "MC",
+           size = 4, fill = nord_red, color = "white") +
+  annotate(geom = "label", x = 10, y = mb(10), label = "MB",
+           size = 4, fill = nord_dk_blue, color = "white") +
+  annotate(geom = "label", x = 10, y = smb_negative(10), label = "SMB",
+           size = 4, fill = nord_orange, color = "white") +
+  labs(x = "Quantity", y = "Price") +
+  scale_y_continuous(labels = scales::dollar) +
+  theme_econ(13, axis_line = TRUE) +
+  theme(panel.grid = element_blank())
+```
