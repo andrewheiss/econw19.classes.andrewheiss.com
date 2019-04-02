@@ -197,10 +197,12 @@ lessons:
   - title: "Governments and institutions I"
     date: "March 25 (M)"
     reading: "22-reading"
+    class: "22-class"
 
   - title: "Government and institutions II"
     date: "March 27 (W)"
     reading: "23-reading"
+    class: "23-class"
 
   - title: "Lab 12"
     date: "March 29 (F)"
@@ -212,6 +214,7 @@ lessons:
   - title: "When governments go wrong"
     date: "April 1 (M)"
     reading: "24-reading"
+    class: "24-class"
 
   - title: "Institutional alternatives"
     date: "April 3 (W)"
