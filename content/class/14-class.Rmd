@@ -58,7 +58,7 @@ popsicles_by_firm <- popsicles_raw %>%
 
 popsicles_aggregate <- popsicles_by_firm %>% 
   group_by(Round) %>% 
-  summarize_at(vars(-Section, -Firm, -Round), funs(sum)) %>% 
+  summarize_at(vars(-Section, -Firm), list(sum)) %>% 
   mutate(AFC = TFC / `Viable units produced`,
          AVC = TVC / `Viable units produced`,
          ATC = TC / `Viable units produced`,

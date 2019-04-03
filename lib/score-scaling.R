@@ -18,7 +18,7 @@ grades <- tribble(
   "D-",   60,     63,     0.7,
   "F",    0,      60,     0.0
 ) %>% 
-  mutate_at(vars(lower, upper), funs(. * 0.01)) %>% 
+  mutate_at(vars(lower, upper), list(~. * 0.01)) %>% 
   mutate(grade = fct_inorder(grade, ordered = TRUE))
 
 midterm_1_raw <- read_csv(here("private", "midterm_1.csv"))

@@ -49,7 +49,7 @@ milk_demand <- read_excel(milk_workbook, sheet = "Demand and prices")
 
 ```{r cost-function, echo=FALSE, results="asis"}
 milk_costs %>%
-  mutate_at(vars(-Quantity), funs(dollar)) %>% 
+  mutate_at(vars(-Quantity), list(~dollar)) %>% 
   pandoc.table(split.tables = Inf)
 ```
 
@@ -63,7 +63,7 @@ costs_total <- milk_costs %>%
   select(Quantity, TFC, TVC, TC) 
 
 costs_total %>%
-  mutate_at(vars(-Quantity), funs(dollar)) %>%
+  mutate_at(vars(-Quantity), list(~dollar)) %>%
   pandoc.table(split.tables = Inf)
 ```
 
@@ -99,7 +99,7 @@ costs_avg <- costs_total %>%
   select(Quantity, TC, AFC, AVC, ATC, MC_chunk, MC_instant) 
 
 costs_avg %>%
-  mutate_at(vars(-Quantity), funs(ifelse(is.nan(.) | is.infinite(.) | is.na(.), NA, dollar(.)))) %>%
+  mutate_at(vars(-Quantity), list(~ifelse(is.nan(.) | is.infinite(.) | is.na(.), NA, dollar(.)))) %>%
   pandoc.table(split.tables = Inf, missing = "—")
 
 atc_fun <- approxfun(costs_avg$Quantity, costs_avg$ATC, rule = 2)
@@ -158,7 +158,7 @@ milk_revenue <- milk_demand %>%
   mutate(TR = Quantity * Price)
 
 milk_revenue %>%
-  mutate_at(vars(-Quantity), funs(ifelse(is.nan(.) | is.infinite(.) | is.na(.), NA, dollar(.)))) %>%
+  mutate_at(vars(-Quantity), list(~ifelse(is.nan(.) | is.infinite(.) | is.na(.), NA, dollar(.)))) %>%
   pandoc.table(split.tables = Inf, missing = "—")
 
 tr_fun <- splinefun(milk_revenue$Quantity, milk_revenue$TR)
@@ -230,7 +230,7 @@ milk_mr_all <- bind_rows(milk_mr, milk_mr_optimal) %>%
   arrange(Quantity)
 
 milk_mr_all %>%
-  mutate_at(vars(-Quantity), funs(ifelse(is.nan(.) | is.infinite(.) | is.na(.), NA, dollar(.)))) %>% 
+  mutate_at(vars(-Quantity), list(~ifelse(is.nan(.) | is.infinite(.) | is.na(.), NA, dollar(.)))) %>% 
   pandoc.table(split.tables = Inf, missing = "—", emphasize.strong.rows = 6)
 ```
 

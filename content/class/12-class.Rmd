@@ -77,7 +77,7 @@ lemons <- lemons_raw %>%
            Quality != "Lemon" ~ 2500 - Price
          )) %>% 
   mutate_at(vars(contains("profit")),
-            funs(ifelse(!Sold, 0, .)))
+            list(~ifelse(!Sold, 0, .)))
 
 plot_lemons <- lemons %>%
   mutate(id = 1:n()) %>% 

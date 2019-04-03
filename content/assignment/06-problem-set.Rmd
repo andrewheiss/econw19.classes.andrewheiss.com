@@ -44,7 +44,7 @@ frisbees <- tribble(
 
 frisbees %>% 
   mutate(`Price per frisbee` = dollar(`Price per frisbee`)) %>% 
-  mutate_at(vars(contains("Quantity")), funs(comma)) %>%
+  mutate_at(vars(contains("Quantity")), list(~comma)) %>%
   pandoc.table(justify = "ccc")
 ```
 
