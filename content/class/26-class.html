@@ -1,0 +1,81 @@
+---
+title: "Evaluating policies I"
+date: "2019-04-08"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#present-value">Present value</a></li>
+<li><a href="#federal-cba-components">Federal CBA components</a></li>
+<li><a href="#cost-benefit-analysis-playground">Cost benefit analysis playground</a></li>
+<li><a href="#clearest-and-muddiest-things">Clearest and muddiest things</a></li>
+</ul>
+</div>
+
+<h2 id="slides">Slides</h2>
+<p>The slides from today will go here after class.</p>
+<h2 id="present-value">Present value</h2>
+<p><span class="math display">\[
+PV = \frac{FV}{(1 + r)^t}
+\]</span></p>
+<h2 id="federal-cba-components">Federal CBA components</h2>
+<ul>
+<li><a href="https://www.whitehouse.gov/wp-content/uploads/2017/11/Appendix-C-revised.pdf">Discount rate from OMB’s Circular A-94 Appendix C</a></li>
+<li><a href="https://www.transportation.gov/sites/dot.gov/files/docs/2016%20Revised%20Value%20of%20a%20Statistical%20Life%20Guidance.pdf">NHTSA’s value of statistical life</a></li>
+</ul>
+<h2 id="cost-benefit-analysis-playground">Cost benefit analysis playground</h2>
+<ul>
+<li><a href="/files/freeway-empty.xlsx"><i class="fas fa-file-excel"></i> Freeway CBA (empty)</a></li>
+<li><a href="/files/freeway-finished.xlsx"><i class="fas fa-file-excel"></i> Freeway CBA (finished)</a></li>
+</ul>
+<p>Consider this example:</p>
+<ul>
+<li>UDOT is considering building a new freeway that is estimated to save 100,000 hours of driving and 5 lives each year.</li>
+<li>The project will require 1 million bags of asphalt ($100/bag) and 1 million hours of labor (half at
+$20/hour, half at $10/hour). The construction occurs in year 0.</li>
+<li>Starting in year 1, the freeway will require maintenance that will cost $18 million/year.</li>
+<li>Assume the following:
+<ul>
+<li>Drivers estimate the value of their time at $17/hour</li>
+<li>The value of a statistical life is $5 million</li>
+<li>The costs and benefits of the project will last for 25 years</li>
+<li>The discount rate is 4%</li>
+</ul></li>
+</ul>
+<p>Answer these questions:</p>
+<ol style="list-style-type: decimal">
+<li><p>What is the NPV of this project? What is the benefit-cost ratio?</p></li>
+<li>Use an Excel data table and a graph to show the NPV across a range of the following values. At what point does the project break even?
+<ol style="list-style-type: decimal">
+<li>Discount rate</li>
+<li>Hours of driving saved</li>
+<li>Value of hour</li>
+<li>Lives saved</li>
+</ol></li>
+<li><p>The VSL is a statistical estimate of the amount people would be willing to pay to reduce their risk of death by 1%, extrapolated out to 100%.</p>
+<p>Because VSL is an average, it has measures of uncertainty associated with it. According to academic research, there is substantial uncertainty in VSL estimates: in 2008, the <a href="https://www.nhtsa.gov/staticfiles/administration/pdf/Value_of_Life_Guidance_020508.pdf">NHTSA reported</a> that the 95% confidence interval for VSL ranges from $1,000,000 to $10,000,000, which represents a standard deviation of around $2,000,000. With a $5 million average, the distribution would look something like this:</p>
+<p><img src="/class/26-class_files/figure-html/vsl-distribution-1.png" width="576" /></p>
+<p>Use Monte Carlo simulation in Excel to estimate the NPV over 1,000 trials, varying the VSL with a mean of $5 million and a standard deviation of $2 million. What is the average NPV over all these trials? What is the probability that the NPV is greater than $0? Is this still a good project, given the uncertainty of the VSL?</p></li>
+</ol>
+<h2 id="clearest-and-muddiest-things">Clearest and muddiest things</h2>
+<p>Go to <a href="https://goo.gl/forms/pyOvPIbRwI8CJlKE3">this form</a> and answer these three questions:</p>
+<ol style="list-style-type: decimal">
+<li>What was the muddiest thing from class today? What are you still wondering about?</li>
+<li>What was the clearest thing from class today?</li>
+<li>What was the most exciting thing you learned?</li>
+</ol>
+<p>I’ll compile the questions and send out answers after class.</p>
