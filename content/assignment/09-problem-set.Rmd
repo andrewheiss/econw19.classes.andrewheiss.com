@@ -1,0 +1,155 @@
+---
+title: "Problem set 9"
+date: "2019-04-12"
+due_date: "2019-04-12"
+due_time: "11:59 PM"
+editor_options: 
+  chunk_output_type: console
+output:
+  blogdown::html_page:
+    css: /css/gt-overrides.css
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+
+**Submit this as a PDF on Learning Suite.** You can use whatever you want to make your drawings, including [Gravit Designer](https://gravit.io/), [Desmos](https://www.desmos.com/), Adobe Illustrator, Excel, PowerPoint, Microsoft Paint, or photographed/scanned pen and paper.
+
+**Cite your sources and show your work.**
+
+```{r load-packages, include=FALSE}
+library(tidyverse)
+library(pander)
+library(scales)
+library(here)
+
+source(here("lib", "graphics.R"))
+```
+
+
+# 1
+
+James Madison, a leading figure in the debates about the US Constitution after the formerly British colonies in the United States of America won the war of independence, wrote in 1788:
+
+> In framing a government which is to be administered by men over men, the great difficulty lies in this: you must first enable the government to control the governed; and in the next place oblige it to control itself.
+
+How does democracy (including the rule of law) address Madison’s concerns to oblige the government to "control itself"? (**≈100 words**)
+
+
+# 2
+
+Marcel Fafchamps and Bart Minten, two economists, studied grain markets in Madagascar in 1997, where the legal institutions for enforcing property rights and contracts were weak.^[@FafchampsMinten:1999] Despite this, they found that theft and breach of contract were rare. The grain traders avoided theft by keeping their stocks very low, and if necessary, sleeping in the grain stores. They refrained from employing additional workers for fear of employee-related theft. When transporting their goods, they paid protection money and travelled in convoy. Most transactions were paid in cash. Trust was established through repeated interaction with the same traders.
+
+1. Recall Elinor Ostrom's work on the fishermen in Alanya, Turkey.^[@Ostrom:1990] Do the findings from Fafchamps and Minten (and Ostrom) suggest that strong legal institutions are not necessary for markets to work? How so? (**≈50 words**)
+
+2. Consider some market transactions in which you have been involved. Could these markets work in the absence of a legal framework, and how would they be different if they did? (**≈40 words**)
+
+3. Can you think of any examples in which repeated interaction helps to facilitate market transactions? (**≈40 words**)
+
+4. Why might repeated interaction be important even when a legal framework is present? (**≈30 words**)
+
+5. What role can informal institutions play in these kind of interactions? (**≈30 words**)
+
+
+# 3
+
+```{r make-checkerboard, echo=FALSE}
+board <- crossing(x = 1:8, y = 1:8) %>% 
+  group_by(x) %>% 
+  mutate(value = case_when(
+    x %% 2 == 0 ~ rep(1:2, 4),
+    x %% 2 != 0 ~ rep(2:1, 4)
+  ))
+
+blank_board <- ggplot(board, aes(x = x, y = y, fill = as.factor(value))) +
+  geom_tile() +
+  scale_fill_manual(values = c("white", "grey75"), guide = FALSE) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  coord_equal() +
+  theme_void() +
+  theme(panel.border = element_rect(color = "grey75", size = 1, fill = NA))
+```
+
+
+1. Get a checkerboard, 22 pennies, and 22 dimes (or 22 of something other than pennies). *Randomly* place the pennies and times on the squares on the board. Do not use the four corner squares. 
+
+    Draw the resulting pattern (use colors for the coin types, or symbols like • for pennies and # for dimes, or whatever):
+    
+    ```{r show-board-1, fig.width=2.5, fig.height=2.5, echo=FALSE}
+    blank_board
+    ```
+
+2. Now pretend that each penny wants to live in a "neighborhood" (the nine squares of which they are the center) that has *at least as many pennies as dimes*. Start at one corner of the board and look at the first penny. Determine the makeup of its neighbors. If there are too many dimes around the penny, move the penny to the closest acceptable square. Move on to the next penny and check its neighborhood, moving it to a new area if necessary. Do this for all the pennies and then all the dimes.
+
+    Draw the resulting pattern:
+    
+    ```{r show-board-2, fig.width=2.5, fig.height=2.5, echo=FALSE}
+    blank_board
+    ```
+    
+
+3. What does this example have to do with…
+
+    - Residential segregation? (**≈40 words**)
+    - Pollution? (**≈40 words**)
+
+
+# 4
+
+Discuss whether the following statements are true or false and explain why in **≈35 words each**: 
+
+1. If I'm worse at everything than my neighbor, my neighbor will have no reason to trade with me. 
+2. The Coase Theorem states that every type of externality can be solved by private negotiation.
+3. Free riding becomes more of a problem as more people benefit from a public good.
+4. When a good imposes a negative externality on society, the government should completely ban the production and exchange of that good.
+5. Because their life is on the line, car drivers will exert a socially efficient level of care while driving.
+
+
+# 5
+
+Mount Everest is crowded during climbing season. Every year more groups seek to summit the world’s highest mountain. The crowding increases the danger for all and diminishes the experience. The government of Nepal decides that it has issued too many climbing permits in the past, and is considering several schemes for reducing by half the number of permits (or climbers). Here are the three schemes it is considering:
+
+- A. Issue non-transferable permits to the firms that organize Everest expeditions equal (in each case) to half the number of climbers that were their customers last year
+- B. Same as A, but allow the firms to transfer (sell) the permits they are allocated by the government to other firms
+- C. Auction off the same total number of permits in A and B to the highest bidders
+
+Answer these questions:
+
+1. Without any regulation, why would we expect too many climbers on the mountain? What kind of market failure is this? (**≈20 words**)
+
+2. For each of the schemes, describe (1) what you expect the consequences would be on overcrowding, and (2) what the efficiency and distributional consequences might be (i.e. discuss Pareto efficiency and fairness, thinking about procedural, substantive, and Rawlsian fairness). (**≈60 words**)
+
+3. In what sense is B a better scheme than A? (**≈20 words**)
+
+4. Compare B and C. What difference would there be in the price of a permit? What difference would there be in the final distribution of permits among professional guides? (**≈30 words**)
+
+5. Propose two policy alternatives the Nepalese government could use instead of these permit schemes. Under what conditions would they work better or worse? (**≈60 words**)
+
+
+# 6
+
+The city of Provo is deciding between different policies to fund schools. Because schools are funded through property taxes, higher levels of school funding entail higher tax rates for all residents of the city. 
+
+There are three possible policies the city council has been considering:
+
+- **Policy H**: High levels of funding (and high taxes)
+- **Policy M**: Medium levels of funding (and medium taxes)
+- **Policy L**: Low levels of funding (and low taxes)
+
+Assume that there are three equally-sized groups of city residents:
+
+- **Parents interested in public education** whose main concern is that their children receive the highest quality of education. This group's first choice is H, followed by M, followed by L. 
+- **Parents interested in private education**  whose main concern is that property taxes are as low as possible so they can afford to send their kids to private schools. If this isn't possible, their second option is to have high tax rates so that their children will have high quality education in the public system. This group's first choice is L, followed by H, followed by M. 
+- **Young couples without children** who do not want to pay for high taxes right now, but are eventually interested in having high quality education several years from now. This group's first choice is M, followed by L, followed by H.
+
+Answer these questions:
+
+1. Which of the three policies is preferred by the majority of the city? Can you rank which policy is the most preferred, medium preferred, and least preferred for all city residents?  (**≈20 words**)
+
+2. If these policies were paired up, would voter preferences be transitive or intransitive? What does that mean? (**≈20 words**)
+
+3. The city council will offer voters a choice between *two* of these policies in the next November election. You are responsible for choosing which two policies go on the ballot. Can you ensure that *your* most preferred policy wins? How? (**≈30 words**)
+
+4. The city charter requires that all three options receive a vote, but you can present these votes in pairs (i.e. present voters with a choice between two options and then present voters with a choice between the winner of that contest and the third option). Can you ensure that *your* most preferred policy wins? How? (**≈30 words**)
