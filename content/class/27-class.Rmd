@@ -1,0 +1,156 @@
+---
+title: "Evaluating policies II"
+date: "2019-04-10"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-612_2019-04-10.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2019-04-10.png)](/slides/MPA-612_2019-04-10.pdf)
+</figure>
+
+
+# Helpful causal inference resources
+
+- [<i class="fas fa-book"></i> Judea Pearl, *The Book of Why*](https://www.amazon.com/Book-Why-Science-Cause-Effect/dp/046509760X): accessible introduction and overview of DAGs and causal diagrams
+- [<i class="fas fa-book"></i> Scott Cunningham, "Causal Inference: The Mixtape"](http://scunning.com/mixtape.html): practical tutorials of all the major econometrics approaches (DAGs, RCTs, natural experiments, regression discontinuity, synthetic controls, etc.). Includes Stata code—will eventually have R code too.
+- [<i class="fas fa-external-link-square-alt"></i> Daggity](http://dagitty.net/): Draw DAGs online and handle pathway analysis semi-automatically
+- [<i class="fab fa-r-project"></i> ggdag](https://github.com/malcolmbarrett/ggdag): R package for drawing DAGs
+- [<i class="fas fa-chalkboard-teacher"></i> Nick Huntington's Econ 305 class](http://www.nickchk.com/econ305.html) (code on [GitHub](https://github.com/NickCH-K/introcausality)): Excellent overviews of causal digrams and main econometric models starting in lectures 13–26
+- [<i class="far fa-file-pdf"></i> Causal diagrams cheat sheet](https://nickch-k.github.io/introcausality/Cheat%20Sheets/Causal_Diagrams_Cheat_Sheet.pdf)
+- [<i class="far fa-file-pdf"></i> Daggity cheat sheet](https://nickch-k.github.io/introcausality/Cheat%20Sheets/Dagitty_Cheat_Sheet.pdf)
+
+
+# Clearest and muddiest things
+
+Go to [this form](https://goo.gl/forms/pyOvPIbRwI8CJlKE3) and answer these three questions:
+
+1. What was the muddiest thing from class today? What are you still wondering about?
+2. What was the clearest thing from class today? 
+3. What was the most exciting thing you learned?
+
+I'll compile the questions and send out answers after class.
+
+
+```{r dags, include=FALSE, eval=FALSE}
+library(tidyverse)
+library(ggraph)
+library(ggdag)
+
+source(here::here("lib", "graphics.R"))
+
+
+dagify(Y ~ X) %>% 
+  tidy_dagitty(seed = 1234) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_dag_node(size = 10) +
+  geom_dag_edges(start_cap = circle(6, "mm"),
+                 end_cap = circle(6, "mm"),
+                 edge_width = 1) +
+  geom_dag_text() +
+  scale_dag() +
+  theme_void()
+ggsave("~/Desktop/dags/xy.pdf", width = 4, height = 2)
+
+
+dagify(Earn ~ Edu) %>% 
+  tidy_dagitty(seed = 1234) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_dag_node() +
+  geom_dag_edges(start_cap = circle(10, "mm"),
+                 end_cap = circle(10, "mm"),
+                 edge_width = 1) +
+  geom_dag_text(size = 4) +
+  scale_dag() +
+  theme_void()
+ggsave("~/Desktop/dags/ed-earn.pdf", width = 5, height = 3)
+
+dagify(Earn ~ Edu,
+       Edu ~ Loc + Bkgd + Year + Req,) %>% 
+  tidy_dagitty(seed = 1234) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_dag_node() +
+  geom_dag_edges(start_cap = circle(10, "mm"),
+                 end_cap = circle(10, "mm"),
+                 edge_width = 1) +
+  geom_dag_text(size = 4) +
+  scale_dag() +
+  theme_void()
+ggsave("~/Desktop/dags/ed-earn-1.pdf", width = 5, height = 3)
+
+dagify(Earn ~ Edu + Year + Bkgd + Loc + JobCx,
+       Edu ~ Loc + Bkgd + Year + Req) %>% 
+  tidy_dagitty(seed = 1234) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_dag_node() +
+  geom_dag_edges(start_cap = circle(10, "mm"),
+                 end_cap = circle(10, "mm"),
+                 edge_width = 1) +
+  geom_dag_text(size = 4) +
+  scale_dag() +
+  theme_void()
+ggsave("~/Desktop/dags/ed-earn-2.pdf", width = 6, height = 4)
+
+dagify(Earn ~ Edu + Year + Bkgd + Loc + JobCx,
+       Edu ~ Loc + Bkgd + Year + Req,
+       JobCx ~ Edu) %>% 
+  tidy_dagitty(seed = 12345) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_dag_node() +
+  geom_dag_edges(start_cap = circle(10, "mm"),
+                 end_cap = circle(10, "mm"),
+                 edge_width = 1) +
+  geom_dag_text(size = 4) +
+  scale_dag() +
+  theme_void()
+ggsave("~/Desktop/dags/ed-earn-3.pdf", width = 6, height = 4)
+
+
+dagify(Earn ~ Edu + Year + Bkgd + Loc + JobCx,
+       Edu ~ Loc + Bkgd + Year + Req,
+       JobCx ~ Edu,
+       Loc ~ U1,
+       Bkgd ~ U1) %>% 
+  tidy_dagitty(seed = 12345) %>% 
+  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
+  geom_dag_node() +
+  geom_dag_edges(start_cap = circle(10, "mm"),
+                 end_cap = circle(10, "mm"),
+                 edge_width = 1) +
+  geom_dag_text(size = 4) +
+  scale_dag() +
+  theme_void()
+ggsave("~/Desktop/dags/ed-earn-4.pdf", width = 6, height = 4)
+
+set.seed(1234)
+rdd <- tibble(test = runif(300) * 100) %>%
+  mutate(AIG = test >= 75,
+         above = test >= 75) %>%
+  mutate(earn = runif(300) * 40 + 10 * AIG + test / 2)
+
+ggplot(rdd, aes(x = test, y = AIG)) + 
+  geom_point() +
+  geom_vline(aes(xintercept = 75), col='red') +
+  labs(x = 'Test Score', y = 'In AIG') + 
+  theme_econ()
+ggsave("~/Desktop/dags/aig_running.pdf", width = 6, height = 4, device = cairo_pdf)
+
+ggplot(rdd, aes(x = test, y = earn, color = AIG)) +
+  geom_point() +
+  geom_smooth() +
+  geom_vline(aes(xintercept = 75), col = 'red') +
+  labs(x = 'Test Score', y = 'Earnings') +
+  theme_econ()
+ggsave("~/Desktop/dags/aig_outcome.pdf", width = 6, height = 4, device = cairo_pdf)
+```
