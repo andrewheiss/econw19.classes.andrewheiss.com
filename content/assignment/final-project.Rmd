@@ -27,7 +27,7 @@ You must turn in your own memo and technical appendix, but you can (and should!)
 Here are all the materials you'll need:
 
 - [<i class="far fa-file-pdf"></i> Project instructions and details](/files/mpa612_w19_final-project.pdf)
-- [<i class="fas fa-file-excel"></i> Sample workbook](/files/sample-workbook.xlsx)
+- [<i class="fas fa-file-excel"></i> Sample workbook](/files/sample-workbook-fixed.xlsx)
 - [<i class="fas fa-file-excel"></i> Rubric](/files/final-project-rubric.xlsx)
 
 **This project is due by 11:59 PM on Tuesday, April 23, 2019.** No late work will be accepted.
