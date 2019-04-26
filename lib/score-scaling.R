@@ -46,6 +46,30 @@ midterm_1_grades + midterm_1_scores + plot_layout(ncol = 1)
 
 #
 
+# midterm_2_raw <- read_csv(here("private", "midterm_2.csv"))
+midterm_2_raw <- read_csv(here("private", "midterm_2_new.csv"))
+
+midterm_2_adjusted <- midterm_2_raw %>% 
+  mutate(pct = score / 100) %>% 
+  mutate(adjusted = score + 7,
+         pct_new = adjusted / 100) %>% 
+  fuzzy_left_join(grades, by = c("pct_new" = "lower", "pct_new" = "upper"),
+                  match_fun = list(`>=`, `<`))
+
+plot_midterm_2 <- midterm_2_adjusted %>% 
+  count(grade)
+
+midterm_2_grades <- ggplot(midterm_2_adjusted, aes(x = adjusted)) +
+  geom_histogram(binwidth = 2) +
+  theme_light()
+
+midterm_2_scores <- ggplot(plot_midterm_2, aes(x = fct_rev(grade), y = n)) + 
+  geom_bar(stat = "identity") +
+  theme_light()
+
+midterm_2_grades + midterm_2_scores + plot_layout(ncol = 1)
+
+#
 
 midterm_2_raw <- read_csv(file.path(here(), "private", "midterm_2.csv"))
 
