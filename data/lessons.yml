@@ -250,10 +250,12 @@ lessons:
   - title: "Policy formation and politics"
     date: "April 15 (M)"
     reading: "28-reading"
+    class: "28-class"
 
   - title: "Markets, public policy, and public administration"
     date: "April 17 (W)"
     reading: "29-reading"
+    class: "29-class"
 
   - title: '<span class="fake-header-table">Final</span>'
     header: True
